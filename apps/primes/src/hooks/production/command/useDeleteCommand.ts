@@ -1,0 +1,24 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deleteCommand } from '@primes/services/production/commandService';
+import { toast } from 'sonner';
+
+export const useDeleteCommand = () => {
+	const queryClient = useQueryClient();
+
+	return useMutation<void, Error, number[]>({
+		mutationFn: (ids) => deleteCommand(ids),
+		onSuccess: () => {
+			queryClient.invalidateQueries({
+				queryKey: ['Command'],
+			});
+			queryClient.invalidateQueries({
+				queryKey: ['Command-field'],
+			});
+			toast.success('생산 계획 삭제가 완료되었습니다.');
+		},
+		onError: (error) => {
+			console.error('Error deleting machine part:', error);
+			toast.error('생산 계획 삭제에 실패했습니다.');
+		},
+	});
+};

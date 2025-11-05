@@ -1,0 +1,21 @@
+{
+  "mcp": {
+    "mcpServers": {
+      "primes-patterns": {
+        "command": "python",
+        "args": [
+          "/Users/de.lee/msa-react-monorepo/mcp/server.py"
+        ],
+        "env": {}
+      }
+    }
+  },
+  "cursor.composer.shortcuts": {
+    "pp": "@primes-patterns create_page_from_request",
+    "pc": "@primes-patterns search_component",
+    "pv": "@primes-patterns validate_pattern",
+    "pa": "@primes-patterns analyze_similar_pages",
+    "pb": "@primes-patterns get_best_practices",
+    "pf": "@primes-patterns suggest_file_paths"
+  }
+}

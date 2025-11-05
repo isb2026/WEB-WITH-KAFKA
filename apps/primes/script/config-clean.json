@@ -1,0 +1,221 @@
+{
+	"solutions": [
+		"ini",
+		"sales",
+		"purchase",
+		"production",
+		"mold",
+		"aps",
+		"cmms",
+		"qms"
+	],
+	"templates": {
+		"singlePage": {
+			"type": "singlePage",
+			"description": "단일 테이블 페이지 템플릿",
+			"components": ["Table", "Search", "Actions"]
+		},
+		"masterDetailPage": {
+			"type": "masterDetailPage",
+			"description": "마스터-디테일 페이지 템플릿",
+			"components": ["MasterTable", "DetailTable", "Search", "Actions"]
+		}
+	},
+	"ini": {
+		"modules": {
+			"users": {
+				"name": "사용자 관리",
+				"path": "ini/users",
+				"route": "/ini/users",
+				"tabs": [
+					{
+						"id": "list",
+						"name": "현황",
+						"type": "singlePage",
+						"path": "/ini/users/list",
+						"pageName": "IniUserListPage",
+						"icon": "TableProperties",
+						"default": true,
+						"columns": [
+							{
+								"accessorKey": "id",
+								"header": "ID",
+								"size": 80
+							},
+							{
+								"accessorKey": "name",
+								"header": "이름",
+								"size": 120
+							},
+							{
+								"accessorKey": "email",
+								"header": "이메일",
+								"size": 200
+							}
+						],
+						"tableControl": {
+							"title": "사용자 목록",
+							"useEdit": true,
+							"useDelete": true,
+							"useExport": true
+						},
+						"searchOptions": {
+							"fields": ["name", "email"]
+						},
+						"dataHook": "useUsers"
+					}
+				],
+				"actions": [
+					{
+						"type": "create",
+						"action": "modal",
+						"pageName": "IniUserRegisterPage",
+						"title": "사용자 등록",
+						"hookName": "useUser",
+						"formFields": [
+							{
+								"name": "name",
+								"label": "이름",
+								"type": "text",
+								"placeholder": "이름을 입력해주세요",
+								"required": true
+							},
+							{
+								"name": "email",
+								"label": "이메일",
+								"type": "email",
+								"placeholder": "이메일을 입력해주세요",
+								"required": true
+							}
+						]
+					}
+				],
+				"menuOptions": {
+					"type": "single",
+					"icon": "Users",
+					"name": "menu.ini_users",
+					"to": "/ini/users/list"
+				}
+			},
+			"vendors": {
+				"name": "거래처 관리",
+				"path": "ini/vendors",
+				"route": "/ini/vendors",
+				"tabs": [
+					{
+						"id": "list",
+						"name": "현황",
+						"type": "singlePage",
+						"path": "/ini/vendors/list",
+						"pageName": "IniVendorListPage",
+						"icon": "TableProperties",
+						"default": true,
+						"columns": [
+							{
+								"accessorKey": "id",
+								"header": "ID",
+								"size": 80
+							},
+							{
+								"accessorKey": "name",
+								"header": "거래처명",
+								"size": 150
+							},
+							{
+								"accessorKey": "contact",
+								"header": "연락처",
+								"size": 120
+							}
+						],
+						"tableControl": {
+							"title": "거래처 목록",
+							"useEdit": true,
+							"useDelete": true,
+							"useExport": true
+						},
+						"searchOptions": {
+							"fields": ["name", "contact"]
+						},
+						"dataHook": "useVendors"
+					}
+				],
+				"actions": [
+					{
+						"type": "create",
+						"action": "modal",
+						"pageName": "IniVendorRegisterPage",
+						"title": "거래처 등록",
+						"hookName": "useVendor",
+						"formFields": [
+							{
+								"name": "compName",
+								"label": "거래처명",
+								"type": "text",
+								"placeholder": "거래처명을 입력해주세요",
+								"required": true
+							},
+							{
+								"name": "compCode",
+								"label": "거래처 코드",
+								"type": "text",
+								"placeholder": "거래처 코드를 입력하세요",
+								"required": true
+							},
+							{
+								"name": "compType",
+								"label": "거래처 타입",
+								"type": "select",
+								"required": true,
+								"placeholder": "선택하세요",
+								"options": [
+									{ "label": "LCC", "value": "LCC" },
+									{ "label": "거래처", "value": "거래처" },
+									{ "label": "공통", "value": "공통" }
+								]
+							},
+							{
+								"name": "ceoName",
+								"label": "대표자명",
+								"type": "text",
+								"placeholder": "대표자명을 입력해주세요"
+							},
+							{
+								"name": "licenseNo",
+								"label": "사업자 등록번호",
+								"type": "text",
+								"placeholder": "000-00-00000",
+								"mask": "999-99-99999"
+							},
+							{
+								"name": "compEmail",
+								"label": "거래처 이메일",
+								"type": "email",
+								"placeholder": "이메일을 입력해주세요"
+							},
+							{
+								"name": "telNumber",
+								"label": "연락처",
+								"type": "tel",
+								"placeholder": "000-0000-0000",
+								"maskAutoDetect": true
+							},
+							{
+								"name": "faxNumber",
+								"label": "팩스번호",
+								"type": "tel",
+								"placeholder": "000-0000-0000",
+								"maskAutoDetect": true
+							}
+						]
+					}
+				],
+				"menuOptions": {
+					"type": "single",
+					"icon": "Building",
+					"name": "menu.ini_vendors",
+					"to": "/ini/vendors/list"
+				}
+			}
+		}
+	}
+}

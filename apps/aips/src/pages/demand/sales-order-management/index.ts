@@ -1,0 +1,2 @@
+export { SalesOrderManagementPage } from './SalesOrderManagementPage';
+

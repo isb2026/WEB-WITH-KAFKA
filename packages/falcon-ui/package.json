@@ -1,0 +1,54 @@
+{
+	"name": "@repo/falcon-ui",
+	"version": "1.3.0",
+	"description": "",
+	"exports": {
+		"./layouts": "./layouts/index.ts",
+		"./components": "./components/index.ts",
+		"./components/navbar/top": "./components/navbar/top/index.ts",
+		"./components/navbar/vertical": "./components/navbar/vertical/index.ts",
+		"./scss/theme": "./assets/scss/theme.scss",
+		"./css/theme": "./assets/css/theme.js",
+		"./providers": "./providers/index.ts",
+		"./hooks": "./hooks/index.ts"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --config webpack.config.js",
+		"watch:css": "webpack --config webpack.config.js --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@automattic/webpack-rtl-plugin": "^6.0.0",
+		"@fortawesome/fontawesome-free": "^6.7.2",
+		"@fortawesome/fontawesome-svg-core": "^6.7.2",
+		"@fortawesome/free-brands-svg-icons": "^6.7.2",
+		"@fortawesome/free-regular-svg-icons": "^6.7.2",
+		"@fortawesome/free-solid-svg-icons": "^6.7.2",
+		"@fortawesome/react-fontawesome": "^0.2.2",
+		"@repo/echart": "workspace:^",
+		"@repo/i18n": "workspace:^",
+		"@repo/moornmo-ui": "workspace:^",
+		"@repo/typescript-config": "workspace:^",
+		"@repo/utils": "workspace:^",
+		"clean-webpack-plugin": "^4.0.0-alpha.0",
+		"css-loader": "^6.7.3",
+		"leaflet": "^1.9.4",
+		"leaflet.tilelayer.colorfilter": "^1.2.5",
+		"mini-css-extract-plugin": "^0.11.3",
+		"react-leaflet": "^5.0.0",
+		"sass": "^1.62.1",
+		"sass-loader": "^13.2.2",
+		"simplebar-react": "^3.3.0",
+		"styled-components": "^6.1.17",
+		"webpack": "^5.82.1",
+		"webpack-cli": "^5.1.1",
+		"webpack-fix-style-only-entries": "^0.6.1"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.11",
+		"@types/react-dom": "^18.3.0"
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "unified-project-info": {
+      "command": "python",
+      "args": [
+        "server_fastmcp.py"
+      ],
+      "cwd": "/Users/moornmo/Dev/msa-react-monorepo/mcp",
+      "env": {
+        "VIRTUAL_ENV": "/Users/moornmo/Dev/msa-react-monorepo/mcp/venv",
+        "PATH": "/Users/moornmo/Dev/msa-react-monorepo/mcp/venv/bin:/Users/moornmo/Dev/msa-react-monorepo/mcp/venv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/moornmo/.gem/bin:/usr/local/opt/ruby/bin:/Users/moornmo/.nvm/versions/node/v18.20.8/bin:/usr/local/sbin:/Users/moornmo/.local/bin:/Users/moornmo/Library/Android/sdk/emulator:/Users/moornmo/Library/Android/sdk/platform-tools:/Users/moornmo/.cursor/extensions/ms-python.debugpy-2025.10.0-darwin-x64/bundled/scripts/noConfigScripts"
+      }
+    }
+  }
+}

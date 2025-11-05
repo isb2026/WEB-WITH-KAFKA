@@ -1,0 +1,48 @@
+{
+	"menuGroup": {
+		"company": "사업장관리",
+		"collect": "데이터 수집 & 관리",
+		"analyze": "데이터 분석",
+		"report": "보고서관리"
+	},
+	"pages": {
+		"companyPage": {
+			"headers": {
+				"noneSelectCompany": "선택된 사업장이 없습니다."
+			},
+			"body": {
+				"info": {
+					"basicInfo": "기본정보",
+					"addressInfo": "주소정보"
+				},
+				"log": {
+					"title": "수정이력"
+				}
+			}
+		}
+	},
+	"menu": {
+		"company": "사업자관리",
+		"group": "그룹관리",
+		"workplace": "사업장관리",
+		"charger": "담당자관리",
+		"account": "관리항목관리",
+		"meter": "미터기관리",
+		"record": "레코드관리",
+		"report": "보고서관리",
+		"new_report": "보고서 생성",
+		"analyze_company": "사업장 데이터 분석",
+		"analyze_meter": "미터기 데이터 분석"
+	},
+	"common": {
+		"save": "Save",
+		"cancel": "Cancel",
+		"delete": "Delete",
+		"edit": "Edit",
+		"add": "Add",
+		"search": "Search",
+		"reset": "Reset",
+		"confirm": "Confirm",
+		"close": "Close"
+	}
+}

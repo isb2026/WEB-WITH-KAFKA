@@ -1,0 +1,15 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"include": [
+		"src",
+		"@repo/typescript-config/types/*",
+		"src/components/organisms/TreeNavigation.ts"
+	],
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"declaration": true, // 타입 정의 파일을 자동으로 생성
+		"declarationMap": true
+	}
+}

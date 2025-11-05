@@ -1,0 +1,45 @@
+{
+  "columns": {
+    "id": "ID",
+    "compCode": "Vendor Code",
+    "compName": "Vendor Name",
+    "compType": "Vendor Type",
+    "itemCode": "Item Code",
+    "itemName": "Item Name",
+    "itemType": "Item Type",
+    "orderNumber": "Order Number",
+    "orderDate": "Order Date",
+    "deliveryDate": "Delivery Date",
+    "quantity": "Quantity",
+    "unitPrice": "Unit Price",
+    "totalAmount": "Total Amount",
+    "status": "Status",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "createdBy": "Created By",
+    "updatedBy": "Updated By"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "first": "First",
+    "last": "Last",
+    "page": "Page",
+    "of": "of",
+    "rows": "rows",
+    "rowsPerPage": "Rows per page"
+  },
+  "search": {
+    "placeholder": "Enter search term",
+    "button": "Search",
+    "reset": "Reset",
+    "noResults": "No search results"
+  },
+  "actions": {
+    "select": "Select",
+    "selectAll": "Select All",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export"
+  }
+}

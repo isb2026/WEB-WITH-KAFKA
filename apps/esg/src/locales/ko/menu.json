@@ -1,0 +1,24 @@
+{
+	"menuGroup": {
+		"company": "사업장관리",
+		"collect": "데이터 수집 & 관리",
+		"analyze": "데이터 분석",
+		"report": "보고서관리"
+	},
+	"menu": {
+		"company": "사업자관리",
+		"group": "그룹관리",
+		"workplace": "사업장관리",
+		"charger": "담당자관리",
+		"data_request": "데이터 입력 요청",
+		"account": "관리항목관리",
+		"meter": "미터기관리",
+		"record": "레코드관리",
+		"report": "보고서관리",
+		"new_report": "보고서 생성",
+		"analyze_company": "사업장 데이터 분석",
+		"analyze_meter": "미터기 데이터 분석",
+		"analyze_emissions": "배출량 분석",
+		"analyze_group_comparison": "그룹별 배출량 비교분석"
+	}
+}

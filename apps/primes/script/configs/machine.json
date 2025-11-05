@@ -1,0 +1,1311 @@
+{
+  "modules": {
+    "machine": {
+      "name": "설비 관리",
+      "path": "machine/machine",
+      "route": "/machine/machine",
+      "pageType": "singlePage",
+      "fieldApi": true,
+      "customSelect": {
+        "defaultValueKey": "id",
+        "defaultLabelKey": "machineName",
+        "defaultFieldKey": "machineName"
+      },
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine/list",
+          "pageName": "MachineMachineListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "설비 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "machineCode",
+              "machineName",
+              "machineType"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "사용여부",
+              "size": 100
+            },
+            {
+              "accessorKey": "isNotwork",
+              "header": "비가동",
+              "size": 100
+            },
+            {
+              "accessorKey": "machineCode",
+              "header": "설비코드",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineName",
+              "header": "설비명",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineType",
+              "header": "설비유형",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineGrade",
+              "header": "설비등급",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineSpec",
+              "header": "설비사양",
+              "size": 150
+            },
+            {
+              "accessorKey": "modelName",
+              "header": "모델명",
+              "size": 120
+            },
+            {
+              "accessorKey": "usingGroup",
+              "header": "사용그룹",
+              "size": 120
+            },
+            {
+              "accessorKey": "makeYear",
+              "header": "제조년도",
+              "size": 100
+            },
+            {
+              "accessorKey": "makeComp",
+              "header": "제조회사",
+              "size": 120
+            },
+            {
+              "accessorKey": "buyDate",
+              "header": "구입일자",
+              "size": 120
+            },
+            {
+              "accessorKey": "buyPrice",
+              "header": "구입가격",
+              "size": 100
+            },
+            {
+              "accessorKey": "motorNumber",
+              "header": "모터번호",
+              "size": 100
+            },
+            {
+              "accessorKey": "mainWorker",
+              "header": "주담당자",
+              "size": 120
+            },
+            {
+              "accessorKey": "subWorker",
+              "header": "부담당자",
+              "size": 120
+            },
+            {
+              "accessorKey": "rph",
+              "header": "시간당생산량",
+              "size": 120
+            }
+          ],
+          "dataHook": "useMachine"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachineRegisterPage",
+          "title": "설비 관리 등록",
+          "hookName": "useMachine",
+          "formFields": [
+            {
+              "name": "machineCode",
+              "label": "설비코드",
+              "type": "text",
+              "placeholder": "설비코드를 입력하세요",
+              "required": true
+            },
+            {
+              "name": "machineName",
+              "label": "설비명",
+              "type": "text",
+              "placeholder": "설비명을 입력하세요",
+              "required": true
+            },
+            {
+              "name": "machineType",
+              "label": "설비유형",
+              "type": "select",
+              "placeholder": "설비유형을 선택하세요",
+              "required": true,
+              "options": [
+                {"value": "사출기", "label": "사출기"},
+                {"value": "프레스", "label": "프레스"},
+                {"value": "절단기", "label": "절단기"},
+                {"value": "포장기", "label": "포장기"},
+                {"value": "기타", "label": "기타"}
+              ]
+            },
+            {
+              "name": "machineGrade",
+              "label": "설비등급",
+              "type": "select",
+              "placeholder": "설비등급을 선택하세요",
+              "required": false,
+              "options": [
+                {"value": "A급", "label": "A급"},
+                {"value": "B급", "label": "B급"},
+                {"value": "C급", "label": "C급"}
+              ]
+            },
+            {
+              "name": "machineSpec",
+              "label": "설비사양",
+              "type": "textarea",
+              "placeholder": "설비사양을 입력하세요",
+              "required": false
+            },
+            {
+              "name": "modelName",
+              "label": "모델명",
+              "type": "text",
+              "placeholder": "모델명을 입력하세요",
+              "required": false
+            },
+            {
+              "name": "usingGroup",
+              "label": "사용그룹",
+              "type": "text",
+              "placeholder": "사용그룹을 입력하세요",
+              "required": false
+            },
+            {
+              "name": "makeYear",
+              "label": "제조년도",
+              "type": "number",
+              "placeholder": "제조년도를 입력하세요",
+              "required": false
+            },
+            {
+              "name": "makeComp",
+              "label": "제조회사",
+              "type": "text",
+              "placeholder": "제조회사를 입력하세요",
+              "required": false
+            },
+            {
+              "name": "buyDate",
+              "label": "구입일자",
+              "type": "date",
+              "placeholder": "구입일자를 선택하세요",
+              "required": false
+            },
+            {
+              "name": "buyPrice",
+              "label": "구입가격",
+              "type": "number",
+              "placeholder": "구입가격을 입력하세요",
+              "required": false
+            },
+            {
+              "name": "motorNumber",
+              "label": "모터번호",
+              "type": "text",
+              "placeholder": "모터번호를 입력하세요",
+              "required": false
+            },
+            {
+              "name": "mainWorker",
+              "label": "주담당자",
+              "type": "text",
+              "placeholder": "주담당자를 입력하세요",
+              "required": false
+            },
+            {
+              "name": "subWorker",
+              "label": "부담당자",
+              "type": "text",
+              "placeholder": "부담당자를 입력하세요",
+              "required": false
+            },
+            {
+              "name": "rph",
+              "label": "시간당생산량",
+              "type": "number",
+              "placeholder": "시간당생산량을 입력하세요",
+              "required": false
+            },
+            {
+              "name": "isUse",
+              "label": "사용여부",
+              "type": "checkbox",
+              "defaultValue": true,
+              "required": false
+            },
+            {
+              "name": "isNotwork",
+              "label": "비가동여부",
+              "type": "checkbox",
+              "defaultValue": false,
+              "required": false
+            }
+          ]
+        },
+        {
+          "type": "edit",
+          "action": "modal",
+          "pageName": "MachineMachineEditPage",
+          "title": "설비 관리 수정",
+          "hookName": "useMachine"
+        },
+        {
+          "type": "delete",
+          "action": "modal",
+          "title": "설비 관리 삭제",
+          "hookName": "useMachine"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "Settings",
+        "name": "menu.machine_machine",
+        "to": "/machine/machine/list"
+      }
+    },
+    "machineRepair": {
+      "name": "machine-repair 관리",
+      "path": "machine/machine-repair",
+      "route": "/machine/machine-repair",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-repair/list",
+          "pageName": "MachineMachineRepairListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-repair 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "subject",
+              "repairPart",
+              "description"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "subject",
+              "header": "subject",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairPart",
+              "header": "repairPart",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairCost",
+              "header": "repairCost",
+              "size": 100
+            },
+            {
+              "accessorKey": "description",
+              "header": "description",
+              "size": 200
+            },
+            {
+              "accessorKey": "repairStartDt",
+              "header": "repairStartDt",
+              "size": 120
+            },
+            {
+              "accessorKey": "repairEndDt",
+              "header": "repairEndDt",
+              "size": 120
+            },
+            {
+              "accessorKey": "brokenAt",
+              "header": "brokenAt",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineName",
+              "header": "machineName",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineVendorId",
+              "header": "machineVendorId",
+              "size": 80
+            },
+            {
+              "accessorKey": "machineVendorName",
+              "header": "machineVendorName",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairVendorId",
+              "header": "repairVendorId",
+              "size": 80
+            },
+            {
+              "accessorKey": "repairVendorName",
+              "header": "repairVendorName",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairWorker",
+              "header": "repairWorker",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairVendorTel",
+              "header": "repairVendorTel",
+              "size": 130
+            },
+            {
+              "accessorKey": "isClose",
+              "header": "isClose",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeName",
+              "header": "closeName",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeAt",
+              "header": "closeAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "isAdmit",
+              "header": "isAdmit",
+              "size": 150
+            },
+            {
+              "accessorKey": "admitName",
+              "header": "admitName",
+              "size": 150
+            },
+            {
+              "accessorKey": "admitAt",
+              "header": "admitAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "repairPicture",
+              "header": "repairPicture",
+              "size": 150
+            },
+            {
+              "accessorKey": "repairPictureAfter",
+              "header": "repairPictureAfter",
+              "size": 150
+            }
+          ],
+          "dataHook": "useMachineRepair"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachineRepairRegisterPage",
+          "title": "machine-repair 관리 등록",
+          "hookName": "useMachineRepair",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-repair",
+        "to": "/machine/machine-repair/list"
+      }
+    },
+    "machinePart": {
+      "name": "machine-part 관리",
+      "path": "machine/machine-part",
+      "route": "/machine/machine-part",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-part/list",
+          "pageName": "MachineMachinePartListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-part 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "partName",
+              "partStandard",
+              "partGrade"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "partName",
+              "header": "partName",
+              "size": 150
+            },
+            {
+              "accessorKey": "partStandard",
+              "header": "partStandard",
+              "size": 150
+            },
+            {
+              "accessorKey": "partGrade",
+              "header": "partGrade",
+              "size": 150
+            },
+            {
+              "accessorKey": "optimum",
+              "header": "optimum",
+              "size": 150
+            },
+            {
+              "accessorKey": "realStock",
+              "header": "realStock",
+              "size": 100
+            },
+            {
+              "accessorKey": "mchName",
+              "header": "mchName",
+              "size": 150
+            },
+            {
+              "accessorKey": "storeName",
+              "header": "storeName",
+              "size": 150
+            },
+            {
+              "accessorKey": "storeTel",
+              "header": "storeTel",
+              "size": 130
+            },
+            {
+              "accessorKey": "productionTime",
+              "header": "productionTime",
+              "size": 150
+            },
+            {
+              "accessorKey": "cost",
+              "header": "cost",
+              "size": 150
+            },
+            {
+              "accessorKey": "fileName",
+              "header": "fileName",
+              "size": 150
+            },
+            {
+              "accessorKey": "keepPlace",
+              "header": "keepPlace",
+              "size": 150
+            },
+            {
+              "accessorKey": "etc",
+              "header": "etc",
+              "size": 150
+            }
+          ],
+          "dataHook": "useMachinePart"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachinePartRegisterPage",
+          "title": "machine-part 관리 등록",
+          "hookName": "useMachinePart",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-part",
+        "to": "/machine/machine-part/list"
+      }
+    },
+    "machinePartUseInfo": {
+      "name": "machine-part-use-info 관리",
+      "path": "machine/machine-part-use-info",
+      "route": "/machine/machine-part-use-info",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-part-use-info/list",
+          "pageName": "MachineMachinePartUseInfoListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-part-use-info 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "machinePartCode",
+              "machineRepairCode",
+              "useDate"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "machinePartCode",
+              "header": "machinePartCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineRepairCode",
+              "header": "machineRepairCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "useDate",
+              "header": "useDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "useStock",
+              "header": "useStock",
+              "size": 100
+            }
+          ],
+          "dataHook": "useMachinePartUseInfo"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachinePartUseInfoRegisterPage",
+          "title": "machine-part-use-info 관리 등록",
+          "hookName": "useMachinePartUseInfo",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-part-use-info",
+        "to": "/machine/machine-part-use-info/list"
+      }
+    },
+    "machinePartRelation": {
+      "name": "machine-part-relation 관리",
+      "path": "machine/machine-part-relation",
+      "route": "/machine/machine-part-relation",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-part-relation/list",
+          "pageName": "MachineMachinePartRelationListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-part-relation 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "machineCode",
+              "machinePartCode"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineCode",
+              "header": "machineCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "machinePartCode",
+              "header": "machinePartCode",
+              "size": 120
+            }
+          ],
+          "dataHook": "useMachinePartRelation"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachinePartRelationRegisterPage",
+          "title": "machine-part-relation 관리 등록",
+          "hookName": "useMachinePartRelation",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-part-relation",
+        "to": "/machine/machine-part-relation/list"
+      }
+    },
+    "machinePartOrder": {
+      "name": "machine-part-order 관리",
+      "path": "machine/machine-part-order",
+      "route": "/machine/machine-part-order",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-part-order/list",
+          "pageName": "MachineMachinePartOrderListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-part-order 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "orderCode",
+              "orderDate",
+              "vendorCode"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "orderCode",
+              "header": "주문코드",
+              "size": 120
+            },
+            {
+              "accessorKey": "orderDate",
+              "header": "orderDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorCode",
+              "header": "vendorCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "machinePartOrderIns",
+              "header": "machinePartOrderIns",
+              "size": 150
+            }
+          ],
+          "dataHook": "useMachinePartOrder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachinePartOrderRegisterPage",
+          "title": "machine-part-order 관리 등록",
+          "hookName": "useMachinePartOrder",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-part-order",
+        "to": "/machine/machine-part-order/list"
+      }
+    },
+    "machinePartOrderIn": {
+      "name": "machine-part-order-in 관리",
+      "path": "machine/machine-part-order-in",
+      "route": "/machine/machine-part-order-in",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-part-order-in/list",
+          "pageName": "MachineMachinePartOrderInListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-part-order-in 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "inDate",
+              "vendorCode",
+              "vendorName"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "machinePartOrderId",
+              "header": "machinePartOrderId",
+              "size": 80
+            },
+            {
+              "accessorKey": "machinePartOrder",
+              "header": "machinePartOrder",
+              "size": 150
+            },
+            {
+              "accessorKey": "inDate",
+              "header": "inDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorCode",
+              "header": "vendorCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "inNum",
+              "header": "inNum",
+              "size": 100
+            },
+            {
+              "accessorKey": "inPrice",
+              "header": "inPrice",
+              "size": 100
+            }
+          ],
+          "dataHook": "useMachinePartOrderIn"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachinePartOrderInRegisterPage",
+          "title": "machine-part-order-in 관리 등록",
+          "hookName": "useMachinePartOrderIn",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-part-order-in",
+        "to": "/machine/machine-part-order-in/list"
+      }
+    },
+    "machineCheckingHead": {
+      "name": "machine-checking-head 관리",
+      "path": "machine/machine-checking-head",
+      "route": "/machine/machine-checking-head",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-checking-head/list",
+          "pageName": "MachineMachineCheckingHeadListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-checking-head 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "machineCode",
+              "checkDate",
+              "workShift"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "machineCode",
+              "header": "machineCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "checkDate",
+              "header": "checkDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "workShift",
+              "header": "workShift",
+              "size": 150
+            },
+            {
+              "accessorKey": "isPass",
+              "header": "isPass",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineCheckingDatas",
+              "header": "machineCheckingDatas",
+              "size": 150
+            }
+          ],
+          "dataHook": "useMachineCheckingHead"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachineCheckingHeadRegisterPage",
+          "title": "machine-checking-head 관리 등록",
+          "hookName": "useMachineCheckingHead",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-checking-head",
+        "to": "/machine/machine-checking-head/list"
+      }
+    },
+    "machineCheckingData": {
+      "name": "machine-checking-data 관리",
+      "path": "machine/machine-checking-data",
+      "route": "/machine/machine-checking-data",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-checking-data/list",
+          "pageName": "MachineMachineCheckingDataListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-checking-data 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "machineCode",
+              "checkValue",
+              "checkBy"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "machineCode",
+              "header": "machineCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineCheckingHeadId",
+              "header": "machineCheckingHeadId",
+              "size": 80
+            },
+            {
+              "accessorKey": "machineCheckingHead",
+              "header": "machineCheckingHead",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkValue",
+              "header": "checkValue",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkBy",
+              "header": "checkBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkDate",
+              "header": "checkDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "machineName",
+              "header": "machineName",
+              "size": 150
+            },
+            {
+              "accessorKey": "periodType",
+              "header": "periodType",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkType",
+              "header": "checkType",
+              "size": 150
+            },
+            {
+              "accessorKey": "upLimit",
+              "header": "upLimit",
+              "size": 150
+            },
+            {
+              "accessorKey": "downLimit",
+              "header": "downLimit",
+              "size": 150
+            },
+            {
+              "accessorKey": "valueType",
+              "header": "valueType",
+              "size": 150
+            },
+            {
+              "accessorKey": "isPass",
+              "header": "isPass",
+              "size": 150
+            },
+            {
+              "accessorKey": "shift",
+              "header": "shift",
+              "size": 150
+            }
+          ],
+          "dataHook": "useMachineCheckingData"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachineCheckingDataRegisterPage",
+          "title": "machine-checking-data 관리 등록",
+          "hookName": "useMachineCheckingData",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-checking-data",
+        "to": "/machine/machine-checking-data/list"
+      }
+    },
+    "machineCheckSpec": {
+      "name": "machine-check-spec 관리",
+      "path": "machine/machine-check-spec",
+      "route": "/machine/machine-check-spec",
+      "pageType": "singlePage",
+      "tabs": [
+        {
+          "id": "list",
+          "name": "현황",
+          "type": "singlePage",
+          "path": "/machine/machine-check-spec/list",
+          "pageName": "MachineMachineCheckSpecListPage",
+          "icon": "TableProperties",
+          "default": true,
+          "tableControl": {
+            "title": "machine-check-spec 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "itemName",
+              "picture",
+              "checkSpec"
+            ]
+          },
+          "searchSlotFields": [],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "picture",
+              "header": "picture",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkSpec",
+              "header": "checkSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "tool",
+              "header": "tool",
+              "size": 150
+            },
+            {
+              "accessorKey": "elapse",
+              "header": "elapse",
+              "size": 150
+            },
+            {
+              "accessorKey": "periodType",
+              "header": "periodType",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkType",
+              "header": "checkType",
+              "size": 150
+            },
+            {
+              "accessorKey": "valueType",
+              "header": "valueType",
+              "size": 150
+            },
+            {
+              "accessorKey": "upLimit",
+              "header": "upLimit",
+              "size": 150
+            },
+            {
+              "accessorKey": "downLimit",
+              "header": "downLimit",
+              "size": 150
+            },
+            {
+              "accessorKey": "etc",
+              "header": "etc",
+              "size": 150
+            },
+            {
+              "accessorKey": "machineName",
+              "header": "machineName",
+              "size": 150
+            },
+            {
+              "accessorKey": "checkOrder",
+              "header": "checkOrder",
+              "size": 100
+            }
+          ],
+          "dataHook": "useMachineCheckSpec"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "modal",
+          "pageName": "MachineMachineCheckSpecRegisterPage",
+          "title": "machine-check-spec 관리 등록",
+          "hookName": "useMachineCheckSpec",
+          "formFields": [
+            {
+              "name": "dataList",
+              "label": "dataList",
+              "type": "text",
+              "placeholder": "dataList을(를) 입력하세요",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.machine_machine-check-spec",
+        "to": "/machine/machine-check-spec/list"
+      }
+    }
+  }
+}

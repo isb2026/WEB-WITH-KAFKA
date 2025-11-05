@@ -1,0 +1,53 @@
+{
+  "contactMethods": [
+    {
+      "id": "email",
+      "name": "Email Support",
+      "description": "Send us an email and we'll respond within 24 hours",
+      "icon": "📧",
+      "action": "mailto:support@moornmo.com",
+      "availability": "24/7",
+      "responseTime": "Within 24 hours"
+    },
+    {
+      "id": "phone",
+      "name": "Phone Support",
+      "description": "Call us directly for immediate assistance",
+      "icon": "📞",
+      "action": "tel:+82-2-1234-5678",
+      "availability": "Mon-Fri 9AM-6PM KST",
+      "responseTime": "Immediate"
+    },
+    {
+      "id": "live-chat",
+      "name": "Live Chat",
+      "description": "Chat with our support team in real-time",
+      "icon": "💬",
+      "action": "chat",
+      "availability": "Mon-Fri 9AM-6PM KST",
+      "responseTime": "Within 5 minutes"
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp Business",
+      "description": "Message us on WhatsApp for quick support",
+      "icon": "📱",
+      "action": "https://wa.me/821012345678",
+      "availability": "24/7",
+      "responseTime": "Within 2 hours"
+    }
+  ],
+  "officeInfo": {
+    "address": "123 Business Street, Seoul, South Korea",
+    "phone": "+82-2-1234-5678",
+    "email": "support@moornmo.com",
+    "website": "https://moornmo.com",
+    "businessHours": "Monday - Friday: 9:00 AM - 6:00 PM KST"
+  },
+  "emergencyContact": {
+    "available": true,
+    "description": "For urgent technical issues outside business hours",
+    "phone": "+82-10-1234-5678",
+    "email": "emergency@moornmo.com"
+  }
+} 

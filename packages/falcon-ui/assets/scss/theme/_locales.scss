@@ -1,0 +1,67 @@
+/*-----------------------------------------------
+|   locales
+-----------------------------------------------*/
+.locales {
+	color: var(--#{$prefix}gray-1000);
+	text-decoration: none;
+	background-color: var(--#{$prefix}locales-bg);
+	display: flex;
+	font-size: map_get($font-sizes, 10);
+	font-family: $font-family-base;
+	transition: $transition-base;
+	&:not(.locales-flush) {
+		border: 1px solid var(--#{$prefix}border-color);
+		box-shadow: $box-shadow-sm;
+		border-radius: $border-radius-lg;
+		padding: map_get($spacers, 3);
+	}
+	@include hover-focus {
+		color: var(--#{$prefix}gray-1100);
+		text-decoration: none;
+	}
+}
+.locales-body {
+	margin-bottom: map_get($spacers, 1);
+}
+.locales-time {
+	margin-bottom: 0;
+	color: var(--#{$prefix}gray-600);
+	font-size: map_get($font-sizes, 10);
+}
+.locales-unread {
+	background-color: var(--#{$prefix}locales-unread-bg) !important;
+	@include hover-focus {
+		background-color: var(--#{$prefix}locales-unread-hover-bg) !important;
+	}
+}
+
+// Card locales
+
+.dropdown-menu-locales {
+	min-width: 16rem;
+	max-width: 5rem;
+	.card-header,
+	.card-footer {
+		padding-top: map_get($spacers, 2);
+		padding-bottom: map_get($spacers, 2);
+	}
+	.list-group-flush {
+		.list-group-item {
+			padding: 0;
+			.locales-flush {
+				padding: 0.5rem 1rem;
+			}
+		}
+		.list-group-title {
+			background-color: var(--#{$prefix}locales-title-bg);
+			font-weight: $font-weight-semibold;
+			font-size: map_get($font-sizes, 11);
+			color: var(--#{$prefix}gray-600);
+			padding: map_get($spacers, 1) $card-spacer-x;
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		min-width: 20rem;
+	}
+}

@@ -1,0 +1,33 @@
+stages:
+    - notify
+
+notify_mr_opened:
+    stage: notify
+    script:
+        - /home/soonsoft/script/notify-google-chat.sh mr
+    rules:
+        - if: '$CI_MERGE_REQUEST_IID && $CI_PIPELINE_SOURCE == "merge_request_event"'
+          when: always
+        - when: never
+    tags:
+        - react-monorepo
+
+notify_main_merged:
+    stage: notify
+    script:
+        - /home/soonsoft/script/notify-google-chat.sh merged
+    only:
+        - main
+    tags:
+        - react-monorepo
+
+notify_mr_closed:
+    stage: notify
+    script:
+        - /home/soonsoft/script/notify-google-chat.sh closed
+    rules:
+        - if: '$CI_MERGE_REQUEST_STATE == "closed"'
+          when: always
+        - when: never
+    tags:
+        - react-monorepo

@@ -1,0 +1,12 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"include": ["src", "../../packages/typescript-config/types/*", "types"],
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"declaration": true,
+		"declarationMap": true
+	},
+	"exclude": ["node_modules"]
+}

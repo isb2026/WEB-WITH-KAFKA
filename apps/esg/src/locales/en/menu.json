@@ -1,0 +1,24 @@
+{
+	"menuGroup": {
+		"company": "Company Management",
+		"collect": "Data Collection & Management",
+		"analyze": "Data Analysis",
+		"report": "Report Management"
+	},
+	"menu": {
+		"company": "Company",
+		"group": "Group",
+		"workplace": "Workplace",
+		"charger": "Charger",
+		"data_request": "Data Input Request",
+		"account": "Account",
+		"meter": "Meter",
+		"record": "Record",
+		"report": "Report",
+		"new_report": "Create Report",
+		"analyze_company": "Company Data Analysis",
+		"analyze_meter": "Meter Data Analysis",
+		"analyze_emissions": "Emissions Analysis",
+		"analyze_group_comparison": "Group Emissions Comparison Analysis"
+	}
+}

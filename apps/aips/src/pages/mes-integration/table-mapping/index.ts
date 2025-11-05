@@ -1,0 +1,1 @@
+export { TableMappingPage } from './TableMappingPage';

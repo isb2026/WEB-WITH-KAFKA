@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "id": "getting-started",
+      "name": "Getting Started",
+      "icon": "🚀",
+      "items": [
+        {
+          "id": "gs-1",
+          "question": "How do I update my profile information?",
+          "answer": "Click the 'Edit' button in the Profile Information section, make your changes, then click 'Save' to update your profile.",
+          "tags": ["profile", "edit", "update"]
+        },
+        {
+          "id": "gs-2",
+          "question": "How to change my password?",
+          "answer": "Go to Settings section and click 'Change Password' button. You'll need to enter your current password and new password twice for confirmation.",
+          "tags": ["password", "security", "settings"]
+        },
+        {
+          "id": "gs-3",
+          "question": "How do I log out from other devices?",
+          "answer": "In the Active Sessions section, you can see all your logged-in devices. Click 'Terminate' next to any session you want to end.",
+          "tags": ["logout", "sessions", "security"]
+        }
+      ]
+    },
+    {
+      "id": "account-settings",
+      "name": "Account Settings",
+      "icon": "⚙️",
+      "items": [
+        {
+          "id": "as-1",
+          "question": "How to enable two-factor authentication?",
+          "answer": "Go to Settings → Security → Two-Factor Authentication. Follow the setup process to link your mobile device.",
+          "tags": ["2fa", "security", "authentication"]
+        },
+        {
+          "id": "as-2",
+          "question": "How to manage notification preferences?",
+          "answer": "In the Notifications section, you can toggle Email notifications, Push notifications, and Security alerts on/off.",
+          "tags": ["notifications", "preferences", "settings"]
+        },
+        {
+          "id": "as-3",
+          "question": "How to export my personal data?",
+          "answer": "Click 'Export My Data' in the Data & Privacy section. Your data will be prepared and sent to your email address.",
+          "tags": ["export", "data", "privacy"]
+        }
+      ]
+    },
+    {
+      "id": "data-management",
+      "name": "Data Management",
+      "icon": "📊",
+      "items": [
+        {
+          "id": "dm-1",
+          "question": "How to upload company data?",
+          "answer": "Navigate to the Collect section → Companies. Click 'Add New' and fill in the required company information.",
+          "tags": ["upload", "company", "data"]
+        },
+        {
+          "id": "dm-2",
+          "question": "What file formats are supported?",
+          "answer": "We support Excel (.xlsx, .xls), CSV, and JSON files for data import. Maximum file size is 10MB.",
+          "tags": ["file", "format", "import"]
+        },
+        {
+          "id": "dm-3",
+          "question": "How to validate my data?",
+          "answer": "After uploading, the system automatically validates your data. Check the validation report for any errors or warnings.",
+          "tags": ["validation", "data", "quality"]
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Troubleshooting",
+      "icon": "🔧",
+      "items": [
+        {
+          "id": "ts-1",
+          "question": "I can't log in to my account",
+          "answer": "Check your email and password. If you forgot your password, use the 'Forgot Password' link. Contact support if issues persist.",
+          "tags": ["login", "password", "access"]
+        },
+        {
+          "id": "ts-2",
+          "question": "The page is loading slowly",
+          "answer": "Try refreshing the page. Check your internet connection. Clear browser cache if the problem continues.",
+          "tags": ["performance", "loading", "speed"]
+        },
+        {
+          "id": "ts-3",
+          "question": "My data didn't save properly",
+          "answer": "Make sure you clicked 'Save' after making changes. Check for any error messages. Try refreshing and re-entering the data.",
+          "tags": ["save", "data", "error"]
+        }
+      ]
+    }
+  ]
+} 

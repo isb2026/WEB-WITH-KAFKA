@@ -1,0 +1,16 @@
+.a4-page {
+	width: 21cm;
+	min-height: 29.7cm;
+	padding: 2.54cm;
+	margin: 1px auto;
+	background: white;
+	outline: 1px solid #c7c7c7;
+}
+
+/* For high-resolution displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+	screen and (min-resolution: 192dpi) {
+	.a4-page {
+		border: 1px solid #e0e0e0;
+	}
+}

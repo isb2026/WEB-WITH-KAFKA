@@ -1,0 +1,16 @@
+{
+	"save": "Save",
+	"cancel": "Cancel",
+	"delete": "Delete",
+	"edit": "Edit",
+	"add": "Add",
+	"search": "Search",
+	"reset": "Reset",
+	"confirm": "Confirm",
+	"close": "Close",
+	"notFound": {
+		"title": "Oops! Page not found",
+		"description": "The page you’re looking for doesn’t exist or something went wrong.",
+		"goBack": "Go Back"
+	}
+}

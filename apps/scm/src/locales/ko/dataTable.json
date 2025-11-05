@@ -1,0 +1,45 @@
+{
+  "columns": {
+    "id": "ID",
+    "compCode": "거래처코드",
+    "compName": "거래처명",
+    "compType": "거래처유형",
+    "itemCode": "제품코드",
+    "itemName": "제품명",
+    "itemType": "제품유형",
+    "orderNumber": "주문번호",
+    "orderDate": "주문일",
+    "deliveryDate": "납기일",
+    "quantity": "수량",
+    "unitPrice": "단가",
+    "totalAmount": "총금액",
+    "status": "상태",
+    "createdAt": "생성일",
+    "updatedAt": "수정일",
+    "createdBy": "생성자",
+    "updatedBy": "수정자"
+  },
+  "pagination": {
+    "previous": "이전",
+    "next": "다음",
+    "first": "첫페이지",
+    "last": "마지막",
+    "page": "페이지",
+    "of": "의",
+    "rows": "행",
+    "rowsPerPage": "페이지당 행 수"
+  },
+  "search": {
+    "placeholder": "검색어를 입력하세요",
+    "button": "검색",
+    "reset": "초기화",
+    "noResults": "검색 결과가 없습니다"
+  },
+  "actions": {
+    "select": "선택",
+    "selectAll": "전체 선택",
+    "filter": "필터",
+    "sort": "정렬",
+    "export": "내보내기"
+  }
+}

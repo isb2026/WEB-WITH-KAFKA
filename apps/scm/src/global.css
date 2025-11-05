@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	/**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+
+		--primary: 222.2 47.4% 11.2%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 222.2 84% 4.9%;
+
+		--radius: 0.5rem;
+
+		--sidebar-background: 0 0% 98%;
+		--sidebar-foreground: 240 5.3% 26.1%;
+		--sidebar-primary: 240 5.9% 10%;
+		--sidebar-primary-foreground: 0 0% 98%;
+		--sidebar-accent: 240 4.8% 95.9%;
+		--sidebar-accent-foreground: 240 5.9% 10%;
+		--sidebar-border: 220 13% 91%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
+
+		/* Header Color */
+		--header-primary: 231 11% 28%;
+		--header-primary-foreground: 0 100% 50%;
+
+		/* ERP Brand colors */
+		--brand-primary: 268 51% 50%;
+		--brand-primary-foreground: 0 0% 100%;
+		--brand-light: 268 100% 97%;
+		--brand-border: 268 45% 84%;
+
+		/* Status colors */
+		--success: 142 71% 45%;
+		--success-light: 143 85% 96%;
+		--success-border: 142 76% 73%;
+
+		--error: 0 84% 60%;
+		--error-light: 0 93% 94%;
+		--error-border: 0 91% 71%;
+
+		--warning: 38 92% 50%;
+		--warning-light: 48 100% 96%;
+		--warning-border: 38 84% 80%;
+
+		--purple: 271 81% 56%;
+		--purple-light: 270 100% 98%;
+		--purple-border: 271 77% 84%;
+
+		--pink: 322 81% 57%;
+		--pink-light: 322 100% 96%;
+		--pink-border: 322 85% 84%;
+	}
+
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+
+		--border: 222 8% 24%;
+		--input: 222 8% 24%;
+		--ring: 212.7 26.8% 83.9%;
+
+		--sidebar-background: 240 5.9% 10%;
+		--sidebar-foreground: 240 4.8% 95.9%;
+		--sidebar-primary: 224.3 76.3% 48%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 240 3.7% 15.9%;
+		--sidebar-accent-foreground: 240 4.8% 95.9%;
+		--sidebar-border: 222 8% 24%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
+
+		/* Header Color */
+		--header-primary: 0 100% 50%;
+		--header-primary-forgroud: 221, 25%, 13%;
+	}
+}
+
+@layer base {
+	/* Global theme transition animation */
+	* {
+		@apply border-border;
+	}
+
+	/* Only apply transitions to specific interactive elements, not theme changes */
+	button,
+	[role='button'],
+	input:not([type='checkbox']):not([type='radio']),
+	textarea,
+	select {
+		transition:
+			background-color 0.1s ease-in-out,
+			border-color 0.1s ease-in-out,
+			color 0.1s ease-in-out;
+	}
+
+	/* Exclude elements that should not have transitions */
+	*:where(
+		[class*='transition-'],
+		[class*='animate-'],
+		[class*='duration-'],
+		button:active,
+		[role='button']:active
+	) {
+		transition: revert;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}

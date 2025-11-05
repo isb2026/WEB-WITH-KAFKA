@@ -1,0 +1,7038 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Init API",
+		"description": "품목 서비스 API 입니다.",
+		"version": "v1"
+	},
+	"servers": [
+		{
+			"url": "/init",
+			"description": "Init API Base Path"
+		}
+	],
+	"security": [
+		{
+			"BearerAuth": []
+		}
+	],
+	"tags": [
+		{
+			"name": "FileLink",
+			"description": "파일 링크 관리 API"
+		},
+		{
+			"name": "ItemProgress",
+			"description": "ItemProgress 관리 API"
+		},
+		{
+			"name": "Mbom",
+			"description": "Mbom 관리 API"
+		},
+		{
+			"name": "ProgressRoute",
+			"description": "ProgressRoute 관리 API"
+		},
+		{
+			"name": "Vendor",
+			"description": "Vendor 관리 API"
+		},
+		{
+			"name": "ProgressVendor",
+			"description": "제조공정 외주업체 관리 API"
+		},
+		{
+			"name": "Translation",
+			"description": "번역 사전 관리 API"
+		},
+		{
+			"name": "Item",
+			"description": "Item 관리 API"
+		},
+		{
+			"name": "Code Management",
+			"description": "코드 및 코드 그룹 관리 API"
+		},
+		{
+			"name": "Terminal",
+			"description": "Terminal 관리 API"
+		},
+		{
+			"name": "RootProduct",
+			"description": "루트 제품 관리 API"
+		}
+	],
+	"paths": {
+		"/vendor": {
+			"get": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 조회",
+				"operationId": "search",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/VendorSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageVendorDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 일괄 수정",
+				"operationId": "updateAll",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/VendorUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListVendorDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 생성",
+				"operationId": "create",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/VendorCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListVendorDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 삭제",
+				"operationId": "delete",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/vendor/{id}": {
+			"put": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 수정",
+				"operationId": "update",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/VendorUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseVendorDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/terminal": {
+			"get": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 조회",
+				"operationId": "search_1",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/TerminalSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageTerminalDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 일괄 수정",
+				"operationId": "updateAll_1",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/TerminalUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListTerminalDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 생성",
+				"operationId": "create_1",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/TerminalCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListTerminalDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 삭제",
+				"operationId": "delete_1",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/terminal/{id}": {
+			"put": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 수정",
+				"operationId": "update_1",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/TerminalUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseTerminalDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-vendors": {
+			"get": {
+				"tags": ["ProgressVendor"],
+				"summary": "ProgressVendor 조회",
+				"operationId": "search_2",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ProgressVendorSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["ProgressVendor"],
+				"summary": "ProgressVendor 일괄 수정",
+				"operationId": "updateAll_2",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ProgressVendorUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["ProgressVendor"],
+				"summary": "ProgressVendor 생성",
+				"operationId": "create_2",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ProgressVendorCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-vendors/{progressId}/{vendorId}": {
+			"put": {
+				"tags": ["ProgressVendor"],
+				"summary": "ProgressVendor 수정",
+				"operationId": "update_2",
+				"parameters": [
+					{
+						"name": "progressId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "vendorId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ProgressVendorUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-route": {
+			"get": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 조회",
+				"operationId": "search_3",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ProgressRouteSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageProgressRouteDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 일괄 수정",
+				"operationId": "updateAll_3",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ProgressRouteUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressRouteDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 생성",
+				"operationId": "create_3",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ProgressRouteCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressRouteDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 삭제",
+				"operationId": "delete_2",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-route/{id}": {
+			"put": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 수정",
+				"operationId": "update_3",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ProgressRouteUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseProgressRouteDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom": {
+			"put": {
+				"tags": ["Mbom"],
+				"summary": "Mbom 일괄 수정",
+				"operationId": "updateAll_4",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/MbomUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListMbomDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["Mbom"],
+				"summary": "Mbom 생성",
+				"operationId": "create_4",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/MbomCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListMbomDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Mbom"],
+				"summary": "Mbom 삭제",
+				"operationId": "delete_3",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/{id}": {
+			"put": {
+				"tags": ["Mbom"],
+				"summary": "Mbom 수정",
+				"operationId": "update_4",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MbomUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseMbomDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item": {
+			"get": {
+				"tags": ["Item"],
+				"summary": "Item 조회",
+				"operationId": "search_4",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ItemSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageItemSearchResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["Item"],
+				"summary": "Item 일괄 수정",
+				"operationId": "updateAll_5",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ItemUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListItemDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["Item"],
+				"summary": "Item 생성",
+				"description": "**사용 가능한 OwnerType 값:**\n- `ITEM_IMG`: 아이템 이미지\n- `ITEM_DESIGN`: 아이템 도면\n- `ITEM_PROGRESS_DESIGN`: 아이템 공정 도면\n- `MACHINE_IMG`: 설비 이미지\n- `MACHINE_INSPECTION_IMG`: 설비 일상점검 이미지\n- `MOLD_DESIGN`: 금형 도면",
+				"operationId": "create_5",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ItemCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListItemDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Item"],
+				"summary": "Item 삭제",
+				"operationId": "delete_4",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item/{id}": {
+			"put": {
+				"tags": ["Item"],
+				"summary": "Item 수정",
+				"operationId": "update_5",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ItemUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseItemDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item-progress": {
+			"get": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 조회",
+				"operationId": "search_5",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ItemProgressSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageItemProgressDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 일괄 수정",
+				"operationId": "updateAll_6",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ItemProgressUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListItemProgressDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 생성",
+				"operationId": "create_6",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/ItemProgressCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListItemProgressDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 삭제",
+				"operationId": "delete_5",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item-progress/{id}": {
+			"put": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 수정",
+				"operationId": "update_6",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ItemProgressUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseItemProgressDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/filelink": {
+			"get": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 조회",
+				"operationId": "search_6",
+				"parameters": [
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/FileLinkSearchRequest"
+						}
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"format": "int32",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponsePageFileLinkDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 일괄 수정",
+				"operationId": "updateAll_7",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/FileLinkUpdateAllRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListFileLinkDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 생성",
+				"operationId": "create_7",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/FileLinkCreateRequest"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListFileLinkDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 삭제",
+				"operationId": "delete_6",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/filelink/{id}": {
+			"put": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 수정",
+				"operationId": "update_7",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/FileLinkUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseFileLinkDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/code/{id}": {
+			"put": {
+				"tags": ["Code Management"],
+				"summary": "코드 수정",
+				"operationId": "updateCode",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CodeUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseCodeDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Code Management"],
+				"summary": "코드 삭제",
+				"operationId": "deleteCode",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/code-group/{id}": {
+			"put": {
+				"tags": ["Code Management"],
+				"summary": "코드 그룹 수정",
+				"operationId": "updateCodeGroup",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CodeGroupUpdateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseCodeGroupDto"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Code Management"],
+				"summary": "코드 그룹 삭제",
+				"operationId": "deleteCodeGroup",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/root-product": {
+			"post": {
+				"tags": ["RootProduct"],
+				"summary": "루트 제품 생성",
+				"description": "새로운 루트 제품을 생성합니다.\n- 동일한 아이템 ID로는 하나의 루트 제품만 생성 가능합니다.\n- 제품 코드는 테넌트 내에서 유일해야 합니다.\n- 루트 제품은 생성 후 수정/삭제가 제한됩니다.",
+				"operationId": "create_8",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RootProductCreateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseRootProductDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/code": {
+			"post": {
+				"tags": ["Code Management"],
+				"summary": "코드 생성",
+				"operationId": "createCode",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CodeCreateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseCodeDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/code-group": {
+			"post": {
+				"tags": ["Code Management"],
+				"summary": "코드 그룹 생성",
+				"operationId": "createCodeGroup",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CodeGroupCreateRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseCodeGroupDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/word-dictionary": {
+			"get": {
+				"tags": ["Translation"],
+				"summary": "언어별 단어 사전 조회",
+				"description": "지정된 ISO 코드에 해당하는 언어의 단어 사전을 조회합니다.",
+				"operationId": "getDictionary",
+				"parameters": [
+					{
+						"name": "iso_code",
+						"in": "query",
+						"description": "언어 ISO 코드",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "ko"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseMapStringObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/word-dictionary/version": {
+			"get": {
+				"tags": ["Translation"],
+				"summary": "데이터셋 버전 확인",
+				"description": "현재 데이터셋 버전을 확인합니다.",
+				"operationId": "checkVersion",
+				"parameters": [
+					{
+						"name": "version",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseBoolean"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/vendor/fields/{fieldName}": {
+			"get": {
+				"tags": ["Vendor"],
+				"summary": "Vendor 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/VendorSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/terminal/fields/{fieldName}": {
+			"get": {
+				"tags": ["Terminal"],
+				"summary": "Terminal 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues_1",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/TerminalSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-vendors/item-progress/{progressId}/vendors": {
+			"get": {
+				"tags": ["ProgressVendor"],
+				"summary": "특정 공정의 업체 목록 조회",
+				"operationId": "getVendorsByItemProgress",
+				"parameters": [
+					{
+						"name": "progressId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-vendors/item-progress/{progressId}/default-vendors": {
+			"get": {
+				"tags": ["ProgressVendor"],
+				"summary": "특정 공정의 기본 업체 조회",
+				"operationId": "getDefaultVendorsByItemProgress",
+				"parameters": [
+					{
+						"name": "progressId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProgressVendorDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-route/fields/{fieldName}": {
+			"get": {
+				"tags": ["ProgressRoute"],
+				"summary": "ProgressRoute 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues_2",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ProgressRouteSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/tree-ui/{itemId}": {
+			"get": {
+				"tags": ["Mbom"],
+				"summary": "TreeView UI용 공정 트리 조회",
+				"description": "프론트엔드 TreeView 컴포넌트에 최적화된 트리 구조로 공정과 투입품을 반환합니다.\n- 공정 순서대로 정렬\n- TreeNode 형태의 계층 구조\n- 투입품이 없는 공정도 포함",
+				"operationId": "getProcessTreeForUI",
+				"parameters": [
+					{
+						"name": "itemId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProcessTreeNodeDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/tree-ui/{itemId}/recursive": {
+			"get": {
+				"tags": ["Mbom"],
+				"summary": "재귀적 TreeView UI용 공정 트리 조회",
+				"description": "하위 제품의 공정까지 포함한 재귀적 트리 구조를 반환합니다.\n- maxDepth로 깊이 제한 가능 (null이면 무제한)\n- 투입품이 다른 제품인 경우 해당 제품의 공정도 포함",
+				"operationId": "getRecursiveProcessTreeForUI",
+				"parameters": [
+					{
+						"name": "itemId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "maxDepth",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListProcessTreeNodeDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/list/{rootItemId}": {
+			"get": {
+				"tags": ["Mbom"],
+				"summary": "완제품별 투입품 리스트 조회",
+				"description": "완제품 ID를 받아서 모든 투입품을 depth와 함께 리스트 형태로 반환합니다.\n- depth 0: 완제품 자체\n- depth 1: 1단계 투입품\n- depth 2: 2단계 투입품 (투입품의 투입품)\n- path: 경로 정보 (예: '1.2.3')\n- sequence: 같은 레벨에서의 순서\n- hasChildren: 하위 투입품 존재 여부\n- maxDepth: 최대 깊이 제한 (선택사항, 기본값 무제한)",
+				"operationId": "getMbomListByRootItem",
+				"parameters": [
+					{
+						"name": "rootItemId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "maxDepth",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListMbomListDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/full-tree": {
+			"get": {
+				"tags": ["Mbom"],
+				"summary": "전체 BOM 트리 조회",
+				"description": "테넌트의 모든 BOM 데이터를 트리 구조로 반환합니다.\n- 모든 루트 아이템들과 그 하위 트리를 포함\n- 프론트엔드에서 전체 BOM 구조를 한 번에 처리할 수 있음\n- 루트 아이템 개수와 전체 BOM 개수 정보 포함\n- 테넌트 ID는 인증 정보에서 자동으로 가져옴",
+				"operationId": "getFullBomTree",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseFullBomTreeDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mbom/can-add-relation": {
+			"get": {
+				"tags": ["Mbom"],
+				"summary": "MBOM 관계 추가 가능 여부 검증",
+				"description": "특정 부모-자식 관계를 추가할 때 순환 참조가 발생하는지 미리 검증합니다.\n- true: 추가 가능 (순환 참조 없음)\n- false: 추가 불가능 (순환 참조 발생)\n- rootItemId와 parentItemId가 같으면 Root Item 직계로 판단하여 parentItemId를 null로 처리",
+				"operationId": "canAddMbomRelation",
+				"parameters": [
+					{
+						"name": "rootItemId",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "parentItemId",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					},
+					{
+						"name": "childItemId",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseBoolean"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item/fields/{fieldName}": {
+			"get": {
+				"tags": ["Item"],
+				"summary": "Item 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues_3",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ItemSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/item-progress/fields/{fieldName}": {
+			"get": {
+				"tags": ["ItemProgress"],
+				"summary": "ItemProgress 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues_4",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/ItemProgressSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/filelink/fields/{fieldName}": {
+			"get": {
+				"tags": ["FileLink"],
+				"summary": "FileLink 특정 필드 값 전체 조회",
+				"operationId": "findAllFieldValues_5",
+				"parameters": [
+					{
+						"name": "fieldName",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "searchRequest",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/FileLinkSearchRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/codes": {
+			"get": {
+				"tags": ["Code Management"],
+				"summary": "전체 계층형 코드 트리 조회",
+				"description": "모든 루트 그룹과 하위 그룹, 코드들을 계층형 트리 구조로 조회",
+				"operationId": "getAllCodesTree",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseListCodeGroupDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/codes/{hierarchyPath}": {
+			"get": {
+				"tags": ["Code Management"],
+				"summary": "코드 조회",
+				"description": "계층형 코드 조회<br>- PRD: PRD 루트 그룹의 자식 그룹 리스트 조회<br>- PRD-001: PRD 그룹의 001 하위 그룹 코드 리스트 조회<br>- PRD-001-001: PRD 그룹의 001 하위 그룹에서 code_value가 001인 개별 코드 조회",
+				"operationId": "getCodesByHierarchyPath",
+				"parameters": [
+					{
+						"name": "hierarchyPath",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/code/{fullHierarchyPath}": {
+			"get": {
+				"tags": ["Code Management"],
+				"summary": "전체 계층형 코드 조회",
+				"description": "전체 codeValue로 코드 조회 (예: COM-004-001)",
+				"operationId": "getCodeByFullHierarchyPath",
+				"parameters": [
+					{
+						"name": "fullHierarchyPath",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseCodeDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/progress-vendors/{progressId}": {
+			"delete": {
+				"tags": ["ProgressVendor"],
+				"summary": "ProgressVendor 삭제",
+				"operationId": "delete_7",
+				"parameters": [
+					{
+						"name": "progressId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "integer",
+									"format": "int64"
+								}
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/CommonResponseObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"VendorUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"compType": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp type",
+						"example": "COM-004-003"
+					},
+					"licenseNo": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "License no",
+						"example": "12345"
+					},
+					"compName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp name",
+						"example": "샘플명"
+					},
+					"ceoName": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Ceo name",
+						"example": "샘플명"
+					},
+					"compEmail": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp email",
+						"example": "샘플값"
+					},
+					"telNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Tel number",
+						"example": "12345"
+					},
+					"faxNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Fax number",
+						"example": "12345"
+					},
+					"zipCode": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "Zip code",
+						"example": "CODE001"
+					},
+					"addressDtl": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address dtl",
+						"example": "샘플값"
+					},
+					"addressMst": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address mst",
+						"example": "샘플값"
+					}
+				},
+				"description": "Vendor 일괄 Update 요청"
+			},
+			"CommonResponseListVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/VendorDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"VendorDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"compCode": {
+						"type": "string"
+					},
+					"compType": {
+						"type": "string"
+					},
+					"compTypeName": {
+						"type": "string"
+					},
+					"licenseNo": {
+						"type": "string"
+					},
+					"compName": {
+						"type": "string"
+					},
+					"ceoName": {
+						"type": "string"
+					},
+					"compEmail": {
+						"type": "string"
+					},
+					"telNumber": {
+						"type": "string"
+					},
+					"faxNumber": {
+						"type": "string"
+					},
+					"zipCode": {
+						"type": "string"
+					},
+					"addressDtl": {
+						"type": "string"
+					},
+					"addressMst": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"VendorUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"compType": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp type",
+						"example": "COM-004-003"
+					},
+					"licenseNo": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "License no",
+						"example": "12345"
+					},
+					"compName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp name",
+						"example": "샘플명"
+					},
+					"ceoName": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Ceo name",
+						"example": "샘플명"
+					},
+					"compEmail": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp email",
+						"example": "샘플값"
+					},
+					"telNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Tel number",
+						"example": "12345"
+					},
+					"faxNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Fax number",
+						"example": "12345"
+					},
+					"zipCode": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "Zip code",
+						"example": "CODE001"
+					},
+					"addressDtl": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address dtl",
+						"example": "샘플값"
+					},
+					"addressMst": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address mst",
+						"example": "샘플값"
+					}
+				},
+				"description": "Vendor Update 요청"
+			},
+			"CommonResponseVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/VendorDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"TerminalUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"terminalName": {
+						"maxLength": 30,
+						"minLength": 0,
+						"type": "string",
+						"description": "Terminal name",
+						"example": "샘플명"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description",
+						"example": "샘플값"
+					},
+					"imageUrl": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "Image url",
+						"example": "샘플값"
+					}
+				},
+				"description": "Terminal 일괄 Update 요청"
+			},
+			"CommonResponseListTerminalDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TerminalDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"TerminalDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"accountYear": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"terminalCode": {
+						"type": "string"
+					},
+					"terminalName": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"imageUrl": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"TerminalUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"terminalName": {
+						"maxLength": 30,
+						"minLength": 0,
+						"type": "string",
+						"description": "Terminal name",
+						"example": "샘플명"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description",
+						"example": "샘플값"
+					},
+					"imageUrl": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "Image url",
+						"example": "샘플값"
+					}
+				},
+				"description": "Terminal Update 요청"
+			},
+			"CommonResponseTerminalDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/TerminalDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ProgressVendorUpdateAllRequest": {
+				"type": "object",
+				"properties": {
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"vendorId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"unitCost": {
+						"type": "number"
+					},
+					"quantity": {
+						"type": "number"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"isDefaultVendor": {
+						"type": "boolean"
+					},
+					"updateBy": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponseListProgressVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProgressVendorDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"FileLinkDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"ownerTable": {
+						"type": "string"
+					},
+					"ownerType": {
+						"type": "string",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN"
+						]
+					},
+					"ownerTypeDescription": {
+						"type": "string"
+					},
+					"ownerId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"url": {
+						"type": "string"
+					},
+					"sortOrder": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isPrimary": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ItemDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"itemNo": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"itemNumber": {
+						"type": "string"
+					},
+					"itemName": {
+						"type": "string"
+					},
+					"itemSpec": {
+						"type": "string"
+					},
+					"itemModel": {
+						"type": "string"
+					},
+					"itemType1": {
+						"type": "string"
+					},
+					"itemType2": {
+						"type": "string"
+					},
+					"itemType3": {
+						"type": "string"
+					},
+					"itemUnit": {
+						"type": "string"
+					},
+					"lotSize": {
+						"type": "string"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"itemProgress": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ItemProgressDto"
+						}
+					},
+					"progressRoutes": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProgressRouteDto"
+						}
+					},
+					"fileUrls": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkDto"
+						}
+					}
+				}
+			},
+			"ItemProgressDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"item": {
+						"$ref": "#/components/schemas/ItemDto"
+					},
+					"progressOrder": {
+						"type": "string",
+						"format": "byte"
+					},
+					"progressName": {
+						"type": "string"
+					},
+					"isOutsourcing": {
+						"type": "boolean"
+					},
+					"progressTypeCode": {
+						"type": "string"
+					},
+					"progressTypeName": {
+						"type": "string"
+					},
+					"unitWeight": {
+						"type": "number",
+						"format": "float"
+					},
+					"unitTypeName": {
+						"type": "string"
+					},
+					"unitTypeCode": {
+						"type": "string"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"format": "float"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"format": "float"
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"format": "float"
+					},
+					"progressDefaultSpec": {
+						"type": "string"
+					},
+					"keyManagementContents": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProgressRouteDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"item": {
+						"$ref": "#/components/schemas/ItemDto"
+					},
+					"progressSequence": {
+						"type": "string",
+						"format": "byte"
+					},
+					"progressTypeCode": {
+						"type": "string"
+					},
+					"progressTypeName": {
+						"type": "string"
+					},
+					"progressRealName": {
+						"type": "string"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"format": "double"
+					},
+					"lotSize": {
+						"type": "number",
+						"format": "double"
+					},
+					"lotUnit": {
+						"type": "string"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"progressDefaultSpec": {
+						"type": "string"
+					},
+					"keyManagementContents": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProgressVendorDto": {
+				"type": "object",
+				"properties": {
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"vendorId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"unitCost": {
+						"type": "number"
+					},
+					"quantity": {
+						"type": "number"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"isDefaultVendor": {
+						"type": "boolean"
+					},
+					"createBy": {
+						"type": "string"
+					},
+					"createAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updateBy": {
+						"type": "string"
+					},
+					"updateAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"itemProgress": {
+						"$ref": "#/components/schemas/ItemProgressDto"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"compCode": {
+						"type": "string"
+					},
+					"compType": {
+						"type": "string"
+					},
+					"licenseNo": {
+						"type": "string"
+					},
+					"compName": {
+						"type": "string"
+					},
+					"ceoName": {
+						"type": "string"
+					},
+					"compEmail": {
+						"type": "string"
+					},
+					"telNumber": {
+						"type": "string"
+					},
+					"faxNumber": {
+						"type": "string"
+					},
+					"zipCode": {
+						"type": "string"
+					},
+					"addressDtl": {
+						"type": "string"
+					},
+					"addressMst": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProgressVendorUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"unitCost": {
+						"type": "number"
+					},
+					"quantity": {
+						"type": "number"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"isDefaultVendor": {
+						"type": "boolean"
+					},
+					"updateBy": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponseProgressVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/ProgressVendorDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ProgressRouteUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "is use",
+						"example": true
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item id (FK)",
+						"format": "int64",
+						"example": 1
+					},
+					"progressSequence": {
+						"type": "integer",
+						"description": "progress ord",
+						"format": "int32",
+						"example": 1
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type code",
+						"example": "CODE001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type name",
+						"example": "샘플명"
+					},
+					"progressRealName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress real name",
+						"example": "샘플명"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "default cycle time",
+						"format": "double"
+					},
+					"lotSize": {
+						"type": "number",
+						"description": "lot size",
+						"format": "double"
+					},
+					"lotUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "lot unit",
+						"example": "샘플값"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "optimal_progress_inventory_level",
+						"format": "double"
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "safety_progress_inventory_level",
+						"format": "double"
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress default specification",
+						"example": "샘플값"
+					},
+					"keyManagementContents": {
+						"type": "string",
+						"description": "key_management_contents",
+						"example": "샘플값"
+					}
+				},
+				"description": "ProgressRoute 일괄 Update 요청"
+			},
+			"CommonResponseListProgressRouteDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProgressRouteDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ProgressRouteUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "is use",
+						"example": true
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item id (FK)",
+						"format": "int64",
+						"example": 1
+					},
+					"progressSequence": {
+						"type": "integer",
+						"description": "progress ord",
+						"format": "int32",
+						"example": 1
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type code",
+						"example": "CODE001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type name",
+						"example": "샘플명"
+					},
+					"progressRealName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress real name",
+						"example": "샘플명"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "default cycle time",
+						"format": "double"
+					},
+					"lotSize": {
+						"type": "number",
+						"description": "lot size",
+						"format": "double"
+					},
+					"lotUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "lot unit",
+						"example": "샘플값"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "optimal_progress_inventory_level",
+						"format": "double"
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "safety_progress_inventory_level",
+						"format": "double"
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress default specification",
+						"example": "샘플값"
+					},
+					"keyManagementContents": {
+						"type": "string",
+						"description": "key_management_contents",
+						"example": "샘플값"
+					}
+				},
+				"description": "ProgressRoute Update 요청"
+			},
+			"CommonResponseProgressRouteDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/ProgressRouteDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"MbomUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"parentItemId": {
+						"type": "integer",
+						"description": "부모 item_id (완제품인 경우 null)",
+						"format": "int64",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item_id",
+						"format": "int64",
+						"example": 1
+					},
+					"isRoot": {
+						"type": "boolean",
+						"description": "완제품 여부 (true: 완제품, false: 투입품)",
+						"example": false
+					},
+					"parentProgressId": {
+						"type": "integer",
+						"description": "투입될 부모의 공정 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputNum": {
+						"type": "number",
+						"description": "부품 투입량",
+						"format": "float"
+					},
+					"itemProgressId": {
+						"type": "integer",
+						"description": "아이템의 투입공정ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputUnitCode": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "투입단위",
+						"example": "CODE001"
+					},
+					"inputUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위명",
+						"example": "샘플값"
+					}
+				},
+				"description": "Mbom 일괄 Update 요청"
+			},
+			"CommonResponseListMbomDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/MbomDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"MbomDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"parentItemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"isRoot": {
+						"type": "boolean"
+					},
+					"parentProgressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"inputNum": {
+						"type": "number",
+						"format": "float"
+					},
+					"itemProgressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"inputUnitCode": {
+						"type": "string"
+					},
+					"inputUnit": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"MbomUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"parentItemId": {
+						"type": "integer",
+						"description": "부모 item_id (완제품인 경우 null)",
+						"format": "int64",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item_id",
+						"format": "int64",
+						"example": 1
+					},
+					"isRoot": {
+						"type": "boolean",
+						"description": "완제품 여부 (true: 완제품, false: 투입품)",
+						"example": false
+					},
+					"parentProgressId": {
+						"type": "integer",
+						"description": "투입될 부모의 공정 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputNum": {
+						"type": "number",
+						"description": "부품 투입량",
+						"format": "float"
+					},
+					"itemProgressId": {
+						"type": "integer",
+						"description": "아이템의 투입공정ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputUnitCode": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "투입단위",
+						"example": "CODE001"
+					},
+					"inputUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위명",
+						"example": "샘플값"
+					}
+				},
+				"description": "Mbom Update 요청"
+			},
+			"CommonResponseMbomDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/MbomDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"FileLinkUpdateInfo": {
+				"required": ["ownerType", "url"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "FileLink ID",
+						"format": "int64",
+						"example": 1
+					},
+					"url": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "파일 URL",
+						"example": "https://example.com/file.jpg"
+					},
+					"ownerType": {
+						"type": "string",
+						"description": "소유자 타입",
+						"example": "ITEM_IMG",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN",
+							"ITEM_IMG",
+							"ITEM_DESIGN"
+						]
+					},
+					"sortOrder": {
+						"type": "integer",
+						"description": "정렬 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"isPrimary": {
+						"type": "boolean",
+						"description": "대표 이미지 여부",
+						"example": false
+					},
+					"description": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "설명",
+						"example": "제품 이미지"
+					}
+				},
+				"description": "FileLink 정보"
+			},
+			"ItemUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"itemNo": {
+						"type": "integer",
+						"description": "아이템번호",
+						"format": "int32",
+						"example": 1
+					},
+					"itemNumber": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "품번",
+						"example": "12345"
+					},
+					"itemName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "품명",
+						"example": "샘플명"
+					},
+					"itemSpec": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "규격",
+						"example": "샘플값"
+					},
+					"itemModel": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "모델명",
+						"example": "샘플값"
+					},
+					"itemType1Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품대분류",
+						"example": "샘플값"
+					},
+					"itemType2Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품중분류",
+						"example": "샘플값"
+					},
+					"itemType3Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품소분류",
+						"example": "샘플값"
+					},
+					"itemUnit": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위",
+						"example": "샘플값"
+					},
+					"lotSizeCode": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Lot 사이즈",
+						"example": "샘플값"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"description": "optimal_inventory_level (적정재고량)",
+						"format": "double",
+						"example": 100.5
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"description": "safety_inventory_level(안전재고량)",
+						"format": "double",
+						"example": 100.5
+					},
+					"fileUrls": {
+						"type": "array",
+						"description": "파일 링크 목록",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkUpdateInfo"
+						}
+					}
+				},
+				"description": "Item 일괄 Update 요청"
+			},
+			"CommonResponseListItemDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ItemDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ItemUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"itemNo": {
+						"type": "integer",
+						"description": "아이템번호",
+						"format": "int32",
+						"example": 1
+					},
+					"itemNumber": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "품번",
+						"example": "12345"
+					},
+					"itemName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "품명",
+						"example": "샘플명"
+					},
+					"itemSpec": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "규격",
+						"example": "샘플값"
+					},
+					"itemModel": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "모델명",
+						"example": "샘플값"
+					},
+					"itemType1Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품대분류",
+						"example": "샘플값"
+					},
+					"itemType2Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품중분류",
+						"example": "샘플값"
+					},
+					"itemType3Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품소분류",
+						"example": "샘플값"
+					},
+					"itemUnit": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위",
+						"example": "샘플값"
+					},
+					"lotSizeCode": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Lot 사이즈",
+						"example": "샘플값"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"description": "optimal_inventory_level (적정재고량)",
+						"format": "double",
+						"example": 100.5
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"description": "safety_inventory_level(안전재고량)",
+						"format": "double",
+						"example": 100.5
+					},
+					"fileUrls": {
+						"type": "array",
+						"description": "파일 링크 목록",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkUpdateInfo"
+						}
+					}
+				},
+				"description": "Item Update 요청"
+			},
+			"CommonResponseItemDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/ItemDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ItemProgressUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item 테이블 참조",
+						"format": "int64",
+						"example": 1
+					},
+					"progressOrder": {
+						"type": "integer",
+						"description": "공정 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"progressName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "공정 이름",
+						"example": "샘플명"
+					},
+					"isOutsourcing": {
+						"type": "boolean",
+						"description": "외주 공정 여부 (0: 내공정, 1: 외주)",
+						"example": true
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"type": "string",
+						"description": "공정 타입 코드",
+						"example": "001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정 타입 이름",
+						"example": "가공공정"
+					},
+					"unitWeight": {
+						"type": "number",
+						"description": "공정단중",
+						"format": "float",
+						"example": 1.5
+					},
+					"unitTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정단중의 단위",
+						"example": "kg"
+					},
+					"unitTypeCode": {
+						"maxLength": 50,
+						"type": "string",
+						"description": "공정단중 단위 Code값",
+						"example": "PRD-006-001"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "기본 사이클 타임",
+						"format": "float",
+						"example": 10.5
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "적정 공정 재고 수량",
+						"format": "float",
+						"example": 100
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "안전 공정 재고 수량",
+						"format": "float",
+						"example": 50
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"type": "string",
+						"description": "공정 기본 사양",
+						"example": "표준 사양"
+					},
+					"keyManagementContents": {
+						"maxLength": 1000,
+						"type": "string",
+						"description": "주요 관리 내용",
+						"example": "품질 관리, 생산성 향상"
+					}
+				},
+				"description": "ItemProgress 일괄 Update 요청"
+			},
+			"CommonResponseListItemProgressDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ItemProgressDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ItemProgressUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item 테이블 참조",
+						"format": "int64",
+						"example": 1
+					},
+					"progressOrder": {
+						"type": "integer",
+						"description": "공정 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"progressName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "공정 이름",
+						"example": "샘플명"
+					},
+					"isOutsourcing": {
+						"type": "boolean",
+						"description": "외주 공정 여부 (0: 내공정, 1: 외주)",
+						"example": true
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"type": "string",
+						"description": "공정 타입 코드",
+						"example": "001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정 타입 이름",
+						"example": "가공공정"
+					},
+					"unitWeight": {
+						"type": "number",
+						"description": "공정단중",
+						"format": "float",
+						"example": 1.5
+					},
+					"unitTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정단중의 단위",
+						"example": "kg"
+					},
+					"unitTypeCode": {
+						"maxLength": 50,
+						"type": "string",
+						"description": "공정단중 단위 Code값",
+						"example": "PRD-006-001"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "기본 사이클 타임",
+						"format": "float",
+						"example": 10.5
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "적정 공정 재고 수량",
+						"format": "float",
+						"example": 100
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "안전 공정 재고 수량",
+						"format": "float",
+						"example": 50
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"type": "string",
+						"description": "공정 기본 사양",
+						"example": "표준 사양"
+					},
+					"keyManagementContents": {
+						"maxLength": 1000,
+						"type": "string",
+						"description": "주요 관리 내용",
+						"example": "품질 관리, 생산성 향상"
+					}
+				},
+				"description": "ItemProgress Update 요청"
+			},
+			"CommonResponseItemProgressDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/ItemProgressDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"FileLinkUpdateAllRequest": {
+				"required": ["id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"ownerTable": {
+						"type": "string",
+						"description": "소유자 테이블명",
+						"example": "item"
+					},
+					"ownerType": {
+						"type": "string",
+						"description": "파일 종류",
+						"example": "ITEM_IMG",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN"
+						]
+					},
+					"ownerId": {
+						"type": "integer",
+						"description": "소유자 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"url": {
+						"type": "string",
+						"description": "파일 URL",
+						"example": "https://storage.com/file.jpg"
+					},
+					"sortOrder": {
+						"type": "integer",
+						"description": "정렬 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"isPrimary": {
+						"type": "boolean",
+						"description": "대표 여부",
+						"example": false
+					},
+					"description": {
+						"type": "string",
+						"description": "파일 설명",
+						"example": "대표 이미지"
+					}
+				}
+			},
+			"CommonResponseListFileLinkDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"FileLinkUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"ownerTable": {
+						"type": "string",
+						"description": "소유자 테이블명",
+						"example": "item"
+					},
+					"ownerType": {
+						"type": "string",
+						"description": "파일 종류",
+						"example": "ITEM_IMG",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN"
+						]
+					},
+					"ownerId": {
+						"type": "integer",
+						"description": "소유자 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"url": {
+						"type": "string",
+						"description": "파일 URL",
+						"example": "https://storage.com/file.jpg"
+					},
+					"sortOrder": {
+						"type": "integer",
+						"description": "정렬 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"isPrimary": {
+						"type": "boolean",
+						"description": "대표 여부",
+						"example": false
+					},
+					"description": {
+						"type": "string",
+						"description": "파일 설명",
+						"example": "대표 이미지"
+					}
+				}
+			},
+			"CommonResponseFileLinkDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/FileLinkDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"CodeUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "use state",
+						"example": true
+					},
+					"codeName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "code name ex) 베어링류",
+						"example": "CODE001"
+					},
+					"description": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "description",
+						"example": "샘플값"
+					}
+				},
+				"description": "Code Update 요청"
+			},
+			"CodeDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"codeGroupId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"codeGroup": {
+						"$ref": "#/components/schemas/CodeGroupDto"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"codeValue": {
+						"type": "string"
+					},
+					"codeName": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"CodeGroupDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"parentId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"isRoot": {
+						"type": "boolean"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"groupName": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"codes": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CodeDto"
+						}
+					},
+					"children": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CodeGroupDto"
+						}
+					}
+				}
+			},
+			"CommonResponseCodeDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/CodeDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"CodeGroupUpdateRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "use state",
+						"example": true
+					},
+					"parentId": {
+						"type": "integer",
+						"description": "parent code group id",
+						"format": "int64",
+						"example": 1
+					},
+					"isRoot": {
+						"type": "integer",
+						"description": "is root",
+						"format": "int32",
+						"example": 1
+					},
+					"groupName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "group name ex) 제품 분류",
+						"example": "샘플명"
+					},
+					"description": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "description",
+						"example": "샘플값"
+					}
+				},
+				"description": "CodeGroup Update 요청"
+			},
+			"CommonResponseCodeGroupDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/CodeGroupDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"VendorCreateRequest": {
+				"type": "object",
+				"properties": {
+					"compType": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp type",
+						"example": "COM-004-003"
+					},
+					"licenseNo": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "License no",
+						"example": "12345"
+					},
+					"compName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp name",
+						"example": "샘플명"
+					},
+					"ceoName": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Ceo name",
+						"example": "샘플명"
+					},
+					"compEmail": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "Comp email",
+						"example": "샘플값"
+					},
+					"telNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Tel number",
+						"example": "12345"
+					},
+					"faxNumber": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Fax number",
+						"example": "12345"
+					},
+					"zipCode": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "Zip code",
+						"example": "CODE001"
+					},
+					"addressDtl": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address dtl",
+						"example": "샘플값"
+					},
+					"addressMst": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "Address mst",
+						"example": "샘플값"
+					}
+				},
+				"description": "Vendor Create 요청"
+			},
+			"TerminalCreateRequest": {
+				"type": "object",
+				"properties": {
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"terminalName": {
+						"maxLength": 30,
+						"minLength": 0,
+						"type": "string",
+						"description": "Terminal name",
+						"example": "샘플명"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description",
+						"example": "샘플값"
+					},
+					"imageUrl": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "Image url",
+						"example": "샘플값"
+					}
+				},
+				"description": "Terminal Create 요청"
+			},
+			"RootProductCreateRequest": {
+				"required": ["itemId", "productName"],
+				"type": "object",
+				"properties": {
+					"itemId": {
+						"type": "integer",
+						"description": "아이템 ID",
+						"format": "int64",
+						"example": 151962761891840
+					},
+					"productName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품명",
+						"example": "스마트폰 A"
+					},
+					"productCode": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품 코드",
+						"example": "PROD-001"
+					},
+					"description": {
+						"maxLength": 500,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품 설명",
+						"example": "고성능 스마트폰"
+					},
+					"isActive": {
+						"type": "boolean",
+						"description": "활성 상태",
+						"example": true
+					}
+				},
+				"description": "루트 제품 생성 요청"
+			},
+			"CommonResponseRootProductDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/RootProductDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"RootProductDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"productName": {
+						"type": "string"
+					},
+					"productCode": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"totalProcessCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"totalInputItemCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProgressVendorCreateRequest": {
+				"type": "object",
+				"properties": {
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"vendorId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"unitCost": {
+						"type": "number"
+					},
+					"quantity": {
+						"type": "number"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"isDefaultVendor": {
+						"type": "boolean"
+					},
+					"createBy": {
+						"type": "string"
+					}
+				}
+			},
+			"ProgressRouteCreateRequest": {
+				"type": "object",
+				"properties": {
+					"itemId": {
+						"type": "integer",
+						"description": "item id (FK)",
+						"format": "int64",
+						"example": 1
+					},
+					"progressSequence": {
+						"type": "integer",
+						"description": "progress ord",
+						"format": "int32",
+						"example": 1
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type code",
+						"example": "CODE001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress type name",
+						"example": "샘플명"
+					},
+					"progressRealName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress real name",
+						"example": "샘플명"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "default cycle time",
+						"format": "double",
+						"example": 1000
+					},
+					"lotSize": {
+						"type": "number",
+						"description": "lot size",
+						"format": "double",
+						"example": 1000
+					},
+					"lotUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "lot unit",
+						"example": "샘플값"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "optimal_progress_inventory_level",
+						"format": "double",
+						"example": 100.5
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "safety_progress_inventory_level",
+						"format": "double",
+						"example": 100.5
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"minLength": 0,
+						"type": "string",
+						"description": "progress default specification",
+						"example": "샘플값"
+					},
+					"keyManagementContents": {
+						"type": "string",
+						"description": "key_management_contents",
+						"example": "샘플값"
+					}
+				},
+				"description": "ProgressRoute Create 요청"
+			},
+			"MbomCreateRequest": {
+				"type": "object",
+				"properties": {
+					"parentItemId": {
+						"type": "integer",
+						"description": "부모 item_id (완제품인 경우 null)",
+						"format": "int64",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item_id",
+						"format": "int64",
+						"example": 1
+					},
+					"isRoot": {
+						"type": "boolean",
+						"description": "완제품 여부 (true: 완제품, false: 투입품)",
+						"example": false
+					},
+					"parentProgressId": {
+						"type": "integer",
+						"description": "투입될 부모의 공정 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputNum": {
+						"type": "number",
+						"description": "부품 투입량",
+						"format": "float",
+						"example": 100.5
+					},
+					"itemProgressId": {
+						"type": "integer",
+						"description": "아이템의 투입공정ID",
+						"format": "int64",
+						"example": 1
+					},
+					"inputUnitCode": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "투입단위",
+						"example": "CODE001"
+					},
+					"inputUnit": {
+						"maxLength": 10,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위명",
+						"example": "샘플값"
+					}
+				},
+				"description": "Mbom Create 요청"
+			},
+			"ItemCreateRequest": {
+				"type": "object",
+				"properties": {
+					"itemNumber": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "품번 ",
+						"example": "12345"
+					},
+					"itemName": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "품명",
+						"example": "샘플명"
+					},
+					"itemSpec": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "규격",
+						"example": "샘플값"
+					},
+					"itemModel": {
+						"maxLength": 45,
+						"minLength": 0,
+						"type": "string",
+						"description": "모델명",
+						"example": "샘플값"
+					},
+					"itemType1Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품대분류",
+						"example": "샘플값"
+					},
+					"itemType2Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품중분류",
+						"example": "샘플값"
+					},
+					"itemType3Code": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "제품소분류",
+						"example": "샘플값"
+					},
+					"itemUnit": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "단위",
+						"example": "샘플값"
+					},
+					"lotSizeCode": {
+						"maxLength": 50,
+						"minLength": 0,
+						"type": "string",
+						"description": "Lot 사이즈",
+						"example": "샘플값"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"description": "optimal_inventory_level (적정재고량)",
+						"format": "double",
+						"example": 100
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"description": "safety_inventory_level(안전재고량)",
+						"format": "double",
+						"example": 100
+					},
+					"fileUrls": {
+						"type": "array",
+						"description": "FileUrl",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkUpdateInfo"
+						}
+					}
+				},
+				"description": "Item Create 요청"
+			},
+			"ItemProgressCreateRequest": {
+				"required": ["progressName"],
+				"type": "object",
+				"properties": {
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item 테이블 참조",
+						"format": "int64",
+						"example": 1
+					},
+					"progressOrder": {
+						"type": "integer",
+						"description": "공정 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"progressName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "공정 이름",
+						"example": "샘플명"
+					},
+					"isOutsourcing": {
+						"type": "boolean",
+						"description": "외주 공정 여부 (0: 내공정, 1: 외주)",
+						"example": true
+					},
+					"progressTypeCode": {
+						"maxLength": 3,
+						"type": "string",
+						"description": "공정 타입 코드",
+						"example": "001"
+					},
+					"progressTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정 타입 이름",
+						"example": "가공공정"
+					},
+					"unitWeight": {
+						"type": "number",
+						"description": "공정단중",
+						"format": "float",
+						"example": 1.5
+					},
+					"unitTypeName": {
+						"maxLength": 100,
+						"type": "string",
+						"description": "공정단중의 단위",
+						"example": "kg"
+					},
+					"unitTypeCode": {
+						"maxLength": 50,
+						"type": "string",
+						"description": "공정단중 단위 Code값",
+						"example": "PRD-006-001"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "기본 사이클 타임",
+						"format": "float",
+						"example": 10.5
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "적정 공정 재고 수량",
+						"format": "float",
+						"example": 100
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "안전 공정 재고 수량",
+						"format": "float",
+						"example": 50
+					},
+					"progressDefaultSpec": {
+						"maxLength": 200,
+						"type": "string",
+						"description": "공정 기본 사양",
+						"example": "표준 사양"
+					},
+					"keyManagementContents": {
+						"maxLength": 1000,
+						"type": "string",
+						"description": "주요 관리 내용",
+						"example": "품질 관리, 생산성 향상"
+					}
+				},
+				"description": "ItemProgress Create 요청"
+			},
+			"FileLinkCreateRequest": {
+				"type": "object",
+				"properties": {
+					"ownerTable": {
+						"type": "string",
+						"description": "소유자 테이블명",
+						"example": "item"
+					},
+					"ownerType": {
+						"type": "string",
+						"description": "파일 종류",
+						"example": "ITEM_IMG",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN"
+						]
+					},
+					"ownerId": {
+						"type": "integer",
+						"description": "소유자 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"url": {
+						"type": "string",
+						"description": "파일 URL",
+						"example": "https://storage.com/file.jpg"
+					},
+					"sortOrder": {
+						"type": "integer",
+						"description": "정렬 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"isPrimary": {
+						"type": "boolean",
+						"description": "대표 여부",
+						"example": false
+					},
+					"description": {
+						"type": "string",
+						"description": "파일 설명",
+						"example": "대표 이미지"
+					}
+				}
+			},
+			"CodeCreateRequest": {
+				"required": ["codeName"],
+				"type": "object",
+				"properties": {
+					"codeGroupId": {
+						"type": "integer",
+						"description": "FK",
+						"format": "int64",
+						"example": 1
+					},
+					"codeName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "code name ex) 베어링류",
+						"example": "CODE001"
+					},
+					"description": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "description",
+						"example": "샘플값"
+					}
+				},
+				"description": "Code Create 요청"
+			},
+			"CodeGroupCreateRequest": {
+				"required": ["groupName"],
+				"type": "object",
+				"properties": {
+					"parentId": {
+						"type": "integer",
+						"description": "parent code group id",
+						"format": "int64",
+						"example": 1
+					},
+					"isRoot": {
+						"type": "integer",
+						"description": "is root",
+						"format": "int32",
+						"example": 1
+					},
+					"groupCode": {
+						"maxLength": 3,
+						"minLength": 0,
+						"type": "string",
+						"description": "group code ex) PRD, 001 (자동 생성 시 생략 가능)",
+						"example": "CODE001"
+					},
+					"groupName": {
+						"maxLength": 100,
+						"minLength": 0,
+						"type": "string",
+						"description": "group name ex) 제품 분류",
+						"example": "샘플명"
+					},
+					"description": {
+						"maxLength": 255,
+						"minLength": 0,
+						"type": "string",
+						"description": "description",
+						"example": "샘플값"
+					}
+				},
+				"description": "CodeGroup Create 요청"
+			},
+			"CommonResponseMapStringObject": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "object"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponseBoolean": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "boolean"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"VendorSearchRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용 여부",
+						"example": true
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					},
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"compCode": {
+						"type": "string",
+						"description": "Comp code",
+						"example": "CODE001"
+					},
+					"compType": {
+						"type": "string",
+						"description": "Comp type",
+						"example": "COM-004-003"
+					},
+					"licenseNo": {
+						"type": "string",
+						"description": "License no",
+						"example": "12345"
+					},
+					"compName": {
+						"type": "string",
+						"description": "Comp name",
+						"example": "샘플명"
+					},
+					"ceoName": {
+						"type": "string",
+						"description": "Ceo name",
+						"example": "샘플명"
+					},
+					"compEmail": {
+						"type": "string",
+						"description": "Comp email",
+						"example": "샘플값"
+					},
+					"telNumber": {
+						"type": "string",
+						"description": "Tel number",
+						"example": "12345"
+					},
+					"faxNumber": {
+						"type": "string",
+						"description": "Fax number",
+						"example": "12345"
+					},
+					"zipCode": {
+						"type": "string",
+						"description": "Zip code",
+						"example": "CODE001"
+					},
+					"addressDtl": {
+						"type": "string",
+						"description": "Address dtl",
+						"example": "샘플값"
+					},
+					"addressMst": {
+						"type": "string",
+						"description": "Address mst",
+						"example": "샘플값"
+					}
+				},
+				"description": "Vendor 검색 요청"
+			},
+			"CommonResponsePageVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageVendorDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageVendorDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/VendorDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"PageableObject": {
+				"type": "object",
+				"properties": {
+					"offset": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"pageNumber": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"paged": {
+						"type": "boolean"
+					},
+					"unpaged": {
+						"type": "boolean"
+					}
+				}
+			},
+			"SortObject": {
+				"type": "object",
+				"properties": {
+					"empty": {
+						"type": "boolean"
+					},
+					"sorted": {
+						"type": "boolean"
+					},
+					"unsorted": {
+						"type": "boolean"
+					}
+				}
+			},
+			"CommonResponseListObject": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"type": "object"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"TerminalSearchRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용 여부",
+						"example": true
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					},
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"terminalCode": {
+						"type": "string",
+						"description": "Terminal code",
+						"example": "CODE001"
+					},
+					"terminalName": {
+						"type": "string",
+						"description": "Terminal name",
+						"example": "샘플명"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description",
+						"example": "샘플값"
+					},
+					"imageUrl": {
+						"type": "string",
+						"description": "Image url",
+						"example": "샘플값"
+					}
+				},
+				"description": "Terminal 검색 요청"
+			},
+			"CommonResponsePageTerminalDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageTerminalDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageTerminalDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TerminalDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"ProgressVendorSearchRequest": {
+				"type": "object",
+				"properties": {
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"vendorId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"minUnitCost": {
+						"type": "number"
+					},
+					"maxUnitCost": {
+						"type": "number"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"isDefaultVendor": {
+						"type": "boolean"
+					},
+					"createBy": {
+						"type": "string"
+					},
+					"updateBy": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponsePageProgressVendorDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageProgressVendorDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageProgressVendorDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProgressVendorDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"ProgressRouteSearchRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용 여부",
+						"example": true
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					},
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item id (FK)",
+						"format": "int64",
+						"example": 1
+					},
+					"progressSequence": {
+						"type": "integer",
+						"description": "progress ord",
+						"format": "int32",
+						"example": 1
+					},
+					"progressTypeCode": {
+						"type": "string",
+						"description": "progress type code",
+						"example": "CODE001"
+					},
+					"progressTypeName": {
+						"type": "string",
+						"description": "progress type name",
+						"example": "샘플명"
+					},
+					"progressRealName": {
+						"type": "string",
+						"description": "progress real name",
+						"example": "샘플명"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "default cycle time",
+						"format": "double"
+					},
+					"lotSize": {
+						"type": "number",
+						"description": "lot size",
+						"format": "double"
+					},
+					"lotUnit": {
+						"type": "string",
+						"description": "lot unit",
+						"example": "샘플값"
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "optimal_progress_inventory_level",
+						"format": "double"
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "safety_progress_inventory_level",
+						"format": "double"
+					},
+					"progressDefaultSpec": {
+						"type": "string",
+						"description": "progress default specification",
+						"example": "샘플값"
+					},
+					"keyManagementContents": {
+						"type": "string",
+						"description": "key_management_contents",
+						"example": "샘플값"
+					}
+				},
+				"description": "ProgressRoute 검색 요청"
+			},
+			"CommonResponsePageProgressRouteDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageProgressRouteDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageProgressRouteDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProgressRouteDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"CommonResponseListProcessTreeNodeDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProcessTreeNodeDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ProcessTreeNodeDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					},
+					"icon": {
+						"type": "string"
+					},
+					"disabled": {
+						"type": "boolean"
+					},
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"progressName": {
+						"type": "string"
+					},
+					"progressOrder": {
+						"type": "string",
+						"format": "byte"
+					},
+					"progressTypeName": {
+						"type": "string"
+					},
+					"isOutsourcing": {
+						"type": "boolean"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"format": "float"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemName": {
+						"type": "string"
+					},
+					"itemNumber": {
+						"type": "string"
+					},
+					"mbomId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"rootItemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"parentItemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"inputNum": {
+						"type": "number",
+						"format": "float"
+					},
+					"inputUnit": {
+						"type": "string"
+					},
+					"inputUnitCode": {
+						"type": "string"
+					},
+					"nodeType": {
+						"type": "string"
+					},
+					"level": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"path": {
+						"type": "string"
+					},
+					"hasChildren": {
+						"type": "boolean"
+					},
+					"childrenCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"CommonResponseListMbomListDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/MbomListDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ItemInfo": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemNo": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"itemNumber": {
+						"type": "string"
+					},
+					"itemName": {
+						"type": "string"
+					},
+					"itemSpec": {
+						"type": "string"
+					},
+					"itemModel": {
+						"type": "string"
+					},
+					"itemType1": {
+						"type": "string"
+					},
+					"itemType2": {
+						"type": "string"
+					},
+					"itemType3": {
+						"type": "string"
+					},
+					"itemUnit": {
+						"type": "string"
+					},
+					"lotSize": {
+						"type": "string"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"isUse": {
+						"type": "boolean"
+					}
+				}
+			},
+			"MbomListDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"parentItemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"isRoot": {
+						"type": "boolean"
+					},
+					"parentProgressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemProgressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"inputNum": {
+						"type": "number",
+						"format": "float"
+					},
+					"inputUnitCode": {
+						"type": "string"
+					},
+					"inputUnit": {
+						"type": "string"
+					},
+					"item": {
+						"$ref": "#/components/schemas/ItemInfo"
+					},
+					"parentProgress": {
+						"$ref": "#/components/schemas/ProgressInfo"
+					},
+					"itemProgress": {
+						"$ref": "#/components/schemas/ProgressInfo"
+					},
+					"depth": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"path": {
+						"type": "string"
+					},
+					"sequence": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"hasChildren": {
+						"type": "boolean"
+					},
+					"childrenCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProgressInfo": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"progressName": {
+						"type": "string"
+					},
+					"progressOrder": {
+						"type": "string",
+						"format": "byte"
+					},
+					"progressTypeCode": {
+						"type": "string"
+					},
+					"progressTypeName": {
+						"type": "string"
+					},
+					"isOutsourcing": {
+						"type": "boolean"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"format": "float"
+					},
+					"progressDefaultSpec": {
+						"type": "string"
+					},
+					"keyManagementContents": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponseFullBomTreeDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/FullBomTreeDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"FullBomTreeDto": {
+				"type": "object",
+				"properties": {
+					"rootItems": {
+						"type": "array",
+						"description": "루트 아이템들 (공정별 그룹화)",
+						"example": [],
+						"items": {
+							"$ref": "#/components/schemas/RootItemTreeDto"
+						}
+					},
+					"totalCount": {
+						"type": "integer",
+						"description": "전체 BOM 개수",
+						"format": "int64",
+						"example": 150
+					},
+					"rootItemCount": {
+						"type": "integer",
+						"description": "루트 아이템 개수",
+						"format": "int32",
+						"example": 5
+					}
+				},
+				"description": "전체 BOM 트리 응답"
+			},
+			"InputItemDto": {
+				"type": "object",
+				"properties": {
+					"mbomId": {
+						"type": "integer",
+						"description": "MBOM ID",
+						"format": "int64",
+						"example": 155230503243776
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "아이템 ID",
+						"format": "int64",
+						"example": 154039377530880
+					},
+					"itemName": {
+						"type": "string",
+						"description": "아이템명",
+						"example": "아몬드 브리즈"
+					},
+					"inputNum": {
+						"type": "number",
+						"description": "투입량",
+						"format": "float",
+						"example": 1
+					},
+					"inputUnitCode": {
+						"type": "string",
+						"description": "투입 단위 코드",
+						"example": "PRD-006-001"
+					},
+					"inputUnit": {
+						"type": "string",
+						"description": "투입 단위명",
+						"example": "EA"
+					},
+					"path": {
+						"type": "string",
+						"description": "경로",
+						"example": "1.1"
+					},
+					"productInfo": {
+						"$ref": "#/components/schemas/ProductInfoDto"
+					},
+					"createdAt": {
+						"type": "string",
+						"description": "생성일시",
+						"example": "2025-09-10 19:02:24"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "dev-user"
+					}
+				},
+				"description": "공정 투입품 정보 DTO"
+			},
+			"ProcessNodeDto": {
+				"type": "object",
+				"properties": {
+					"progressId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"progressOrder": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"progressName": {
+						"type": "string"
+					},
+					"progressTypeName": {
+						"type": "string"
+					},
+					"inputItems": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/InputItemDto"
+						}
+					},
+					"path": {
+						"type": "string"
+					},
+					"inputItemCount": {
+						"type": "integer",
+						"format": "int32"
+					}
+				}
+			},
+			"ProductInfoDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemNo": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"itemNumber": {
+						"type": "string"
+					},
+					"itemName": {
+						"type": "string"
+					},
+					"itemSpec": {
+						"type": "string"
+					},
+					"itemModel": {
+						"type": "string"
+					},
+					"itemType1": {
+						"type": "string"
+					},
+					"itemType2": {
+						"type": "string"
+					},
+					"itemType3": {
+						"type": "string"
+					},
+					"itemUnit": {
+						"type": "string"
+					},
+					"lotSize": {
+						"type": "string"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					}
+				},
+				"description": "제품 정보"
+			},
+			"RootItemTreeDto": {
+				"type": "object",
+				"properties": {
+					"rootItemId": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"productInfo": {
+						"$ref": "#/components/schemas/ProductInfoDto"
+					},
+					"processTree": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProcessNodeDto"
+						}
+					},
+					"totalProcessCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"totalInputItemCount": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"description": "루트 아이템들 (공정별 그룹화)",
+				"example": []
+			},
+			"ItemSearchRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용 여부",
+						"example": true
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					},
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"itemNo": {
+						"type": "integer",
+						"description": "아이템번호",
+						"format": "int32",
+						"example": 1
+					},
+					"itemNumber": {
+						"type": "string",
+						"description": "품번 ",
+						"example": "12345"
+					},
+					"itemName": {
+						"type": "string",
+						"description": "품명",
+						"example": "샘플명"
+					},
+					"itemSpec": {
+						"type": "string",
+						"description": "규격",
+						"example": "샘플값"
+					},
+					"itemModel": {
+						"type": "string",
+						"description": "모델명",
+						"example": "샘플값"
+					},
+					"itemType1Code": {
+						"type": "string",
+						"description": "제품대분류",
+						"example": "샘플값"
+					},
+					"itemType2Code": {
+						"type": "string",
+						"description": "제품중분류",
+						"example": "샘플값"
+					},
+					"itemType3Code": {
+						"type": "string",
+						"description": "제품소분류",
+						"example": "샘플값"
+					},
+					"itemUnit": {
+						"type": "string",
+						"description": "단위",
+						"example": "샘플값"
+					},
+					"lotSizeCode": {
+						"type": "string",
+						"description": "Lot 사이즈",
+						"example": "샘플값"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"description": "optimal_inventory_level (적정재고량)",
+						"format": "double"
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"description": "safety_inventory_level(안전재고량)",
+						"format": "double"
+					}
+				},
+				"description": "Item 검색 요청"
+			},
+			"CommonResponsePageItemSearchResponse": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageItemSearchResponse"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"ItemSearchResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"itemNo": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"itemNumber": {
+						"type": "string"
+					},
+					"itemName": {
+						"type": "string"
+					},
+					"itemSpec": {
+						"type": "string"
+					},
+					"itemModel": {
+						"type": "string"
+					},
+					"itemUnit": {
+						"type": "string"
+					},
+					"lotSize": {
+						"type": "string"
+					},
+					"optimalInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"safetyInventoryQty": {
+						"type": "number",
+						"format": "double"
+					},
+					"isUse": {
+						"type": "boolean"
+					},
+					"isDelete": {
+						"type": "boolean"
+					},
+					"createdBy": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedBy": {
+						"type": "string"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"tenantId": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"itemType1Code": {
+						"type": "string"
+					},
+					"itemType1Value": {
+						"type": "string"
+					},
+					"itemType2Code": {
+						"type": "string"
+					},
+					"itemType2Value": {
+						"type": "string"
+					},
+					"itemType3Code": {
+						"type": "string"
+					},
+					"itemType3Value": {
+						"type": "string"
+					},
+					"lotSizeCode": {
+						"type": "string"
+					},
+					"lotSizeValue": {
+						"type": "string"
+					},
+					"fileUrls": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkDto"
+						}
+					}
+				}
+			},
+			"PageItemSearchResponse": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ItemSearchResponse"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"ItemProgressSearchRequest": {
+				"type": "object",
+				"properties": {
+					"isUse": {
+						"type": "boolean",
+						"description": "사용 여부",
+						"example": true
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					},
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"accountYear": {
+						"type": "integer",
+						"description": "데이터 회계년",
+						"format": "int32",
+						"example": 1
+					},
+					"itemId": {
+						"type": "integer",
+						"description": "item 테이블 참조",
+						"format": "int64",
+						"example": 1
+					},
+					"progressOrder": {
+						"type": "integer",
+						"description": "공정 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"progressName": {
+						"type": "string",
+						"description": "공정 이름",
+						"example": "샘플명"
+					},
+					"isOutsourcing": {
+						"type": "boolean",
+						"description": "외주 공정 여부 (0: 내공정, 1: 외주)",
+						"example": true
+					},
+					"progressTypeCode": {
+						"type": "string",
+						"description": "공정 타입 코드",
+						"example": "001"
+					},
+					"progressTypeName": {
+						"type": "string",
+						"description": "공정 타입 이름",
+						"example": "가공공정"
+					},
+					"unitWeight": {
+						"type": "number",
+						"description": "공정단중",
+						"format": "float",
+						"example": 1.5
+					},
+					"unitTypeName": {
+						"type": "string",
+						"description": "공정단중의 단위",
+						"example": "kg"
+					},
+					"unitTypeCode": {
+						"type": "string",
+						"description": "공정단중 단위 Code값",
+						"example": "PRD-006-001"
+					},
+					"defaultCycleTime": {
+						"type": "number",
+						"description": "기본 사이클 타임",
+						"format": "float",
+						"example": 10.5
+					},
+					"optimalProgressInventoryQty": {
+						"type": "number",
+						"description": "적정 공정 재고 수량",
+						"format": "float",
+						"example": 100
+					},
+					"safetyProgressInventoryQty": {
+						"type": "number",
+						"description": "안전 공정 재고 수량",
+						"format": "float",
+						"example": 50
+					},
+					"progressDefaultSpec": {
+						"type": "string",
+						"description": "공정 기본 사양",
+						"example": "표준 사양"
+					},
+					"keyManagementContents": {
+						"type": "string",
+						"description": "주요 관리 내용",
+						"example": "품질 관리, 생산성 향상"
+					}
+				},
+				"description": "ItemProgress 검색 요청"
+			},
+			"CommonResponsePageItemProgressDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageItemProgressDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageItemProgressDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ItemProgressDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"FileLinkSearchRequest": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "ID",
+						"format": "int64",
+						"example": 1
+					},
+					"isUse": {
+						"type": "boolean",
+						"description": "사용여부",
+						"example": true
+					},
+					"ownerTable": {
+						"type": "string",
+						"description": "소유자 테이블명",
+						"example": "item"
+					},
+					"ownerType": {
+						"type": "string",
+						"description": "파일 종류",
+						"example": "ITEM_IMG",
+						"enum": [
+							"ITEM_IMG",
+							"ITEM_DESIGN",
+							"ITEM_PROGRESS_DESIGN",
+							"MACHINE_IMG",
+							"MACHINE_INSPECTION_IMG",
+							"MOLD_DESIGN"
+						]
+					},
+					"ownerId": {
+						"type": "integer",
+						"description": "소유자 ID",
+						"format": "int64",
+						"example": 1
+					},
+					"url": {
+						"type": "string",
+						"description": "파일 URL",
+						"example": "https://storage.com/file.jpg"
+					},
+					"sortOrder": {
+						"type": "integer",
+						"description": "정렬 순서",
+						"format": "int32",
+						"example": 1
+					},
+					"isPrimary": {
+						"type": "boolean",
+						"description": "대표 여부",
+						"example": false
+					},
+					"description": {
+						"type": "string",
+						"description": "파일 설명",
+						"example": "대표 이미지"
+					},
+					"createdAtStart": {
+						"type": "string",
+						"description": "생성일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"createdAtEnd": {
+						"type": "string",
+						"description": "생성일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"createdBy": {
+						"type": "string",
+						"description": "생성자",
+						"example": "admin"
+					},
+					"updatedAtStart": {
+						"type": "string",
+						"description": "수정일시 시작",
+						"example": "2024-01-01T00:00:00"
+					},
+					"updatedAtEnd": {
+						"type": "string",
+						"description": "수정일시 종료",
+						"example": "2024-12-31T23:59:59"
+					},
+					"updatedBy": {
+						"type": "string",
+						"description": "수정자",
+						"example": "admin"
+					}
+				}
+			},
+			"CommonResponsePageFileLinkDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"$ref": "#/components/schemas/PageFileLinkDto"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"PageFileLinkDto": {
+				"type": "object",
+				"properties": {
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/FileLinkDto"
+						}
+					},
+					"number": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"sort": {
+						"$ref": "#/components/schemas/SortObject"
+					},
+					"numberOfElements": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageable": {
+						"$ref": "#/components/schemas/PageableObject"
+					},
+					"first": {
+						"type": "boolean"
+					},
+					"last": {
+						"type": "boolean"
+					},
+					"empty": {
+						"type": "boolean"
+					}
+				}
+			},
+			"CommonResponseListCodeGroupDto": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CodeGroupDto"
+						}
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			},
+			"CommonResponseObject": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "string"
+					},
+					"data": {
+						"type": "object"
+					},
+					"message": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"BearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+/* Remove border and border radius */
+.fr-box,
+.fr-wrapper {
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Remove inner border line between toolbar and content */
+.fr-toolbar {
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+.fr-second-toolbar {
+	display: none !important;
+}
+
+/* Dark mode for the content area */
+.dark-theme.fr-box.fr-basic .fr-element {
+	background: #020817 !important;
+	color: #f0efef !important;
+	/* z-index: 1; */
+}
+
+/* Dark mode for the second toolbar */
+.dark-theme .fr-second-toolbar {
+	background: #353535 !important;
+}
+
+/* Optional: links inside editor in dark mode */
+.dark-theme .fr-element a {
+	color: #80bdff !important;
+}

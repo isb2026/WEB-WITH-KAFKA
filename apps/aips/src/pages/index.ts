@@ -1,0 +1,15 @@
+// import { DashboardPage } from './DashboardPage';
+export * from './master-data';
+export * from './resource-data';
+export * from './mes-integration';
+export * from './demand';
+export * from './master-planning';
+export * from './execution-monitoring';
+export * from './detail-scheduling';
+export * from './simulation';
+export * from './system-admin';
+export * from './reports';
+// export * from './aps';
+// export * from './mrp';
+// export * from './ini';
+// export * from './dummy-fake-data';

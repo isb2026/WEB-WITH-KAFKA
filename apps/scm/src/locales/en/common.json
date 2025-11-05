@@ -1,0 +1,63 @@
+{
+  "tabs": {
+    "titles": {
+      "vendorManagement": "Vendor Management",
+      "itemManagement": "Item Management", 
+      "orderManagement": "Order Management",
+      "dashboardManagement": "Dashboard",
+      "settingsManagement": "Settings"
+    },
+    "labels": {
+      "list": "List",
+      "detailList": "Detail List",
+      "overallStatus": "Overall Status",
+      "analysis": "Analysis",
+      "dashboard": "Dashboard"
+    },
+    "actions": {
+      "register": "Register",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "search": "Search",
+      "reset": "Reset",
+      "export": "Export",
+      "import": "Import"
+    }
+  },
+  "pages": {
+    "titles": {
+      "vendorList": "Vendor List",
+      "itemList": "Item List",
+      "orderList": "Order List",
+      "dashboard": "Dashboard"
+    }
+  },
+  "fields": {
+    "id": "ID",
+    "name": "Name",
+    "code": "Code",
+    "description": "Description",
+    "status": "Status",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "vendorName": "Vendor Name",
+    "itemName": "Item Name",
+    "orderNumber": "Order Number"
+  },
+  "common": {
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "An error occurred",
+    "success": "Successfully processed",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalidFormat": "Invalid format",
+    "tooShort": "Too short",
+    "tooLong": "Too long"
+  }
+}

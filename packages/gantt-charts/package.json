@@ -1,0 +1,26 @@
+{
+  "name": "@repo/gantt-charts",
+  "version": "1.0.0",
+  "description": "Gantt chart components using gantt-task-react",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["gantt", "chart", "react", "typescript"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gantt-task-react": "^0.3.9"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

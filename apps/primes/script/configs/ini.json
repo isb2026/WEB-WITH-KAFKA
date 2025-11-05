@@ -1,0 +1,1080 @@
+{
+	"modules": {
+		"vendor": {
+			"name": "거래처 관리",
+			"path": "ini/vendor",
+			"route": "/ini/vendor",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/vendor/list",
+					"pageName": "IniVendorListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "거래처 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["compCode", "compType", "licenseNo"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "isUse",
+							"header": "isUse",
+							"size": 150
+						},
+						{
+							"accessorKey": "compCode",
+							"header": "compCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "compType",
+							"header": "compType",
+							"size": 150
+						},
+						{
+							"accessorKey": "licenseNo",
+							"header": "licenseNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "compName",
+							"header": "compName",
+							"size": 150
+						},
+						{
+							"accessorKey": "ceoName",
+							"header": "ceoName",
+							"size": 150
+						},
+						{
+							"accessorKey": "compEmail",
+							"header": "compEmail",
+							"size": 200
+						},
+						{
+							"accessorKey": "telNumber",
+							"header": "telNumber",
+							"size": 130
+						},
+						{
+							"accessorKey": "faxNumber",
+							"header": "faxNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "zipCode",
+							"header": "zipCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "addressDtl",
+							"header": "addressDtl",
+							"size": 250
+						},
+						{
+							"accessorKey": "addressMst",
+							"header": "addressMst",
+							"size": 250
+						},
+						{
+							"accessorKey": "itemProgress",
+							"header": "itemProgress",
+							"size": 150
+						}
+					],
+					"dataHook": "useVendor"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniVendorRegisterPage",
+					"title": "거래처 관리 등록",
+					"hookName": "useVendor",
+					"formFields": [
+						{
+							"name": "compCode",
+							"label": "compCode",
+							"type": "text",
+							"placeholder": "Comp code",
+							"required": false,
+							"maxLength": 5
+						},
+						{
+							"name": "compType",
+							"label": "compType",
+							"type": "text",
+							"placeholder": "Comp type",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "licenseNo",
+							"label": "licenseNo",
+							"type": "text",
+							"placeholder": "License no",
+							"required": false,
+							"mask": "000-00-00000",
+							"maxLength": 20
+						},
+						{
+							"name": "compName",
+							"label": "compName",
+							"type": "textarea",
+							"placeholder": "Comp name",
+							"required": false,
+							"maxLength": 255
+						},
+						{
+							"name": "ceoName",
+							"label": "ceoName",
+							"type": "text",
+							"placeholder": "Ceo name",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "compEmail",
+							"label": "compEmail",
+							"type": "text",
+							"placeholder": "Comp email",
+							"required": false,
+							"maxLength": 45
+						},
+						{
+							"name": "telNumber",
+							"label": "telNumber",
+							"type": "tel",
+							"placeholder": "Tel number",
+							"required": false,
+							"mask": "000-0000-0000",
+							"maskAutoDetect": true,
+							"maxLength": 20
+						},
+						{
+							"name": "faxNumber",
+							"label": "faxNumber",
+							"type": "text",
+							"placeholder": "Fax number",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "zipCode",
+							"label": "zipCode",
+							"type": "text",
+							"placeholder": "Zip code",
+							"required": false,
+							"maxLength": 10
+						},
+						{
+							"name": "addressDtl",
+							"label": "addressDtl",
+							"type": "textarea",
+							"placeholder": "Address dtl",
+							"required": false,
+							"maxLength": 255
+						},
+						{
+							"name": "addressMst",
+							"label": "addressMst",
+							"type": "textarea",
+							"placeholder": "Address mst",
+							"required": false,
+							"maxLength": 255
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "Building",
+				"name": "menu.ini_vendor",
+				"to": "/ini/vendor/list"
+			}
+		},
+		"terminal": {
+			"name": "terminal 관리",
+			"path": "ini/terminal",
+			"route": "/ini/terminal",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/terminal/list",
+					"pageName": "IniTerminalListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "terminal 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": [
+							"terminalCode",
+							"terminalName",
+							"description"
+						]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "isUse",
+							"header": "isUse",
+							"size": 150
+						},
+						{
+							"accessorKey": "accountYear",
+							"header": "accountYear",
+							"size": 100
+						},
+						{
+							"accessorKey": "terminalCode",
+							"header": "terminalCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "terminalName",
+							"header": "terminalName",
+							"size": 150
+						},
+						{
+							"accessorKey": "description",
+							"header": "description",
+							"size": 200
+						},
+						{
+							"accessorKey": "imageUrl",
+							"header": "imageUrl",
+							"size": 150
+						}
+					],
+					"dataHook": "useTerminal"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniTerminalRegisterPage",
+					"title": "terminal 관리 등록",
+					"hookName": "useTerminal",
+					"formFields": [
+						{
+							"name": "accountYear",
+							"label": "accountYear",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "terminalCode",
+							"label": "terminalCode",
+							"type": "text",
+							"placeholder": "Terminal code",
+							"required": false,
+							"maxLength": 10
+						},
+						{
+							"name": "terminalName",
+							"label": "terminalName",
+							"type": "text",
+							"placeholder": "Terminal name",
+							"required": false,
+							"maxLength": 30
+						},
+						{
+							"name": "description",
+							"label": "description",
+							"type": "text",
+							"placeholder": "Description",
+							"required": false
+						},
+						{
+							"name": "imageUrl",
+							"label": "imageUrl",
+							"type": "text",
+							"placeholder": "Image url",
+							"required": false,
+							"maxLength": 100
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_terminal",
+				"to": "/ini/terminal/list"
+			}
+		},
+		"progressRoute": {
+			"name": "progress-route 관리",
+			"path": "ini/progress-route",
+			"route": "/ini/progress-route",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/progress-route/list",
+					"pageName": "IniProgressRouteListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "progress-route 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": []
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "isUse",
+							"header": "isUse",
+							"size": 150
+						},
+						{
+							"accessorKey": "accountYear",
+							"header": "accountYear",
+							"size": 100
+						},
+						{
+							"accessorKey": "compNo",
+							"header": "compNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "machineNo",
+							"header": "machineNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progressNo",
+							"header": "progressNo",
+							"size": 100
+						}
+					],
+					"dataHook": "useProgressRoute"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniProgressRouteRegisterPage",
+					"title": "progress-route 관리 등록",
+					"hookName": "useProgressRoute",
+					"formFields": [
+						{
+							"name": "accountYear",
+							"label": "accountYear",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "compNo",
+							"label": "compNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "itemNo",
+							"label": "itemNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "machineNo",
+							"label": "machineNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "progressNo",
+							"label": "progressNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_progress-route",
+				"to": "/ini/progress-route/list"
+			}
+		},
+		"item": {
+			"name": "품목 관리",
+			"path": "ini/item",
+			"route": "/ini/item",
+			"pageType": "singlePage",
+			"fieldApi": true,
+			"customSelect": {
+				"defaultValueKey": "id",
+				"defaultLabelKey": "itemName",
+				"defaultFieldKey": "itemName"
+			},
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/item/list",
+					"pageName": "IniItemListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "품목 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["itemNumber", "itemName", "itemSpec"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "isUse",
+							"header": "isUse",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemModel",
+							"header": "itemModel",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemType1",
+							"header": "itemType1",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemType2",
+							"header": "itemType2",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemType3",
+							"header": "itemType3",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemUnit",
+							"header": "itemUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotSize",
+							"header": "lotSize",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemProgress",
+							"header": "itemProgress",
+							"size": 150
+						}
+					],
+					"dataHook": "useItem"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniItemRegisterPage",
+					"title": "품목 관리 등록",
+					"hookName": "useItem",
+					"formFields": [
+						{
+							"name": "itemNo",
+							"label": "itemNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "itemNumber",
+							"label": "itemNumber",
+							"type": "text",
+							"placeholder": "SCR-A001",
+							"required": false,
+							"maxLength": 45
+						},
+						{
+							"name": "itemName",
+							"label": "itemName",
+							"type": "textarea",
+							"placeholder": "Screw A",
+							"required": false,
+							"maxLength": 255
+						},
+						{
+							"name": "itemSpec",
+							"label": "itemSpec",
+							"type": "textarea",
+							"placeholder": "5mm x 10mm",
+							"required": false,
+							"maxLength": 255
+						},
+						{
+							"name": "itemModel",
+							"label": "itemModel",
+							"type": "text",
+							"placeholder": "SM-A123456",
+							"required": false,
+							"maxLength": 45
+						},
+						{
+							"name": "itemType1",
+							"label": "itemType1",
+							"type": "text",
+							"placeholder": "001",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "itemType2",
+							"label": "itemType2",
+							"type": "text",
+							"placeholder": "001",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "itemType3",
+							"label": "itemType3",
+							"type": "text",
+							"placeholder": "004",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "itemUnit",
+							"label": "itemUnit",
+							"type": "text",
+							"placeholder": "PCS",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "lotSize",
+							"label": "lotSize",
+							"type": "text",
+							"placeholder": "001",
+							"required": false,
+							"maxLength": 3
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "Package",
+				"name": "menu.ini_item",
+				"to": "/ini/item/list"
+			}
+		},
+		"itemProgress": {
+			"name": "item-progress 관리",
+			"path": "ini/item-progress",
+			"route": "/ini/item-progress",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/item-progress/list",
+					"pageName": "IniItemProgressListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "item-progress 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": [
+							"progressOrder", 
+							"progressName", 
+							"progressTypeCode", 
+							"progressTypeName",
+							"progressRealName"
+						]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "progressOrder",
+							"header": "progressOrder",
+							"size": 100,
+							"minSize": 80
+						},
+						{
+							"accessorKey": "progressName",
+							"header": "progressName",
+							"size": 150,
+							"minSize": 120
+						},
+						{
+							"accessorKey": "progressTypeCode",
+							"header": "progressTypeCode",
+							"size": 120,
+							"minSize": 100
+						},
+						{
+							"accessorKey": "progressTypeName",
+							"header": "progressTypeName",
+							"size": 150,
+							"minSize": 120
+						},
+						{
+							"accessorKey": "progressRealName",
+							"header": "progressRealName",
+							"size": 150
+						},
+						{
+							"accessorKey": "isOutsourcing",
+							"header": "isOutsourcing",
+							"size": 150
+						},
+						{
+							"accessorKey": "defaultCycleTime",
+							"header": "defaultCycleTime",
+							"size": 120,
+							"minSize": 100
+						},
+
+
+						{
+							"accessorKey": "optimalProgressInventoryQty",
+							"header": "optimalProgressInventoryQty",
+							"size": 150,
+							"minSize": 120
+						},
+						{
+							"accessorKey": "safetyProgressInventoryQty",
+							"header": "safetyProgressInventoryQty",
+							"size": 80
+						}
+					],
+					"dataHook": "useItemProgress"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniItemProgressRegisterPage",
+					"title": "item-progress 관리 등록",
+					"hookName": "useItemProgress",
+					"formFields": [
+						{
+							"name": "progressName",
+							"label": "progressName",
+							"type": "text",
+							"placeholder": "공정 이름",
+							"required": true
+						},
+						{
+							"name": "progressOrder",
+							"label": "progressOrder",
+							"type": "text",
+							"placeholder": "공정 순서",
+							"required": false
+						},
+						{
+							"name": "progressTypeCode",
+							"label": "progressTypeCode",
+							"type": "text",
+							"placeholder": "공정 타입 코드",
+							"required": false
+						},
+						{
+							"name": "progressTypeName",
+							"label": "progressTypeName",
+							"type": "text",
+							"placeholder": "공정 타입명",
+							"required": false
+						},
+						{
+							"name": "progressRealName",
+							"label": "progressRealName",
+							"type": "text",
+							"placeholder": "공정 실명",
+							"required": false
+						},
+						{
+							"name": "defaultCycleTime",
+							"label": "defaultCycleTime",
+							"type": "number",
+							"placeholder": "기본 사이클 타임 (분)",
+							"required": false
+						},
+						{
+							"name": "optimalProgressInventoryQty",
+							"label": "optimalProgressInventoryQty",
+							"type": "number",
+							"placeholder": "적정 공정 재고량",
+							"required": false
+						},
+						{
+							"name": "safetyProgressInventoryQty",
+							"label": "safetyProgressInventoryQty",
+							"type": "number",
+							"placeholder": "안전 공정 재고량",
+							"required": false
+						},
+						{
+							"name": "progressDefaultSpec",
+							"label": "progressDefaultSpec",
+							"type": "textarea",
+							"placeholder": "공정 기본 사양",
+							"required": false
+						},
+						{
+							"name": "keyManagementContents",
+							"label": "keyManagementContents",
+							"type": "textarea",
+							"placeholder": "핵심 관리 내용",
+							"required": false
+						},
+						{
+							"name": "isOutsourcing",
+							"label": "isOutsourcing",
+							"type": "boolean",
+							"placeholder": true,
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_item-progress",
+				"to": "/ini/item-progress/list"
+			}
+		},
+		"code": {
+			"name": "code 관리",
+			"path": "ini/code",
+			"route": "/ini/code",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/code/list",
+					"pageName": "IniCodeListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "code 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": []
+					},
+					"searchSlotFields": [],
+					"columns": [],
+					"dataHook": "useCode"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniCodeRegisterPage",
+					"title": "code 관리 등록",
+					"hookName": "useCode",
+					"formFields": [
+						{
+							"name": "codeGroupId",
+							"label": "codeGroupId",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "codeValue",
+							"label": "codeValue",
+							"type": "text",
+							"placeholder": "코드 값",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "codeName",
+							"label": "codeName",
+							"type": "text",
+							"placeholder": "코드 이름",
+							"required": false,
+							"maxLength": 100
+						},
+						{
+							"name": "description",
+							"label": "description",
+							"type": "text",
+							"placeholder": "코드 설명",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_code",
+				"to": "/ini/code/list"
+			}
+		},
+		"codeGroup": {
+			"name": "code-group 관리",
+			"path": "ini/code-group",
+			"route": "/ini/code-group",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/code-group/list",
+					"pageName": "IniCodeGroupListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "code-group 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": []
+					},
+					"searchSlotFields": [],
+					"columns": [],
+					"dataHook": "useCodeGroup"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "IniCodeGroupRegisterPage",
+					"title": "code-group 관리 등록",
+					"hookName": "useCodeGroup",
+					"formFields": [
+						{
+							"name": "parentId",
+							"label": "parentId",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "isRoot",
+							"label": "isRoot",
+							"type": "text",
+							"placeholder": true,
+							"required": false
+						},
+						{
+							"name": "groupCode",
+							"label": "groupCode",
+							"type": "text",
+							"placeholder": "Group code",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "groupName",
+							"label": "groupName",
+							"type": "text",
+							"placeholder": "Group name",
+							"required": false,
+							"maxLength": 100
+						},
+						{
+							"name": "description",
+							"label": "description",
+							"type": "textarea",
+							"placeholder": "Description",
+							"required": false,
+							"maxLength": 255
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_code-group",
+				"to": "/ini/code-group/list"
+			}
+		},
+		"codes": {
+			"name": "codes 관리",
+			"path": "ini/codes",
+			"route": "/ini/codes",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/ini/codes/list",
+					"pageName": "IniCodesListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "codes 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["groupCode", "groupName", "description"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "parentId",
+							"header": "parentId",
+							"size": 80
+						},
+						{
+							"accessorKey": "isRoot",
+							"header": "isRoot",
+							"size": 150
+						},
+						{
+							"accessorKey": "groupCode",
+							"header": "groupCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "groupName",
+							"header": "groupName",
+							"size": 150
+						},
+						{
+							"accessorKey": "isUse",
+							"header": "isUse",
+							"size": 150
+						},
+						{
+							"accessorKey": "description",
+							"header": "description",
+							"size": 200
+						},
+						{
+							"accessorKey": "codes",
+							"header": "codes",
+							"size": 120
+						},
+						{
+							"accessorKey": "children",
+							"header": "children",
+							"size": 150
+						}
+					],
+					"dataHook": "useCodes"
+				}
+			],
+			"actions": [],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.ini_codes",
+				"to": "/ini/codes/list"
+			}
+		}
+	}
+}

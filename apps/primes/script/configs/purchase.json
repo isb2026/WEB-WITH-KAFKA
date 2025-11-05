@@ -1,0 +1,1457 @@
+{
+	"modules": {
+		"purchase": {
+			"name": "purchase 관리",
+			"path": "purchase/purchase",
+			"route": "/purchase/purchase",
+			"pageType": "masterDetailPage",
+			"fieldApi": true,
+			"customSelect": {
+				"defaultValueKey": "id",
+				"defaultLabelKey": "name",
+				"defaultFieldKey": "purchaseOrderCode"
+			},
+			"tabs": [
+				{
+					"id": "related-list",
+					"name": "상세 목록",
+					"type": "masterDetailPage",
+					"path": "/purchase/purchase/related-list",
+					"pageName": "PurchaseMasterDetailPage",
+					"icon": "Table",
+					"default": true,
+					"tableControl": {
+						"title": "purchase 관리 상세",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["purchaseCode", "purchaseType", "vendorName"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseCode",
+							"label": "purchaseCode",
+							"type": "text",
+							"placeholder": "purchaseCode을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseType",
+							"label": "purchaseType",
+							"type": "text",
+							"placeholder": "purchaseType을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "text",
+							"placeholder": "업체명을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseDate",
+							"label": "purchaseDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "deliveryLocationCode",
+							"label": "deliveryLocationCode",
+							"type": "text",
+							"placeholder": "deliveryLocationCode을(를) 입력하세요"
+						},
+						{
+							"name": "deliveryLocation",
+							"label": "deliveryLocation",
+							"type": "text",
+							"placeholder": "deliveryLocation을(를) 입력하세요"
+						},
+						{
+							"name": "requestDate",
+							"label": "requestDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "currencyUnit을(를) 입력하세요"
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": "isApproval을(를) 입력하세요"
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "approvalBy을(를) 입력하세요"
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "approvalAt을(를) 입력하세요"
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": "isClose을(를) 입력하세요"
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "closeBy을(를) 입력하세요"
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "closeAt을(를) 입력하세요"
+						}
+					],
+					"masterColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "purchaseCode",
+							"header": "purchaseCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "purchaseType",
+							"header": "purchaseType",
+							"size": 150
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorName",
+							"header": "업체명",
+							"size": 150
+						},
+						{
+							"accessorKey": "purchaseDate",
+							"header": "purchaseDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "deliveryLocationCode",
+							"header": "deliveryLocationCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "deliveryLocation",
+							"header": "deliveryLocation",
+							"size": 150
+						},
+						{
+							"accessorKey": "requestDate",
+							"header": "requestDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "isApproval",
+							"header": "isApproval",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalBy",
+							"header": "approvalBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalAt",
+							"header": "approvalAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "isClose",
+							"header": "isClose",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeBy",
+							"header": "closeBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeAt",
+							"header": "closeAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "purchaseDetails",
+							"header": "purchaseDetails",
+							"size": 150
+						}
+					],
+					"detailColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "purchaseMasterId",
+							"header": "purchaseMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "purchaseMaster",
+							"header": "purchaseMaster",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "unit",
+							"header": "unit",
+							"size": 150
+						},
+						{
+							"accessorKey": "number",
+							"header": "number",
+							"size": 100
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "unitPrice",
+							"header": "unitPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "netPrice",
+							"header": "netPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "grossPrice",
+							"header": "grossPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "requestDate",
+							"header": "requestDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "vat",
+							"header": "vat",
+							"size": 100
+						}
+					],
+					"masterDataHook": "usePurchaseMaster",
+					"detailDataHook": "usePurchaseDetail"
+				},
+				{
+					"id": "list",
+					"name": "전체 현황",
+					"type": "singlePage",
+					"path": "/purchase/purchase/list",
+					"pageName": "PurchaseListPage",
+					"icon": "FileText",
+					"default": false,
+					"tableControl": {
+						"title": "purchase 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["purchaseCode", "purchaseType", "vendorName"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseCode",
+							"label": "purchaseCode",
+							"type": "text",
+							"placeholder": "purchaseCode을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseType",
+							"label": "purchaseType",
+							"type": "text",
+							"placeholder": "purchaseType을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "text",
+							"placeholder": "업체명을(를) 입력하세요"
+						},
+						{
+							"name": "purchaseDate",
+							"label": "purchaseDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "deliveryLocationCode",
+							"label": "deliveryLocationCode",
+							"type": "text",
+							"placeholder": "deliveryLocationCode을(를) 입력하세요"
+						},
+						{
+							"name": "deliveryLocation",
+							"label": "deliveryLocation",
+							"type": "text",
+							"placeholder": "deliveryLocation을(를) 입력하세요"
+						},
+						{
+							"name": "requestDate",
+							"label": "requestDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "currencyUnit을(를) 입력하세요"
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": "isApproval을(를) 입력하세요"
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "approvalBy을(를) 입력하세요"
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "approvalAt을(를) 입력하세요"
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": "isClose을(를) 입력하세요"
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "closeBy을(를) 입력하세요"
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "closeAt을(를) 입력하세요"
+						}
+					],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "purchaseCode",
+							"header": "purchaseCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "purchaseType",
+							"header": "purchaseType",
+							"size": 150
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorName",
+							"header": "업체명",
+							"size": 150
+						},
+						{
+							"accessorKey": "purchaseDate",
+							"header": "purchaseDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "deliveryLocationCode",
+							"header": "deliveryLocationCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "deliveryLocation",
+							"header": "deliveryLocation",
+							"size": 150
+						},
+						{
+							"accessorKey": "requestDate",
+							"header": "requestDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "isApproval",
+							"header": "isApproval",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalBy",
+							"header": "approvalBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalAt",
+							"header": "approvalAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "isClose",
+							"header": "isClose",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeBy",
+							"header": "closeBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeAt",
+							"header": "closeAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "purchaseDetails",
+							"header": "purchaseDetails",
+							"size": 150
+						}
+					],
+					"dataHook": "usePurchase"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "navigation",
+					"pageName": "PurchaseRegisterPage",
+					"title": "purchase 관리 등록",
+					"hookName": "usePurchase",
+					"formFields": [
+						{
+							"name": "purchaseCode",
+							"label": "purchaseCode",
+							"type": "text",
+							"placeholder": "발주코드",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "purchaseType",
+							"label": "purchaseType",
+							"type": "text",
+							"placeholder": "발주구분",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "textarea",
+							"placeholder": "업체명",
+							"required": false,
+							"maxLength": 200
+						},
+						{
+							"name": "purchaseDate",
+							"label": "purchaseDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						},
+						{
+							"name": "deliveryLocationCode",
+							"label": "deliveryLocationCode",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "deliveryLocation",
+							"label": "deliveryLocation",
+							"type": "textarea",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false,
+							"maxLength": 200
+						},
+						{
+							"name": "requestDate",
+							"label": "requestDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "통화단위",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": true,
+							"required": false
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "승인자명",
+							"required": false,
+							"maxLength": 25
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": true,
+							"required": false
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "마감자명",
+							"required": false,
+							"maxLength": 25
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						}
+					],
+					"path": "/purchase/purchase/register"
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.purchase_purchase",
+				"to": "/purchase/purchase/related-list"
+			}
+		},
+		"itemsVendor": {
+			"name": "Item-Vendor Management",
+			"path": "purchase/items-vendor",
+			"route": "/purchase/items-vendor",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "Status",
+					"type": "singlePage",
+					"path": "/purchase/items-vendor/list",
+					"pageName": "PurchaseItemsVendorListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "Item-Vendor Management List",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["vendorItemName", "vendorItemNumber", "boxType"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorItemName",
+							"header": "vendorItemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "vendorItemNumber",
+							"header": "vendorItemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "price",
+							"header": "price",
+							"size": 100
+						},
+						{
+							"accessorKey": "isDefault",
+							"header": "isDefault",
+							"size": 150
+						},
+						{
+							"accessorKey": "boxType",
+							"header": "boxType",
+							"size": 150
+						},
+						{
+							"accessorKey": "boxLabel",
+							"header": "boxLabel",
+							"size": 150
+						},
+						{
+							"accessorKey": "boxSize",
+							"header": "boxSize",
+							"size": 100
+						},
+						{
+							"accessorKey": "memo",
+							"header": "memo",
+							"size": 200
+						},
+						{
+							"accessorKey": "sboxSize",
+							"header": "sboxSize",
+							"size": 100
+						},
+						{
+							"accessorKey": "sboxCnt",
+							"header": "sboxCnt",
+							"size": 100
+						}
+					],
+					"dataHook": "useItemsVendor"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "PurchaseItemsVendorRegisterPage",
+					"title": "Item-Vendor Registration",
+					"hookName": "useItemsVendor",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.purchase_items-vendor",
+				"to": "/purchase/items-vendor/list"
+			}
+		},
+		"itemPriceHistory": {
+			"name": "item-price-history 관리",
+			"path": "purchase/item-price-history",
+			"route": "/purchase/item-price-history",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/purchase/item-price-history/list",
+					"pageName": "PurchaseItemPriceHistoryListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "item-price-history 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["applyDate", "reasonDesc"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "applyDate",
+							"header": "applyDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "beforePrice",
+							"header": "beforePrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "afterPrice",
+							"header": "afterPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "reasonDesc",
+							"header": "reasonDesc",
+							"size": 150
+						}
+					],
+					"dataHook": "useItemPriceHistory"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "PurchaseItemPriceHistoryRegisterPage",
+					"title": "item-price-history 관리 등록",
+					"hookName": "useItemPriceHistory",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.purchase_item-price-history",
+				"to": "/purchase/item-price-history/list"
+			}
+		},
+		"incoming": {
+			"name": "incoming 관리",
+			"path": "purchase/incoming",
+			"route": "/purchase/incoming",
+			"pageType": "masterDetailPage",
+			"tabs": [
+				{
+					"id": "related-list",
+					"name": "상세 목록",
+					"type": "masterDetailPage",
+					"path": "/purchase/incoming/related-list",
+					"pageName": "PurchaseIncomingMasterDetailPage",
+					"icon": "Table",
+					"default": true,
+					"tableControl": {
+						"title": "incoming 관리 상세",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["incomingCode", "vendorName", "incomingDate"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "incomingCode",
+							"label": "incomingCode",
+							"type": "text",
+							"placeholder": "incomingCode을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "text",
+							"placeholder": "업체명을(를) 입력하세요"
+						},
+						{
+							"name": "incomingDate",
+							"label": "incomingDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "currencyUnit을(를) 입력하세요"
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": "isApproval을(를) 입력하세요"
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "approvalBy을(를) 입력하세요"
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "approvalAt을(를) 입력하세요"
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": "isClose을(를) 입력하세요"
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "closeBy을(를) 입력하세요"
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "closeAt을(를) 입력하세요"
+						}
+					],
+					"masterColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "incomingCode",
+							"header": "incomingCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorName",
+							"header": "업체명",
+							"size": 150
+						},
+						{
+							"accessorKey": "incomingDate",
+							"header": "incomingDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "isApproval",
+							"header": "isApproval",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalBy",
+							"header": "approvalBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalAt",
+							"header": "approvalAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "isClose",
+							"header": "isClose",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeBy",
+							"header": "closeBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeAt",
+							"header": "closeAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "incomingDetails",
+							"header": "incomingDetails",
+							"size": 150
+						}
+					],
+					"detailColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "incomingMasterId",
+							"header": "incomingMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "incomingMaster",
+							"header": "incomingMaster",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "unit",
+							"header": "unit",
+							"size": 150
+						},
+						{
+							"accessorKey": "number",
+							"header": "number",
+							"size": 100
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "unitPrice",
+							"header": "unitPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "netPrice",
+							"header": "netPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "grossPrice",
+							"header": "grossPrice",
+							"size": 100
+						},
+						{
+							"accessorKey": "memo",
+							"header": "memo",
+							"size": 200
+						},
+						{
+							"accessorKey": "vat",
+							"header": "vat",
+							"size": 100
+						}
+					],
+					"masterDataHook": "useIncomingMaster",
+					"detailDataHook": "useIncomingDetail"
+				},
+				{
+					"id": "list",
+					"name": "전체 현황",
+					"type": "singlePage",
+					"path": "/purchase/incoming/list",
+					"pageName": "PurchaseIncomingListPage",
+					"icon": "FileText",
+					"default": false,
+					"tableControl": {
+						"title": "incoming 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["incomingCode", "vendorName", "incomingDate"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "incomingCode",
+							"label": "incomingCode",
+							"type": "text",
+							"placeholder": "incomingCode을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "text",
+							"placeholder": "업체명을(를) 입력하세요"
+						},
+						{
+							"name": "incomingDate",
+							"label": "incomingDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "currencyUnit을(를) 입력하세요"
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": "isApproval을(를) 입력하세요"
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "approvalBy을(를) 입력하세요"
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "approvalAt을(를) 입력하세요"
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": "isClose을(를) 입력하세요"
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "closeBy을(를) 입력하세요"
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "closeAt을(를) 입력하세요"
+						}
+					],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "incomingCode",
+							"header": "incomingCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "vendorName",
+							"header": "업체명",
+							"size": 150
+						},
+						{
+							"accessorKey": "incomingDate",
+							"header": "incomingDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "currencyUnit",
+							"header": "currencyUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "isApproval",
+							"header": "isApproval",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalBy",
+							"header": "approvalBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "approvalAt",
+							"header": "approvalAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "isClose",
+							"header": "isClose",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeBy",
+							"header": "closeBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "closeAt",
+							"header": "closeAt",
+							"size": 120
+						},
+						{
+							"accessorKey": "incomingDetails",
+							"header": "incomingDetails",
+							"size": 150
+						}
+					],
+					"dataHook": "useIncoming"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "navigation",
+					"pageName": "PurchaseIncomingRegisterPage",
+					"title": "incoming 관리 등록",
+					"hookName": "useIncoming",
+					"formFields": [
+						{
+							"name": "incomingCode",
+							"label": "incomingCode",
+							"type": "text",
+							"placeholder": "입고코드",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "vendorName",
+							"label": "업체명",
+							"type": "textarea",
+							"placeholder": "업체명",
+							"required": false,
+							"maxLength": 200
+						},
+						{
+							"name": "incomingDate",
+							"label": "incomingDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						},
+						{
+							"name": "currencyUnit",
+							"label": "currencyUnit",
+							"type": "text",
+							"placeholder": "통화단위",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "isApproval",
+							"label": "isApproval",
+							"type": "text",
+							"placeholder": true,
+							"required": false
+						},
+						{
+							"name": "approvalBy",
+							"label": "approvalBy",
+							"type": "text",
+							"placeholder": "승인자명",
+							"required": false,
+							"maxLength": 25
+						},
+						{
+							"name": "approvalAt",
+							"label": "approvalAt",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						},
+						{
+							"name": "isClose",
+							"label": "isClose",
+							"type": "text",
+							"placeholder": true,
+							"required": false
+						},
+						{
+							"name": "closeBy",
+							"label": "closeBy",
+							"type": "text",
+							"placeholder": "마감자명",
+							"required": false,
+							"maxLength": 25
+						},
+						{
+							"name": "closeAt",
+							"label": "closeAt",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						}
+					],
+					"path": "/purchase/incoming/register"
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.purchase_incoming",
+				"to": "/purchase/incoming/related-list"
+			}
+		}
+	}
+}

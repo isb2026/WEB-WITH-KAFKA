@@ -1,0 +1,177 @@
+/*-----------------------------------------------
+|   Group Panel
+-----------------------------------------------*/
+
+.group-panel-header {
+	min-height: 3rem;
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	border: none;
+	border-radius: 0;
+	padding: 0.5rem 1.25rem;
+	overflow: hidden;
+	// &:before,
+	// &:after {
+	// 	border-radius: 50%;
+	// 	height: 12.5rem;
+	// 	width: 12.5rem;
+	// }
+	// &:before {
+	// 	left: 5.125rem;
+	// 	top: 1.188rem;
+	// }
+	// &:after {
+	// 	right: -6.25rem;
+	// 	top: -7.938rem;
+	// }
+
+	.btn-close {
+		z-index: 1;
+		position: absolute;
+		top: 6px;
+		right: 7px;
+		color: white;
+		opacity: 0.75;
+		padding-top: 0.75rem;
+		margin-top: 0;
+		margin-right: map_get($spacers, 1);
+		outline: 0;
+		@include hover-focus {
+			&:not(:disabled),
+			&:not(.disabled) {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.btn-navbar-vertical,
+.btn-navbar-top {
+	border-color: var(--#{$prefix}gray-400);
+	&.active {
+		border-color: var(--#{$prefix}primary);
+		background-color: var(--#{$prefix}primary);
+		color: #fff;
+	}
+}
+.btn-theme-default,
+.btn-theme-dark {
+	width: 50%;
+	padding: 0;
+	&.focus,
+	&:focus {
+		box-shadow: none;
+	}
+	.custom-control-label {
+		cursor: pointer;
+	}
+
+	.hover-overlay {
+		border: 3px solid transparent;
+		position: relative;
+		overflow: hidden;
+		border-radius: $border-radius-lg;
+		display: block;
+		&:after {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: transparent;
+			z-index: 1;
+			transition: $transition-base;
+		}
+	}
+	@include hover-focus {
+		.hover-overlay {
+			&:after {
+				background: rgba($black, 0.2);
+			}
+		}
+	}
+	&.active {
+		box-shadow: none;
+		.hover-overlay {
+			border: 3px solid var(--#{$prefix}success);
+		}
+	}
+
+	.form-check {
+		text-align: start;
+
+		.form-check-input {
+			&:focus {
+				box-shadow: none;
+			}
+		}
+		.form-check-input:checked {
+			background-color: var(--#{$prefix}success);
+			border-color: var(--#{$prefix}success);
+		}
+	}
+}
+
+.btn-theme-default {
+	margin-right: map_get($spacers, 2);
+	box-shadow: none;
+}
+.btn-theme-dark {
+	margin-left: map_get($spacers, 2);
+}
+
+.btn-group-navbar-style {
+	.btn {
+		border-radius: $border-radius !important;
+		label:first-child {
+			background-color: var(--#{$prefix}gray-100);
+			border: 3px solid var(--#{$prefix}gray-300);
+			border-radius: $border-radius-lg;
+		}
+		&.active {
+			label:first-child {
+				border-color: var(--#{$prefix}success);
+			}
+		}
+		&.focus,
+		&:focus {
+			box-shadow: none !important;
+		}
+		&.disabled label {
+			cursor: not-allowed;
+		}
+	}
+}
+
+.group-toggle {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	text-decoration: none;
+	transform: rotate(-90deg) translate3d(-50%, 30px, 0);
+	z-index: 1016;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-top: -83px;
+	box-shadow: var(--#{$prefix}setting-toggle-shadow);
+	cursor: pointer;
+
+	// .position-fixed.top-50.end-0.card.setting-toggle.text-decoration-none
+
+	@include media-breakpoint-down(sm) {
+		transform: rotate(-90deg);
+		outline: none;
+		.bg-primary-subtle {
+			background-color: transparent !important;
+		}
+		small {
+			display: none;
+		}
+	}
+
+	&:hover {
+		text-decoration: none !important;
+	}
+}

@@ -1,0 +1,56 @@
+// Notwork Master-Detail 통합 관리를 위한 최상위 Composite Hook
+import { useNotworkMaster, useNotworkMasterById } from './useNotworkMaster';
+import {
+	useNotworkDetail,
+	useNotworkDetailByMasterId,
+	useNotworkDetailById,
+} from './useNotworkDetail';
+import {
+	NotworkMasterListParams,
+	NotworkDetailListParams,
+} from '@primes/types/production/notwork';
+
+/**
+ * Notwork Master-Detail 통합 Composite Hook
+ * Master와 Detail을 함께 관리하는 최상위 인터페이스
+ */
+export const useNotwork = (
+	masterParams: NotworkMasterListParams,
+	detailParams?: NotworkDetailListParams
+) => {
+	const master = useNotworkMaster(masterParams);
+	const detail = detailParams ? useNotworkDetail(detailParams) : null;
+
+	return {
+		master,
+		detail,
+	};
+};
+
+/**
+ * Master-Detail 관계 조회를 위한 특화 Hook
+ */
+export const useNotworkMasterDetail = (
+	masterParams: NotworkMasterListParams,
+	selectedMasterId?: number,
+	detailPage?: number,
+	detailSize?: number
+) => {
+	const master = useNotworkMaster(masterParams);
+	const masterDetail = selectedMasterId
+		? useNotworkMasterById(selectedMasterId)
+		: { data: null, isLoading: false, error: null };
+	const details = selectedMasterId
+		? useNotworkDetailByMasterId(selectedMasterId, detailPage, detailSize)
+		: { data: null, isLoading: false, error: null };
+
+	return {
+		master,
+		masterDetail,
+		details,
+	};
+};
+
+// 기존 호환성을 위한 export
+export { useNotworkMaster } from './useNotworkMaster';
+export { useNotworkDetail } from './useNotworkDetail';

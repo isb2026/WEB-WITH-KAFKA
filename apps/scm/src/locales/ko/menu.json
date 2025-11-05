@@ -1,0 +1,84 @@
+{
+	"menuGroup": {
+		"dashboard": "대시보드",
+		"order": "주문 관리",
+		"process": "공정 관리",
+		"quality": "품질 검사 관리",
+		"shipping": "출하 배송 관리",
+		"settlement": "정산 관리",
+		"material": "소재/제품 관리",
+		"mes_integration": "MES 연동",
+		"partner": "협력업체 관리",
+		"analytics": "분석 및 리포트",
+		"settings": "시스템 설정"
+	},
+	"menu": {
+		"dashboard_overview": "외주 SCM 대시보드",
+		"dashboard_workload": "작업 현황 모니터링",
+		"dashboard_alerts": "긴급 알림 센터",
+		"dashboard_kpi": "외주 KPI 대시보드",
+
+		"order_receive": "주문 접수",
+		"order_material_check": "소재 확인",
+		"order_work_order": "작업 지시서 발행",
+		"order_schedule": "주문 일정 관리",
+		"order_tracking": "진행 상황 추적",
+
+		"process_management": "공정 진행 관리",
+		"process_monitoring": "실시간 모니터링",
+		"process_completion": "공정 완료 보고",
+		"process_delay": "지연 관리",
+		"process_rework": "재작업 관리",
+
+		"quality_incoming": "인수 검사",
+		"quality_in_process": "공정 중 검사",
+		"quality_final": "완료 검사",
+		"quality_defect": "불량 처리",
+		"quality_certificate": "품질 성적서",
+		"quality_standards": "검사 기준 관리",
+
+		"shipping_preparation": "출하 준비",
+		"shipping_delivery": "배송 관리",
+		"shipping_direct": "직납 처리",
+		"shipping_tracking": "배송 추적",
+		"shipping_return": "반품 처리",
+
+		"settlement_statement": "거래명세서 발행",
+		"settlement_processing_cost": "가공비 정산",
+		"settlement_tax_invoice": "세금계산서 발행",
+		"settlement_payment": "대금 결제",
+		"settlement_history": "정산 이력",
+
+		"material_inventory": "소재 재고",
+		"material_product_check": "제품 확인",
+		"material_allocation": "소재 할당",
+		"material_shortage": "소재 부족 관리",
+		"material_return": "소재/제품 반납",
+
+		"mes_sync": "MES 데이터 동기화",
+		"mes_order": "주문 연동",
+		"mes_progress": "진행 상황 피드백",
+		"mes_quality": "품질 정보 연동",
+		"mes_completion": "완료 보고 연동",
+
+		"partner_management": "협력업체 관리",
+		"partner_evaluation": "협력업체 평가",
+		"partner_contract": "가공 계약 관리",
+		"partner_performance": "가공 성과 관리",
+		"partner_portal": "협력업체 포털",
+		"partner_certification": "협력업체 인증",
+
+		"analytics_order": "주문 현황 분석",
+		"analytics_quality": "품질 분석",
+		"analytics_cost": "가공비 분석",
+		"analytics_delivery": "납기 분석",
+		"analytics_partner": "협력업체 분석",
+		"analytics_reports": "정기 리포트",
+
+		"settings_system": "시스템 설정",
+		"settings_user": "사용자 관리",
+		"settings_workflow": "워크플로우 설정",
+		"settings_integration": "연동 설정",
+		"settings_notification": "알림 설정"
+	}
+}

@@ -1,0 +1,1 @@
+export { htmlToCanvas } from './utils/htmlToCanvas';

@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"composite": false,
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"inlineSources": false,
+		"isolatedModules": true,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"preserveWatchOutput": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"paths": {
+			"is_js": ["./types/is_js.d.ts"],
+			"@repo/utils": ["./types/utils.d.ts"],
+			"tui-pagination": ["./types/tui-pagination.d.ts"]
+		},
+		"allowJs": true
+	},
+	"exclude": ["node_modules"]
+}

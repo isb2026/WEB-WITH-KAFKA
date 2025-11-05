@@ -1,0 +1,2535 @@
+{
+	"modules": {
+		"working": {
+			"name": "working 관리",
+			"path": "production/working",
+			"route": "/production/working",
+			"pageType": "masterDetailPage",
+			"tabs": [
+				{
+					"id": "related-list",
+					"name": "상세 목록",
+					"type": "masterDetailPage",
+					"path": "/production/working/related-list",
+					"pageName": "ProductionWorkingMasterDetailPage",
+					"icon": "Table",
+					"default": true,
+					"tableControl": {
+						"title": "working 관리 상세",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["accountMon", "workBy", "workDate"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "accountMon",
+							"label": "accountMon",
+							"type": "text",
+							"placeholder": "accountMon을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "workBy",
+							"label": "workBy",
+							"type": "text",
+							"placeholder": "workBy을(를) 입력하세요"
+						},
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "standardTime",
+							"label": "standardTime",
+							"type": "text",
+							"placeholder": "standardTime을(를) 입력하세요"
+						},
+						{
+							"name": "workHour",
+							"label": "workHour",
+							"type": "text",
+							"placeholder": "workHour을(를) 입력하세요"
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "jobType을(를) 입력하세요"
+						},
+						{
+							"name": "workCode",
+							"label": "workCode",
+							"type": "text",
+							"placeholder": "workCode을(를) 입력하세요"
+						},
+						{
+							"name": "startTime",
+							"label": "startTime",
+							"type": "text",
+							"placeholder": "startTime을(를) 입력하세요"
+						},
+						{
+							"name": "endTime",
+							"label": "endTime",
+							"type": "text",
+							"placeholder": "endTime을(를) 입력하세요"
+						}
+					],
+					"masterColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "accountMon",
+							"header": "accountMon",
+							"size": 150
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "workBy",
+							"header": "workBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "workDate",
+							"header": "workDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "standardTime",
+							"header": "standardTime",
+							"size": 100
+						},
+						{
+							"accessorKey": "workHour",
+							"header": "workHour",
+							"size": 100
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "workCode",
+							"header": "workCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "startTime",
+							"header": "startTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "endTime",
+							"header": "endTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "workingDetails",
+							"header": "workingDetails",
+							"size": 150
+						},
+						{
+							"accessorKey": "workingUsers",
+							"header": "workingUsers",
+							"size": 150
+						}
+					],
+					"detailColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "workingMasterId",
+							"header": "workingMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workingMaster",
+							"header": "workingMaster",
+							"size": 150
+						},
+						{
+							"accessorKey": "workCode",
+							"header": "workCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "commandId",
+							"header": "commandId",
+							"size": 80
+						},
+						{
+							"accessorKey": "command",
+							"header": "command",
+							"size": 150
+						},
+						{
+							"accessorKey": "commandNo",
+							"header": "commandNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotNo",
+							"header": "lotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progressId",
+							"header": "progressId",
+							"size": 80
+						},
+						{
+							"accessorKey": "progressName",
+							"header": "progressName",
+							"size": 150
+						},
+						{
+							"accessorKey": "lineNo",
+							"header": "lineNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "startTime",
+							"header": "startTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "endTime",
+							"header": "endTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "workAmt",
+							"header": "workAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "workUnit",
+							"header": "workUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "boxAmt",
+							"header": "boxAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "isClose",
+							"header": "isClose",
+							"size": 150
+						},
+						{
+							"accessorKey": "isOutsourcing",
+							"header": "isOutsourcing",
+							"size": 150
+						},
+						{
+							"accessorKey": "inOut",
+							"header": "inOut",
+							"size": 150
+						},
+						{
+							"accessorKey": "outsourcingVendorId",
+							"header": "outsourcingVendorId",
+							"size": 80
+						},
+						{
+							"accessorKey": "outsourcingVendorName",
+							"header": "outsourcingVendorName",
+							"size": 150
+						},
+						{
+							"accessorKey": "status",
+							"header": "status",
+							"size": 150
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "badStatusCode",
+							"header": "badStatusCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "badReasonCode",
+							"header": "badReasonCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "produceDt",
+							"header": "produceDt",
+							"size": 120
+						},
+						{
+							"accessorKey": "workingInLots",
+							"header": "workingInLots",
+							"size": 150
+						}
+					],
+					"masterDataHook": "useWorkingMaster",
+					"detailDataHook": "useWorkingDetail"
+				},
+				{
+					"id": "list",
+					"name": "전체 현황",
+					"type": "singlePage",
+					"path": "/production/working/list",
+					"pageName": "ProductionWorkingListPage",
+					"icon": "FileText",
+					"default": false,
+					"tableControl": {
+						"title": "working 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["accountMon", "workBy", "workDate"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "accountMon",
+							"label": "accountMon",
+							"type": "text",
+							"placeholder": "accountMon을(를) 입력하세요"
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "text",
+							"placeholder": "vendorNo을(를) 입력하세요"
+						},
+						{
+							"name": "workBy",
+							"label": "workBy",
+							"type": "text",
+							"placeholder": "workBy을(를) 입력하세요"
+						},
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "standardTime",
+							"label": "standardTime",
+							"type": "text",
+							"placeholder": "standardTime을(를) 입력하세요"
+						},
+						{
+							"name": "workHour",
+							"label": "workHour",
+							"type": "text",
+							"placeholder": "workHour을(를) 입력하세요"
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "jobType을(를) 입력하세요"
+						},
+						{
+							"name": "workCode",
+							"label": "workCode",
+							"type": "text",
+							"placeholder": "workCode을(를) 입력하세요"
+						},
+						{
+							"name": "startTime",
+							"label": "startTime",
+							"type": "text",
+							"placeholder": "startTime을(를) 입력하세요"
+						},
+						{
+							"name": "endTime",
+							"label": "endTime",
+							"type": "text",
+							"placeholder": "endTime을(를) 입력하세요"
+						}
+					],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "accountMon",
+							"header": "accountMon",
+							"size": 150
+						},
+						{
+							"accessorKey": "vendorNo",
+							"header": "vendorNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "workBy",
+							"header": "workBy",
+							"size": 150
+						},
+						{
+							"accessorKey": "workDate",
+							"header": "workDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "standardTime",
+							"header": "standardTime",
+							"size": 100
+						},
+						{
+							"accessorKey": "workHour",
+							"header": "workHour",
+							"size": 100
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "workCode",
+							"header": "workCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "startTime",
+							"header": "startTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "endTime",
+							"header": "endTime",
+							"size": 120
+						},
+						{
+							"accessorKey": "workingDetails",
+							"header": "workingDetails",
+							"size": 150
+						},
+						{
+							"accessorKey": "workingUsers",
+							"header": "workingUsers",
+							"size": 150
+						}
+					],
+					"dataHook": "useWorking"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "navigation",
+					"pageName": "ProductionWorkingRegisterPage",
+					"title": "working 관리 등록",
+					"hookName": "useWorking",
+					"formFields": [
+						{
+							"name": "accountMon",
+							"label": "accountMon",
+							"type": "text",
+							"placeholder": "202401",
+							"required": true
+						},
+						{
+							"name": "vendorNo",
+							"label": "vendorNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "workBy",
+							"label": "workBy",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": false,
+							"maxLength": 30
+						},
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						},
+						{
+							"name": "standardTime",
+							"label": "standardTime",
+							"type": "number",
+							"placeholder": 1000,
+							"required": false
+						},
+						{
+							"name": "workHour",
+							"label": "workHour",
+							"type": "number",
+							"placeholder": 1000,
+							"required": false
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "workCode",
+							"label": "workCode",
+							"type": "text",
+							"placeholder": "CODE001",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "startTime",
+							"label": "startTime",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						},
+						{
+							"name": "endTime",
+							"label": "endTime",
+							"type": "text",
+							"placeholder": "2024-01-01T00:00:00",
+							"required": false
+						}
+					],
+					"path": "/production/working/register"
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_working",
+				"to": "/production/working/related-list"
+			}
+		},
+		"workingUser": {
+			"name": "working-user 관리",
+			"path": "production/working-user",
+			"route": "/production/working-user",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/working-user/list",
+					"pageName": "ProductionWorkingUserListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "working-user 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["workerName"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "workingMasterId",
+							"header": "workingMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workingMaster",
+							"header": "workingMaster",
+							"size": 150
+						},
+						{
+							"accessorKey": "userNo",
+							"header": "userNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "workerName",
+							"header": "workerName",
+							"size": 150
+						},
+						{
+							"accessorKey": "gongsu",
+							"header": "gongsu",
+							"size": 100
+						}
+					],
+					"dataHook": "useWorkingUser"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionWorkingUserRegisterPage",
+					"title": "working-user 관리 등록",
+					"hookName": "useWorkingUser",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_working-user",
+				"to": "/production/working-user/list"
+			}
+		},
+		"workingTransaction": {
+			"name": "working-transaction 관리",
+			"path": "production/working-transaction",
+			"route": "/production/working-transaction",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/working-transaction/list",
+					"pageName": "ProductionWorkingTransactionListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "working-transaction 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["transactionType", "lotNo"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "transactionType",
+							"header": "transactionType",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progNo",
+							"header": "progNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "lotNo",
+							"header": "lotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "terminalNo",
+							"header": "terminalNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "beforeNum",
+							"header": "beforeNum",
+							"size": 100
+						}
+					],
+					"dataHook": "useWorkingTransaction"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionWorkingTransactionRegisterPage",
+					"title": "working-transaction 관리 등록",
+					"hookName": "useWorkingTransaction",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_working-transaction",
+				"to": "/production/working-transaction/list"
+			}
+		},
+		"workingInLot": {
+			"name": "working-in-lot 관리",
+			"path": "production/working-in-lot",
+			"route": "/production/working-in-lot",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/working-in-lot/list",
+					"pageName": "ProductionWorkingInLotListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "working-in-lot 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["lotNo", "inLotNo", "jobType"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "workingDetailId",
+							"header": "workingDetailId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workingDetail",
+							"header": "workingDetail",
+							"size": 150
+						},
+						{
+							"accessorKey": "workingBufferId",
+							"header": "workingBufferId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workingBuffer",
+							"header": "workingBuffer",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotNo",
+							"header": "lotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemId",
+							"header": "itemId",
+							"size": 80
+						},
+						{
+							"accessorKey": "progNo",
+							"header": "progNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "inLotNo",
+							"header": "inLotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotNum",
+							"header": "lotNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "useNum",
+							"header": "useNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "restNum",
+							"header": "restNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "inputDt",
+							"header": "inputDt",
+							"size": 120
+						},
+						{
+							"accessorKey": "lotUnit",
+							"header": "lotUnit",
+							"size": 150
+						}
+					],
+					"dataHook": "useWorkingInLot"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionWorkingInLotRegisterPage",
+					"title": "working-in-lot 관리 등록",
+					"hookName": "useWorkingInLot",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_working-in-lot",
+				"to": "/production/working-in-lot/list"
+			}
+		},
+		"workingBuffer": {
+			"name": "working-buffer 관리",
+			"path": "production/working-buffer",
+			"route": "/production/working-buffer",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/working-buffer/list",
+					"pageName": "ProductionWorkingBufferListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "working-buffer 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["commandNo", "lotNo", "returnDt"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "commandNo",
+							"header": "commandNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "warehouseMasterId",
+							"header": "warehouseMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "lotNo",
+							"header": "lotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "lineNo",
+							"header": "lineNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progNo",
+							"header": "progNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "inputNum",
+							"header": "inputNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "usedNum",
+							"header": "usedNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "restNum",
+							"header": "restNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "returnNum",
+							"header": "returnNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "returnDt",
+							"header": "returnDt",
+							"size": 120
+						},
+						{
+							"accessorKey": "unit",
+							"header": "unit",
+							"size": 150
+						},
+						{
+							"accessorKey": "inputDt",
+							"header": "inputDt",
+							"size": 120
+						},
+						{
+							"accessorKey": "inputorName",
+							"header": "inputorName",
+							"size": 150
+						},
+						{
+							"accessorKey": "isExhaust",
+							"header": "isExhaust",
+							"size": 150
+						}
+					],
+					"dataHook": "useWorkingBuffer"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionWorkingBufferRegisterPage",
+					"title": "working-buffer 관리 등록",
+					"hookName": "useWorkingBuffer",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_working-buffer",
+				"to": "/production/working-buffer/list"
+			}
+		},
+		"workCalendar": {
+			"name": "work-calendar 관리",
+			"path": "production/work-calendar",
+			"route": "/production/work-calendar",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/work-calendar/list",
+					"pageName": "ProductionWorkCalendarListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "work-calendar 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["accountMon", "workDt", "workDayHour"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "accountMon",
+							"header": "accountMon",
+							"size": 150
+						},
+						{
+							"accessorKey": "workDt",
+							"header": "workDt",
+							"size": 120
+						},
+						{
+							"accessorKey": "workDayHour",
+							"header": "workDayHour",
+							"size": 150
+						},
+						{
+							"accessorKey": "workNightHour",
+							"header": "workNightHour",
+							"size": 150
+						},
+						{
+							"accessorKey": "memo",
+							"header": "memo",
+							"size": 200
+						}
+					],
+					"dataHook": "useWorkCalendar"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionWorkCalendarRegisterPage",
+					"title": "work-calendar 관리 등록",
+					"hookName": "useWorkCalendar",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_work-calendar",
+				"to": "/production/work-calendar/list"
+			}
+		},
+		"plan": {
+			"name": "plan 관리",
+			"path": "production/plan",
+			"route": "/production/plan",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/plan/list",
+					"pageName": "ProductionPlanListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "plan 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["accountMon", "planCode", "planType"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "accountMon",
+							"header": "accountMon",
+							"size": 150
+						},
+						{
+							"accessorKey": "planCode",
+							"header": "planCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "planQuantity",
+							"header": "planQuantity",
+							"size": 80
+						},
+						{
+							"accessorKey": "planType",
+							"header": "planType",
+							"size": 150
+						},
+						{
+							"accessorKey": "customOrderCode",
+							"header": "customOrderCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "status",
+							"header": "status",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemUnit",
+							"header": "itemUnit",
+							"size": 150
+						}
+					],
+					"dataHook": "usePlan"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionPlanRegisterPage",
+					"title": "plan 관리 등록",
+					"hookName": "usePlan",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_plan",
+				"to": "/production/plan/list"
+			}
+		},
+		"notwork": {
+			"name": "notwork 관리",
+			"path": "production/notwork",
+			"route": "/production/notwork",
+			"pageType": "masterDetailPage",
+			"tabs": [
+				{
+					"id": "related-list",
+					"name": "상세 목록",
+					"type": "masterDetailPage",
+					"path": "/production/notwork/related-list",
+					"pageName": "ProductionNotworkMasterDetailPage",
+					"icon": "Table",
+					"default": true,
+					"tableControl": {
+						"title": "notwork 관리 상세",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["workDate", "machineCode", "machineName"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "machineId",
+							"label": "machineId",
+							"type": "text",
+							"placeholder": "machineId을(를) 입력하세요"
+						},
+						{
+							"name": "machineCode",
+							"label": "machineCode",
+							"type": "text",
+							"placeholder": "machineCode을(를) 입력하세요"
+						},
+						{
+							"name": "machineName",
+							"label": "machineName",
+							"type": "text",
+							"placeholder": "machineName을(를) 입력하세요"
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "jobType을(를) 입력하세요"
+						},
+						{
+							"name": "workStandardMinute",
+							"label": "workStandardMinute",
+							"type": "text",
+							"placeholder": "workStandardMinute을(를) 입력하세요"
+						},
+						{
+							"name": "workingMinute",
+							"label": "workingMinute",
+							"type": "text",
+							"placeholder": "workingMinute을(를) 입력하세요"
+						},
+						{
+							"name": "notworkMinute",
+							"label": "notworkMinute",
+							"type": "text",
+							"placeholder": "notworkMinute을(를) 입력하세요"
+						},
+						{
+							"name": "workerId",
+							"label": "workerId",
+							"type": "text",
+							"placeholder": "workerId을(를) 입력하세요"
+						},
+						{
+							"name": "workerName",
+							"label": "workerName",
+							"type": "text",
+							"placeholder": "workerName을(를) 입력하세요"
+						},
+						{
+							"name": "manageDesc",
+							"label": "manageDesc",
+							"type": "text",
+							"placeholder": "manageDesc을(를) 입력하세요"
+						}
+					],
+					"masterColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "workDate",
+							"header": "workDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "machineId",
+							"header": "machineId",
+							"size": 80
+						},
+						{
+							"accessorKey": "machineCode",
+							"header": "machineCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "machineName",
+							"header": "machineName",
+							"size": 150
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "workStandardMinute",
+							"header": "workStandardMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "workingMinute",
+							"header": "workingMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "notworkMinute",
+							"header": "notworkMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "workerId",
+							"header": "workerId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workerName",
+							"header": "workerName",
+							"size": 150
+						},
+						{
+							"accessorKey": "manageDesc",
+							"header": "manageDesc",
+							"size": 150
+						},
+						{
+							"accessorKey": "notworkDetails",
+							"header": "notworkDetails",
+							"size": 150
+						}
+					],
+					"detailColumns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "notworkMasterId",
+							"header": "notworkMasterId",
+							"size": 80
+						},
+						{
+							"accessorKey": "notworkMaster",
+							"header": "notworkMaster",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progressNo",
+							"header": "progressNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "commandNo",
+							"header": "commandNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "workCode",
+							"header": "workCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "notworkMinute",
+							"header": "notworkMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "startTime",
+							"header": "startTime",
+							"size": 150
+						},
+						{
+							"accessorKey": "endTime",
+							"header": "endTime",
+							"size": 150
+						},
+						{
+							"accessorKey": "notworkCode",
+							"header": "notworkCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "notworkName",
+							"header": "notworkName",
+							"size": 150
+						},
+						{
+							"accessorKey": "nwReasonCode",
+							"header": "nwReasonCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "nwReasonName",
+							"header": "nwReasonName",
+							"size": 150
+						},
+						{
+							"accessorKey": "contents",
+							"header": "contents",
+							"size": 150
+						},
+						{
+							"accessorKey": "worker",
+							"header": "worker",
+							"size": 150
+						}
+					],
+					"masterDataHook": "useNotworkMaster",
+					"detailDataHook": "useNotworkDetail"
+				},
+				{
+					"id": "list",
+					"name": "전체 현황",
+					"type": "singlePage",
+					"path": "/production/notwork/list",
+					"pageName": "ProductionNotworkListPage",
+					"icon": "FileText",
+					"default": false,
+					"tableControl": {
+						"title": "notwork 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["workDate", "machineCode", "machineName"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "machineId",
+							"label": "machineId",
+							"type": "text",
+							"placeholder": "machineId을(를) 입력하세요"
+						},
+						{
+							"name": "machineCode",
+							"label": "machineCode",
+							"type": "text",
+							"placeholder": "machineCode을(를) 입력하세요"
+						},
+						{
+							"name": "machineName",
+							"label": "machineName",
+							"type": "text",
+							"placeholder": "machineName을(를) 입력하세요"
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "jobType을(를) 입력하세요"
+						},
+						{
+							"name": "workStandardMinute",
+							"label": "workStandardMinute",
+							"type": "text",
+							"placeholder": "workStandardMinute을(를) 입력하세요"
+						},
+						{
+							"name": "workingMinute",
+							"label": "workingMinute",
+							"type": "text",
+							"placeholder": "workingMinute을(를) 입력하세요"
+						},
+						{
+							"name": "notworkMinute",
+							"label": "notworkMinute",
+							"type": "text",
+							"placeholder": "notworkMinute을(를) 입력하세요"
+						},
+						{
+							"name": "workerId",
+							"label": "workerId",
+							"type": "text",
+							"placeholder": "workerId을(를) 입력하세요"
+						},
+						{
+							"name": "workerName",
+							"label": "workerName",
+							"type": "text",
+							"placeholder": "workerName을(를) 입력하세요"
+						},
+						{
+							"name": "manageDesc",
+							"label": "manageDesc",
+							"type": "text",
+							"placeholder": "manageDesc을(를) 입력하세요"
+						}
+					],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "workDate",
+							"header": "workDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "machineId",
+							"header": "machineId",
+							"size": 80
+						},
+						{
+							"accessorKey": "machineCode",
+							"header": "machineCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "machineName",
+							"header": "machineName",
+							"size": 150
+						},
+						{
+							"accessorKey": "jobType",
+							"header": "jobType",
+							"size": 150
+						},
+						{
+							"accessorKey": "workStandardMinute",
+							"header": "workStandardMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "workingMinute",
+							"header": "workingMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "notworkMinute",
+							"header": "notworkMinute",
+							"size": 100
+						},
+						{
+							"accessorKey": "workerId",
+							"header": "workerId",
+							"size": 80
+						},
+						{
+							"accessorKey": "workerName",
+							"header": "workerName",
+							"size": 150
+						},
+						{
+							"accessorKey": "manageDesc",
+							"header": "manageDesc",
+							"size": 150
+						},
+						{
+							"accessorKey": "notworkDetails",
+							"header": "notworkDetails",
+							"size": 150
+						}
+					],
+					"dataHook": "useNotwork"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "navigation",
+					"pageName": "ProductionNotworkRegisterPage",
+					"title": "notwork 관리 등록",
+					"hookName": "useNotwork",
+					"formFields": [
+						{
+							"name": "workDate",
+							"label": "workDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						},
+						{
+							"name": "machineId",
+							"label": "machineId",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "machineCode",
+							"label": "machineCode",
+							"type": "text",
+							"placeholder": "CODE001",
+							"required": true
+						},
+						{
+							"name": "machineName",
+							"label": "machineName",
+							"type": "text",
+							"placeholder": "샘플명",
+							"required": false,
+							"maxLength": 30
+						},
+						{
+							"name": "jobType",
+							"label": "jobType",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": false,
+							"maxLength": 3
+						},
+						{
+							"name": "workStandardMinute",
+							"label": "workStandardMinute",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "workingMinute",
+							"label": "workingMinute",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "notworkMinute",
+							"label": "notworkMinute",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "workerId",
+							"label": "workerId",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": false,
+							"maxLength": 20
+						},
+						{
+							"name": "workerName",
+							"label": "workerName",
+							"type": "text",
+							"placeholder": "샘플명",
+							"required": false,
+							"maxLength": 30
+						},
+						{
+							"name": "manageDesc",
+							"label": "manageDesc",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": true
+						}
+					],
+					"path": "/production/notwork/register"
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_notwork",
+				"to": "/production/notwork/related-list"
+			}
+		},
+		"mbom": {
+			"name": "mbom 관리",
+			"path": "production/mbom",
+			"route": "/production/mbom",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/mbom/list",
+					"pageName": "ProductionMbomListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "mbom 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["inputUnitCode", "inputUnit"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "rootItemNo",
+							"header": "rootItemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "parentItemNo",
+							"header": "parentItemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "inputParentItemProgressNo",
+							"header": "inputParentItemProgressNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "inputNum",
+							"header": "inputNum",
+							"size": 100
+						},
+						{
+							"accessorKey": "inputUnitCode",
+							"header": "inputUnitCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "inputUnit",
+							"header": "inputUnit",
+							"size": 150
+						}
+					],
+					"dataHook": "useMbom"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionMbomRegisterPage",
+					"title": "mbom 관리 등록",
+					"hookName": "useMbom",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_mbom",
+				"to": "/production/mbom/list"
+			}
+		},
+		"materialRequest": {
+			"name": "자재 투입 요청 관리",
+			"path": "production/material-request",
+			"route": "/production/material-request",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/material-request/list",
+					"pageName": "ProductionMaterialRequestListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "자재 투입 요청 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["requestCode", "planCode", "itemNumber"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "requestCode",
+							"header": "requestCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "planCode",
+							"header": "planCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "requestAmt",
+							"header": "requestAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "requestUnit",
+							"header": "requestUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "requestUnitName",
+							"header": "requestUnitName",
+							"size": 150
+						},
+						{
+							"accessorKey": "requestDate",
+							"header": "requestDate",
+							"size": 120
+						}
+					],
+					"dataHook": "useMaterialRequest"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionMaterialRequestRegisterPage",
+					"title": "자재 투입 요청 관리 등록",
+					"hookName": "useMaterialRequest",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_material-request",
+				"to": "/production/material-request/list"
+			}
+		},
+		"materialOutgoing": {
+			"name": "자재 투입 관리",
+			"path": "production/material-outgoing",
+			"route": "/production/material-outgoing",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/material-outgoing/list",
+					"pageName": "ProductionMaterialOutgoingListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "자재 투입 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["outgoingCode", "requestCode", "planCode"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "outgoingCode",
+							"header": "outgoingCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "requestCode",
+							"header": "requestCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "planCode",
+							"header": "planCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "itemCode",
+							"header": "itemCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "outAmt",
+							"header": "outAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "outUnit",
+							"header": "outUnit",
+							"size": 150
+						},
+						{
+							"accessorKey": "outUnitName",
+							"header": "outUnitName",
+							"size": 150
+						},
+						{
+							"accessorKey": "outDate",
+							"header": "outDate",
+							"size": 120
+						}
+					],
+					"dataHook": "useMaterialOutgoing"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionMaterialOutgoingRegisterPage",
+					"title": "자재 투입 관리 등록",
+					"hookName": "useMaterialOutgoing",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_material-outgoing",
+				"to": "/production/material-outgoing/list"
+			}
+		},
+		"lot": {
+			"name": "lot 관리",
+			"path": "production/lot",
+			"route": "/production/lot",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/lot/list",
+					"pageName": "ProductionLotListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "lot 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["lotNo", "itemNumber", "itemName"]
+					},
+					"searchSlotFields": [
+						{
+							"name": "createdAtStart",
+							"label": "createdAtStart",
+							"type": "text",
+							"placeholder": "createdAtStart을(를) 입력하세요"
+						},
+						{
+							"name": "createdAtEnd",
+							"label": "createdAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtStart",
+							"label": "updatedAtStart",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "updatedAtEnd",
+							"label": "updatedAtEnd",
+							"type": "text",
+							"placeholder": "YYYY-MM-DD"
+						},
+						{
+							"name": "id",
+							"label": "ID",
+							"type": "text",
+							"placeholder": "ID을(를) 입력하세요"
+						},
+						{
+							"name": "commandId",
+							"label": "commandId",
+							"type": "text",
+							"placeholder": "commandId을(를) 입력하세요"
+						},
+						{
+							"name": "lotNo",
+							"label": "lotNo",
+							"type": "text",
+							"placeholder": "lotNo을(를) 입력하세요"
+						},
+						{
+							"name": "itemNo",
+							"label": "itemNo",
+							"type": "text",
+							"placeholder": "itemNo을(를) 입력하세요"
+						},
+						{
+							"name": "itemNumber",
+							"label": "itemNumber",
+							"type": "text",
+							"placeholder": "itemNumber을(를) 입력하세요"
+						},
+						{
+							"name": "itemName",
+							"label": "itemName",
+							"type": "text",
+							"placeholder": "itemName을(를) 입력하세요"
+						},
+						{
+							"name": "itemSpec",
+							"label": "itemSpec",
+							"type": "text",
+							"placeholder": "itemSpec을(를) 입력하세요"
+						},
+						{
+							"name": "lotAmt",
+							"label": "lotAmt",
+							"type": "text",
+							"placeholder": "lotAmt을(를) 입력하세요"
+						},
+						{
+							"name": "lotWt",
+							"label": "lotWt",
+							"type": "text",
+							"placeholder": "lotWt을(를) 입력하세요"
+						},
+						{
+							"name": "createDate",
+							"label": "createDate",
+							"type": "date",
+							"placeholder": "YYYY-MM-DD"
+						}
+					],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "commandId",
+							"header": "commandId",
+							"size": 80
+						},
+						{
+							"accessorKey": "command",
+							"header": "command",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotNo",
+							"header": "lotNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotAmt",
+							"header": "lotAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "lotWt",
+							"header": "lotWt",
+							"size": 100
+						},
+						{
+							"accessorKey": "createDate",
+							"header": "createDate",
+							"size": 120
+						}
+					],
+					"dataHook": "useLot"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionLotRegisterPage",
+					"title": "lot 관리 등록",
+					"hookName": "useLot",
+					"formFields": [
+						{
+							"name": "commandId",
+							"label": "commandId",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "lotNo",
+							"label": "lotNo",
+							"type": "text",
+							"placeholder": "12345",
+							"required": true
+						},
+						{
+							"name": "itemNo",
+							"label": "itemNo",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "itemNumber",
+							"label": "itemNumber",
+							"type": "text",
+							"placeholder": "12345",
+							"required": false,
+							"maxLength": 100
+						},
+						{
+							"name": "itemName",
+							"label": "itemName",
+							"type": "text",
+							"placeholder": "샘플명",
+							"required": false,
+							"maxLength": 100
+						},
+						{
+							"name": "itemSpec",
+							"label": "itemSpec",
+							"type": "text",
+							"placeholder": "샘플값",
+							"required": false,
+							"maxLength": 100
+						},
+						{
+							"name": "lotAmt",
+							"label": "lotAmt",
+							"type": "number",
+							"placeholder": 1,
+							"required": false
+						},
+						{
+							"name": "lotWt",
+							"label": "lotWt",
+							"type": "number",
+							"placeholder": 1000,
+							"required": false
+						},
+						{
+							"name": "createDate",
+							"label": "createDate",
+							"type": "date",
+							"placeholder": "2024-01-01",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_lot",
+				"to": "/production/lot/list"
+			}
+		},
+		"command": {
+			"name": "command 관리",
+			"path": "production/command",
+			"route": "/production/command",
+			"pageType": "singlePage",
+			"tabs": [
+				{
+					"id": "list",
+					"name": "현황",
+					"type": "singlePage",
+					"path": "/production/command/list",
+					"pageName": "ProductionCommandListPage",
+					"icon": "TableProperties",
+					"default": true,
+					"tableControl": {
+						"title": "command 관리 목록",
+						"useEdit": true,
+						"useDelete": true,
+						"useExport": true
+					},
+					"searchOptions": {
+						"fields": ["accountMon", "commandNo", "itemNumber"]
+					},
+					"searchSlotFields": [],
+					"columns": [
+						{
+							"accessorKey": "id",
+							"header": "ID",
+							"size": 80,
+							"minSize": 60
+						},
+						{
+							"accessorKey": "accountMon",
+							"header": "accountMon",
+							"size": 150
+						},
+						{
+							"accessorKey": "commandNo",
+							"header": "commandNo",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemNo",
+							"header": "itemNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "itemNumber",
+							"header": "itemNumber",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemName",
+							"header": "itemName",
+							"size": 150
+						},
+						{
+							"accessorKey": "itemSpec",
+							"header": "itemSpec",
+							"size": 150
+						},
+						{
+							"accessorKey": "commandAmt",
+							"header": "commandAmt",
+							"size": 100
+						},
+						{
+							"accessorKey": "unit",
+							"header": "unit",
+							"size": 150
+						},
+						{
+							"accessorKey": "startDate",
+							"header": "startDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "endDate",
+							"header": "endDate",
+							"size": 120
+						},
+						{
+							"accessorKey": "startTime",
+							"header": "startTime",
+							"size": 150
+						},
+						{
+							"accessorKey": "endTime",
+							"header": "endTime",
+							"size": 150
+						},
+						{
+							"accessorKey": "status",
+							"header": "status",
+							"size": 150
+						},
+						{
+							"accessorKey": "progressOrder",
+							"header": "progressOrder",
+							"size": 150
+						},
+						{
+							"accessorKey": "progressNo",
+							"header": "progressNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "progressCode",
+							"header": "progressCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "progressName",
+							"header": "progressName",
+							"size": 150
+						},
+						{
+							"accessorKey": "machineNo",
+							"header": "machineNo",
+							"size": 100
+						},
+						{
+							"accessorKey": "machineCode",
+							"header": "machineCode",
+							"size": 120
+						},
+						{
+							"accessorKey": "machineName",
+							"header": "machineName",
+							"size": 150
+						},
+						{
+							"accessorKey": "lotMasters",
+							"header": "lotMasters",
+							"size": 150
+						}
+					],
+					"dataHook": "useCommand"
+				}
+			],
+			"actions": [
+				{
+					"type": "create",
+					"action": "modal",
+					"pageName": "ProductionCommandRegisterPage",
+					"title": "command 관리 등록",
+					"hookName": "useCommand",
+					"formFields": [
+						{
+							"name": "dataList",
+							"label": "dataList",
+							"type": "text",
+							"placeholder": "dataList을(를) 입력하세요",
+							"required": false
+						}
+					]
+				}
+			],
+			"menuOptions": {
+				"type": "single",
+				"icon": "TableProperties",
+				"name": "menu.production_command",
+				"to": "/production/command/list"
+			}
+		}
+	}
+}

@@ -1,0 +1,232 @@
+/* DataTables custom styling with Tailwind compatibility */
+
+.datatable-wrapper {
+	@apply w-full overflow-hidden;
+}
+
+.datatable-wrapper table.dataTable {
+	@apply w-full border-collapse;
+	width: 100% !important;
+	margin: 0 !important;
+}
+
+/* Light mode styling */
+.datatable-wrapper table.dataTable thead th,
+.datatable-wrapper table.dataTable thead td {
+	@apply py-3 px-4 border-b border-gray-200 bg-gray-50 text-left text-sm font-medium text-gray-700;
+	box-sizing: border-box !important;
+	white-space: nowrap;
+}
+
+.datatable-wrapper table.dataTable tbody tr {
+	@apply bg-white hover:bg-gray-50;
+}
+
+.datatable-wrapper table.dataTable tbody td {
+	@apply py-3 px-4 border-b border-gray-200 text-sm text-gray-700;
+	box-sizing: border-box !important;
+}
+
+/* Dark mode styling */
+.datatable-wrapper.dark table.dataTable thead th,
+.datatable-wrapper.dark table.dataTable thead td {
+	@apply bg-gray-800 text-gray-100 border-gray-700;
+}
+
+.datatable-wrapper.dark table.dataTable tbody tr {
+	@apply bg-gray-900 hover:bg-gray-800;
+}
+
+.datatable-wrapper.dark table.dataTable tbody td {
+	@apply text-gray-300 border-gray-700;
+}
+
+/* Pagination styling */
+.datatable-wrapper .dataTables_paginate {
+	@apply mt-4 flex justify-end;
+}
+
+.datatable-wrapper .dataTables_paginate .paginate_button {
+	@apply px-3 py-1 mx-1 text-sm rounded-md cursor-pointer;
+}
+
+.datatable-wrapper .dataTables_paginate .paginate_button.current {
+	@apply bg-blue-600 text-white;
+	background: theme('colors.blue.600') !important;
+	border: none !important;
+}
+
+.datatable-wrapper.dark .dataTables_paginate .paginate_button.current {
+	@apply bg-blue-700;
+	background: theme('colors.blue.700') !important;
+}
+
+.datatable-wrapper .dataTables_paginate .paginate_button:hover:not(.current) {
+	@apply bg-gray-100;
+	background: theme('colors.gray.100') !important;
+	border: none !important;
+}
+
+.datatable-wrapper.dark
+	.dataTables_paginate
+	.paginate_button:hover:not(.current) {
+	@apply bg-gray-700;
+	background: theme('colors.gray.700') !important;
+}
+
+.datatable-wrapper .dataTables_paginate .paginate_button.disabled {
+	@apply opacity-50 cursor-not-allowed;
+}
+
+/* Search box styling */
+.datatable-wrapper .dataTables_filter {
+	@apply mb-4 text-right;
+}
+
+.datatable-wrapper .dataTables_filter input {
+	@apply ml-2 px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.datatable-wrapper.dark .dataTables_filter input {
+	@apply bg-gray-800 border-gray-600 text-gray-100;
+}
+
+/* Buttons styling */
+.datatable-wrapper .dt-buttons {
+	@apply mb-4 flex flex-wrap;
+}
+
+.datatable-wrapper .dt-buttons button.dt-button {
+	@apply px-3 py-1 mr-2 mb-2 text-sm font-medium rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400;
+	border: none !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+.datatable-wrapper.dark .dt-buttons button.dt-button {
+	@apply bg-gray-700 text-gray-100 hover:bg-gray-600 focus:ring-gray-500;
+}
+
+.datatable-wrapper .dt-buttons button.dt-button:hover {
+	background-image: none !important;
+	background-color: theme('colors.gray.200') !important;
+}
+
+.datatable-wrapper.dark .dt-buttons button.dt-button:hover {
+	background-color: theme('colors.gray.600') !important;
+}
+
+/* Selected row styling */
+.datatable-wrapper table.dataTable tbody tr.selected {
+	@apply bg-blue-100;
+	background-color: theme('colors.blue.100') !important;
+}
+
+.datatable-wrapper.dark table.dataTable tbody tr.selected {
+	@apply bg-blue-900;
+	background-color: theme('colors.blue.900') !important;
+}
+
+/* Info text styling */
+.datatable-wrapper .dataTables_info {
+	@apply text-sm text-gray-600 mt-4;
+}
+
+.datatable-wrapper.dark .dataTables_info {
+	@apply text-gray-400;
+}
+
+/* Length menu styling */
+.datatable-wrapper .dataTables_length {
+	@apply mb-4;
+}
+
+.datatable-wrapper .dataTables_length select {
+	@apply ml-2 mr-2 px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.datatable-wrapper.dark .dataTables_length select {
+	@apply bg-gray-800 border-gray-600 text-gray-100;
+}
+
+/* Fixed columns styling */
+.datatable-wrapper .DTFC_LeftWrapper table.dataTable,
+.datatable-wrapper .DTFC_RightWrapper table.dataTable {
+	@apply m-0;
+}
+
+.datatable-wrapper .DTFC_LeftBodyWrapper table.dataTable,
+.datatable-wrapper .DTFC_RightBodyWrapper table.dataTable {
+	@apply border-t-0;
+}
+
+/* Fix for fixed columns alignment */
+.datatable-wrapper .DTFC_LeftWrapper,
+.datatable-wrapper .DTFC_RightWrapper {
+	z-index: 2;
+}
+
+.datatable-wrapper .DTFC_LeftHeadWrapper table.dataTable,
+.datatable-wrapper .DTFC_RightHeadWrapper table.dataTable {
+	margin-bottom: 0 !important;
+}
+
+.datatable-wrapper .DTFC_LeftBodyWrapper,
+.datatable-wrapper .DTFC_RightBodyWrapper {
+	top: 0 !important;
+}
+
+/* Responsive table styling */
+.datatable-wrapper
+	table.dataTable.dtr-inline.collapsed
+	> tbody
+	> tr
+	> td.dtr-control:before,
+.datatable-wrapper
+	table.dataTable.dtr-inline.collapsed
+	> tbody
+	> tr
+	> th.dtr-control:before {
+	@apply bg-blue-600 text-white;
+	background-color: theme('colors.blue.600') !important;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+.datatable-wrapper.dark
+	table.dataTable.dtr-inline.collapsed
+	> tbody
+	> tr
+	> td.dtr-control:before,
+.datatable-wrapper.dark
+	table.dataTable.dtr-inline.collapsed
+	> tbody
+	> tr
+	> th.dtr-control:before {
+	@apply bg-blue-700;
+	background-color: theme('colors.blue.700') !important;
+}
+
+/* Fix for button styling */
+.datatable-wrapper button.dt-button:focus:not(:focus-visible) {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+/* Fix for table width */
+.dataTables_scrollHeadInner,
+.dataTables_scrollHeadInner table {
+	width: 100% !important;
+}
+
+/* Fix for column alignment */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+	table-layout: fixed;
+	width: 100% !important;
+}
+
+.dataTables_scrollHeadInner table th,
+.dataTables_scrollBody table td {
+	width: auto !important;
+}

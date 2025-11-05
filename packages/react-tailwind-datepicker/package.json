@@ -1,0 +1,25 @@
+{
+	"name": "@repo/react-tailwind-datepicker",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"exports": {
+		".": "./src/index.ts",
+		"./presets": "./src/component/DatePickerPresets.tsx"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"react-datepicker": "^8.3.0",
+		"react-tailwindcss-datepicker": "1.7.3"
+	},
+	"peerDependencies": {
+		"date-fns": "^4.1.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	}
+}

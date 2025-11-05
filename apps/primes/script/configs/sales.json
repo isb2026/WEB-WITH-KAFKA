@@ -1,0 +1,3163 @@
+{
+  "modules": {
+    "taxInvoice": {
+      "name": "tax-invoice 관리",
+      "path": "sales/tax-invoice",
+      "route": "/sales/tax-invoice",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/tax-invoice/related-list",
+          "pageName": "SalesTaxInvoiceMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "tax-invoice 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "taxInvoiceCode",
+              "vendorName",
+              "taxDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "taxInvoiceCode",
+              "label": "taxInvoiceCode",
+              "type": "text",
+              "placeholder": "taxInvoiceCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "taxInvoiceCode",
+              "header": "taxInvoiceCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxDate",
+              "header": "taxDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "taxInvoiceDetails",
+              "header": "taxInvoiceDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "taxInvoiceMasterId",
+              "header": "taxInvoiceMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "taxInvoiceMaster",
+              "header": "taxInvoiceMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxUnit",
+              "header": "taxUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxNumber",
+              "header": "taxNumber",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useTaxInvoiceMaster",
+          "detailDataHook": "useTaxInvoiceDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/tax-invoice/list",
+          "pageName": "SalesTaxInvoiceListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "tax-invoice 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "taxInvoiceCode",
+              "vendorName",
+              "taxDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "taxInvoiceCode",
+              "label": "taxInvoiceCode",
+              "type": "text",
+              "placeholder": "taxInvoiceCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "taxInvoiceCode",
+              "header": "taxInvoiceCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxDate",
+              "header": "taxDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "taxInvoiceDetails",
+              "header": "taxInvoiceDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useTaxInvoice"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesTaxInvoiceRegisterPage",
+          "title": "tax-invoice 관리 등록",
+          "hookName": "useTaxInvoice",
+          "formFields": [
+            {
+              "name": "taxInvoiceCode",
+              "label": "taxInvoiceCode",
+              "type": "text",
+              "placeholder": "출하코드",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            }
+          ],
+          "path": "/sales/tax-invoice/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.sales_tax-invoice",
+        "to": "/sales/tax-invoice/related-list"
+      }
+    },
+    "statement": {
+      "name": "명세서",
+      "path": "sales/statement",
+      "route": "/sales/statement",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/statement/related-list",
+          "pageName": "SalesStatementMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "명세서 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "statementCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "statementCode",
+              "label": "statementCode",
+              "type": "text",
+              "placeholder": "statementCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "statementCode",
+              "header": "statementCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "statementDetails",
+              "header": "statementDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "statementMasterId",
+              "header": "statementMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "statementMaster",
+              "header": "statementMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "statementUnit",
+              "header": "statementUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "statementNumber",
+              "header": "statementNumber",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useStatementMaster",
+          "detailDataHook": "useStatementDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/statement/list",
+          "pageName": "SalesStatementListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "명세서 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "statementCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "statementCode",
+              "label": "statementCode",
+              "type": "text",
+              "placeholder": "statementCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "statementCode",
+              "header": "statementCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "statementDetails",
+              "header": "statementDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useStatement"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesStatementRegisterPage",
+          "title": "명세서 등록",
+          "hookName": "useStatement",
+          "formFields": [
+            {
+              "name": "statementCode",
+              "label": "statementCode",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            }
+          ],
+          "path": "/sales/statement/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "FileText",
+        "name": "menu.sales_statement",
+        "to": "/sales/statement/related-list"
+      }
+    },
+    "shippingRequest": {
+      "name": "shipping-request 관리",
+      "path": "sales/shipping-request",
+      "route": "/sales/shipping-request",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/shipping-request/related-list",
+          "pageName": "SalesShippingRequestMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "shipping-request 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "shippingRequestCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "shippingRequestCode",
+              "label": "shippingRequestCode",
+              "type": "text",
+              "placeholder": "shippingRequestCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shippingRequestCode",
+              "header": "shippingRequestCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "shippingRequestDetails",
+              "header": "shippingRequestDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shippingRequestMasterId",
+              "header": "shippingRequestMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "shippingRequestMaster",
+              "header": "shippingRequestMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestUnit",
+              "header": "requestUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestNumber",
+              "header": "requestNumber",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useShippingRequestMaster",
+          "detailDataHook": "useShippingRequestDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/shipping-request/list",
+          "pageName": "SalesShippingRequestListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "shipping-request 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "shippingRequestCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "shippingRequestCode",
+              "label": "shippingRequestCode",
+              "type": "text",
+              "placeholder": "shippingRequestCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shippingRequestCode",
+              "header": "shippingRequestCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "shippingRequestDetails",
+              "header": "shippingRequestDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useShippingRequest"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesShippingRequestRegisterPage",
+          "title": "shipping-request 관리 등록",
+          "hookName": "useShippingRequest",
+          "formFields": [
+            {
+              "name": "shippingRequestCode",
+              "label": "shippingRequestCode",
+              "type": "text",
+              "placeholder": "의뢰코드",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            }
+          ],
+          "path": "/sales/shipping-request/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "TableProperties",
+        "name": "menu.sales_shipping-request",
+        "to": "/sales/shipping-request/related-list"
+      }
+    },
+    "shipment": {
+      "name": "출하 관리",
+      "path": "sales/shipment",
+      "route": "/sales/shipment",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/shipment/related-list",
+          "pageName": "SalesShipmentMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "출하 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "shipmentCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "shipmentCode",
+              "label": "shipmentCode",
+              "type": "text",
+              "placeholder": "shipmentCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shipmentCode",
+              "header": "shipmentCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "shipmentDetails",
+              "header": "shipmentDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shipmentMasterId",
+              "header": "shipmentMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "shipmentMaster",
+              "header": "shipmentMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestUnit",
+              "header": "requestUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestNumber",
+              "header": "requestNumber",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useShipmentMaster",
+          "detailDataHook": "useShipmentDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/shipment/list",
+          "pageName": "SalesShipmentListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "출하 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "shipmentCode",
+              "vendorName",
+              "requestDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "shipmentCode",
+              "label": "shipmentCode",
+              "type": "text",
+              "placeholder": "shipmentCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "shipmentCode",
+              "header": "shipmentCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "shipmentDetails",
+              "header": "shipmentDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useShipment"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesShipmentRegisterPage",
+          "title": "출하 관리 등록",
+          "hookName": "useShipment",
+          "formFields": [
+            {
+              "name": "shipmentCode",
+              "label": "shipmentCode",
+              "type": "text",
+              "placeholder": "출하코드",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            }
+          ],
+          "path": "/sales/shipment/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "Package",
+        "name": "menu.sales_shipment",
+        "to": "/sales/shipment/related-list"
+      }
+    },
+    "order": {
+      "name": "주문 관리",
+      "path": "sales/order",
+      "route": "/sales/order",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/order/related-list",
+          "pageName": "SalesOrderMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "주문 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "orderCode",
+              "orderType",
+              "vendorName"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "isUse",
+              "label": "isUse",
+              "type": "text",
+              "placeholder": "isUse을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "orderCode",
+              "label": "주문코드",
+              "type": "text",
+              "placeholder": "주문코드을(를) 입력하세요"
+            },
+            {
+              "name": "orderType",
+              "label": "orderType",
+              "type": "text",
+              "placeholder": "orderType을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "orderDate",
+              "label": "orderDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "text",
+              "placeholder": "deliveryLocationCode을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "text",
+              "placeholder": "deliveryLocation을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "currencyUnit을(를) 입력하세요"
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": "isApproval을(를) 입력하세요"
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "approvalBy을(를) 입력하세요"
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "approvalAt을(를) 입력하세요"
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": "isClose을(를) 입력하세요"
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "closeBy을(를) 입력하세요"
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "closeAt을(를) 입력하세요"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderCode",
+              "header": "주문코드",
+              "size": 120
+            },
+            {
+              "accessorKey": "orderType",
+              "header": "orderType",
+              "size": 150
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderDate",
+              "header": "orderDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocationCode",
+              "header": "deliveryLocationCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocation",
+              "header": "deliveryLocation",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "isApproval",
+              "header": "isApproval",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalBy",
+              "header": "approvalBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalAt",
+              "header": "approvalAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "isClose",
+              "header": "isClose",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeBy",
+              "header": "closeBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeAt",
+              "header": "closeAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "orderDetails",
+              "header": "orderDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderMasterId",
+              "header": "orderMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "orderMaster",
+              "header": "orderMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderUnit",
+              "header": "orderUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderNumber",
+              "header": "orderNumber",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useOrderMaster",
+          "detailDataHook": "useOrderDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/order/list",
+          "pageName": "SalesOrderListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "주문 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "orderCode",
+              "orderType",
+              "vendorName"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "isUse",
+              "label": "isUse",
+              "type": "text",
+              "placeholder": "isUse을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "orderCode",
+              "label": "주문코드",
+              "type": "text",
+              "placeholder": "주문코드을(를) 입력하세요"
+            },
+            {
+              "name": "orderType",
+              "label": "orderType",
+              "type": "text",
+              "placeholder": "orderType을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "orderDate",
+              "label": "orderDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "text",
+              "placeholder": "deliveryLocationCode을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "text",
+              "placeholder": "deliveryLocation을(를) 입력하세요"
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "currencyUnit을(를) 입력하세요"
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": "isApproval을(를) 입력하세요"
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "approvalBy을(를) 입력하세요"
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "approvalAt을(를) 입력하세요"
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": "isClose을(를) 입력하세요"
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "closeBy을(를) 입력하세요"
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "closeAt을(를) 입력하세요"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "isUse",
+              "header": "isUse",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderCode",
+              "header": "주문코드",
+              "size": 120
+            },
+            {
+              "accessorKey": "orderType",
+              "header": "orderType",
+              "size": 150
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "orderDate",
+              "header": "orderDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocationCode",
+              "header": "deliveryLocationCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocation",
+              "header": "deliveryLocation",
+              "size": 150
+            },
+            {
+              "accessorKey": "requestDate",
+              "header": "requestDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "isApproval",
+              "header": "isApproval",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalBy",
+              "header": "approvalBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalAt",
+              "header": "approvalAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "isClose",
+              "header": "isClose",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeBy",
+              "header": "closeBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeAt",
+              "header": "closeAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "orderDetails",
+              "header": "orderDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useOrder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesOrderRegisterPage",
+          "title": "주문 관리 등록",
+          "hookName": "useOrder",
+          "formFields": [
+            {
+              "name": "orderCode",
+              "label": "주문코드",
+              "type": "text",
+              "placeholder": "주문코드",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "orderType",
+              "label": "orderType",
+              "type": "text",
+              "placeholder": "주문구분",
+              "required": false,
+              "maxLength": 3
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "orderDate",
+              "label": "orderDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "textarea",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "requestDate",
+              "label": "requestDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "통화단위",
+              "required": false,
+              "maxLength": 3
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": true,
+              "required": false
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "승인자명",
+              "required": false,
+              "maxLength": 25
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": true,
+              "required": false
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "마감자명",
+              "required": false,
+              "maxLength": 25
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false
+            }
+          ],
+          "path": "/sales/order/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "ShoppingCart",
+        "name": "menu.sales_order",
+        "to": "/sales/order/related-list"
+      }
+    },
+    "estimate": {
+      "name": "견적 관리",
+      "path": "sales/estimate",
+      "route": "/sales/estimate",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/estimate/related-list",
+          "pageName": "SalesEstimateMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "견적 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "estimateCode",
+              "vendorName",
+              "taxDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "estimateCode",
+              "label": "estimateCode",
+              "type": "text",
+              "placeholder": "estimateCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "estimateCode",
+              "header": "estimateCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxDate",
+              "header": "taxDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "estimateDetails",
+              "header": "estimateDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "estimateMasterId",
+              "header": "estimateMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "estimateMaster",
+              "header": "estimateMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "unit",
+              "header": "unit",
+              "size": 150
+            },
+            {
+              "accessorKey": "number",
+              "header": "number",
+              "size": 100
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useEstimateMaster",
+          "detailDataHook": "useEstimateDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/estimate/list",
+          "pageName": "SalesEstimateListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "견적 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "estimateCode",
+              "vendorName",
+              "taxDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "estimateCode",
+              "label": "estimateCode",
+              "type": "text",
+              "placeholder": "estimateCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "estimateCode",
+              "header": "estimateCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "taxDate",
+              "header": "taxDate",
+              "size": 120
+            },
+            {
+              "accessorKey": "estimateDetails",
+              "header": "estimateDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useEstimate"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesEstimateRegisterPage",
+          "title": "견적 관리 등록",
+          "hookName": "useEstimate",
+          "formFields": [
+            {
+              "name": "estimateCode",
+              "label": "estimateCode",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "taxDate",
+              "label": "taxDate",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            }
+          ],
+          "path": "/sales/estimate/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "FileText",
+        "name": "menu.sales_estimate",
+        "to": "/sales/estimate/related-list"
+      }
+    },
+    "delivery": {
+      "name": "납품 관리",
+      "path": "sales/delivery",
+      "route": "/sales/delivery",
+      "pageType": "masterDetailPage",
+      "tabs": [
+        {
+          "id": "related-list",
+          "name": "상세 목록",
+          "type": "masterDetailPage",
+          "path": "/sales/delivery/related-list",
+          "pageName": "SalesDeliveryMasterDetailPage",
+          "icon": "Table",
+          "default": true,
+          "tableControl": {
+            "title": "납품 관리 상세",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "deliveryCode",
+              "vendorName",
+              "deliveryDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryCode",
+              "label": "deliveryCode",
+              "type": "text",
+              "placeholder": "deliveryCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryDate",
+              "label": "납기일자",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "text",
+              "placeholder": "deliveryLocationCode을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "text",
+              "placeholder": "deliveryLocation을(를) 입력하세요"
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "currencyUnit을(를) 입력하세요"
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": "isApproval을(를) 입력하세요"
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "approvalBy을(를) 입력하세요"
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "approvalAt을(를) 입력하세요"
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": "isClose을(를) 입력하세요"
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "closeBy을(를) 입력하세요"
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "closeAt을(를) 입력하세요"
+            }
+          ],
+          "masterColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "deliveryCode",
+              "header": "deliveryCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "deliveryDate",
+              "header": "납기일자",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocationCode",
+              "header": "deliveryLocationCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocation",
+              "header": "deliveryLocation",
+              "size": 150
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "isApproval",
+              "header": "isApproval",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalBy",
+              "header": "approvalBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalAt",
+              "header": "approvalAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "isClose",
+              "header": "isClose",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeBy",
+              "header": "closeBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeAt",
+              "header": "closeAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryDetails",
+              "header": "deliveryDetails",
+              "size": 150
+            }
+          ],
+          "detailColumns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "deliveryMasterId",
+              "header": "deliveryMasterId",
+              "size": 80
+            },
+            {
+              "accessorKey": "deliveryMaster",
+              "header": "deliveryMaster",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemId",
+              "header": "itemId",
+              "size": 80
+            },
+            {
+              "accessorKey": "itemNo",
+              "header": "itemNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "itemNumber",
+              "header": "itemNumber",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemName",
+              "header": "itemName",
+              "size": 150
+            },
+            {
+              "accessorKey": "itemSpec",
+              "header": "itemSpec",
+              "size": 150
+            },
+            {
+              "accessorKey": "deliveryUnit",
+              "header": "deliveryUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "deliveryAmount",
+              "header": "deliveryAmount",
+              "size": 120
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "unitPrice",
+              "header": "unitPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "netPrice",
+              "header": "netPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "grossPrice",
+              "header": "grossPrice",
+              "size": 100
+            },
+            {
+              "accessorKey": "memo",
+              "header": "memo",
+              "size": 200
+            },
+            {
+              "accessorKey": "vat",
+              "header": "vat",
+              "size": 100
+            }
+          ],
+          "masterDataHook": "useDeliveryMaster",
+          "detailDataHook": "useDeliveryDetail"
+        },
+        {
+          "id": "list",
+          "name": "전체 현황",
+          "type": "singlePage",
+          "path": "/sales/delivery/list",
+          "pageName": "SalesDeliveryListPage",
+          "icon": "FileText",
+          "default": false,
+          "tableControl": {
+            "title": "납품 관리 목록",
+            "useEdit": true,
+            "useDelete": true,
+            "useExport": true
+          },
+          "searchOptions": {
+            "fields": [
+              "deliveryCode",
+              "vendorName",
+              "deliveryDate"
+            ]
+          },
+          "searchSlotFields": [
+            {
+              "name": "createdAtStart",
+              "label": "createdAtStart",
+              "type": "text",
+              "placeholder": "createdAtStart을(를) 입력하세요"
+            },
+            {
+              "name": "createdAtEnd",
+              "label": "createdAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtStart",
+              "label": "updatedAtStart",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "updatedAtEnd",
+              "label": "updatedAtEnd",
+              "type": "text",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "id",
+              "label": "ID",
+              "type": "text",
+              "placeholder": "ID을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryCode",
+              "label": "deliveryCode",
+              "type": "text",
+              "placeholder": "deliveryCode을(를) 입력하세요"
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "text",
+              "placeholder": "vendorNo을(를) 입력하세요"
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "text",
+              "placeholder": "업체명을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryDate",
+              "label": "납기일자",
+              "type": "date",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "text",
+              "placeholder": "deliveryLocationCode을(를) 입력하세요"
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "text",
+              "placeholder": "deliveryLocation을(를) 입력하세요"
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "currencyUnit을(를) 입력하세요"
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": "isApproval을(를) 입력하세요"
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "approvalBy을(를) 입력하세요"
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "approvalAt을(를) 입력하세요"
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": "isClose을(를) 입력하세요"
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "closeBy을(를) 입력하세요"
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "closeAt을(를) 입력하세요"
+            }
+          ],
+          "columns": [
+            {
+              "accessorKey": "id",
+              "header": "ID",
+              "size": 80,
+              "minSize": 60
+            },
+            {
+              "accessorKey": "deliveryCode",
+              "header": "deliveryCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "vendorNo",
+              "header": "vendorNo",
+              "size": 100
+            },
+            {
+              "accessorKey": "vendorName",
+              "header": "업체명",
+              "size": 150
+            },
+            {
+              "accessorKey": "deliveryDate",
+              "header": "납기일자",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocationCode",
+              "header": "deliveryLocationCode",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryLocation",
+              "header": "deliveryLocation",
+              "size": 150
+            },
+            {
+              "accessorKey": "currencyUnit",
+              "header": "currencyUnit",
+              "size": 150
+            },
+            {
+              "accessorKey": "isApproval",
+              "header": "isApproval",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalBy",
+              "header": "approvalBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "approvalAt",
+              "header": "approvalAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "isClose",
+              "header": "isClose",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeBy",
+              "header": "closeBy",
+              "size": 150
+            },
+            {
+              "accessorKey": "closeAt",
+              "header": "closeAt",
+              "size": 120
+            },
+            {
+              "accessorKey": "deliveryDetails",
+              "header": "deliveryDetails",
+              "size": 150
+            }
+          ],
+          "dataHook": "useDelivery"
+        }
+      ],
+      "actions": [
+        {
+          "type": "create",
+          "action": "navigation",
+          "pageName": "SalesDeliveryRegisterPage",
+          "title": "납품 관리 등록",
+          "hookName": "useDelivery",
+          "formFields": [
+            {
+              "name": "deliveryCode",
+              "label": "deliveryCode",
+              "type": "text",
+              "placeholder": "납품 코드 (예: 250513-0001)",
+              "required": false,
+              "maxLength": 20
+            },
+            {
+              "name": "vendorNo",
+              "label": "vendorNo",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "vendorName",
+              "label": "업체명",
+              "type": "textarea",
+              "placeholder": "업체명",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "deliveryDate",
+              "label": "납기일자",
+              "type": "date",
+              "placeholder": "2024-01-01",
+              "required": false
+            },
+            {
+              "name": "deliveryLocationCode",
+              "label": "deliveryLocationCode",
+              "type": "number",
+              "placeholder": 1,
+              "required": false
+            },
+            {
+              "name": "deliveryLocation",
+              "label": "deliveryLocation",
+              "type": "textarea",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false,
+              "maxLength": 200
+            },
+            {
+              "name": "currencyUnit",
+              "label": "currencyUnit",
+              "type": "text",
+              "placeholder": "통화단위",
+              "required": false,
+              "maxLength": 3
+            },
+            {
+              "name": "isApproval",
+              "label": "isApproval",
+              "type": "text",
+              "placeholder": true,
+              "required": false
+            },
+            {
+              "name": "approvalBy",
+              "label": "approvalBy",
+              "type": "text",
+              "placeholder": "승인자명",
+              "required": false,
+              "maxLength": 25
+            },
+            {
+              "name": "approvalAt",
+              "label": "approvalAt",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false
+            },
+            {
+              "name": "isClose",
+              "label": "isClose",
+              "type": "text",
+              "placeholder": true,
+              "required": false
+            },
+            {
+              "name": "closeBy",
+              "label": "closeBy",
+              "type": "text",
+              "placeholder": "마감자명",
+              "required": false,
+              "maxLength": 25
+            },
+            {
+              "name": "closeAt",
+              "label": "closeAt",
+              "type": "text",
+              "placeholder": "2024-01-01T00:00:00",
+              "required": false
+            }
+          ],
+          "path": "/sales/delivery/register"
+        }
+      ],
+      "menuOptions": {
+        "type": "single",
+        "icon": "Truck",
+        "name": "menu.sales_delivery",
+        "to": "/sales/delivery/related-list"
+      }
+    }
+  }
+}

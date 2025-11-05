@@ -1,0 +1,14 @@
+/* FullCalendar toolbar buttons — brand color + hover */
+.fc .fc-toolbar .fc-button {
+	@apply bg-Colors-Brand-700 border-Colors-Brand-700 text-white;
+}
+.fc .fc-toolbar .fc-button:hover {
+	@apply bg-Colors-Brand-800 border-Colors-Brand-800;
+}
+.fc .fc-toolbar .fc-button:disabled {
+	@apply opacity-60 cursor-not-allowed;
+}
+.fc .fc-toolbar .fc-button:focus,
+.fc .fc-toolbar .fc-button.fc-button-active {
+	@apply ring-2 ring-Colors-Brand-700/40 outline-none;
+}

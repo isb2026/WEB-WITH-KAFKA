@@ -1,0 +1,84 @@
+{
+	"menuGroup": {
+		"dashboard": "Dashboard",
+		"order": "Order Management",
+		"process": "Process Management",
+		"quality": "Quality Inspection",
+		"shipping": "Shipping & Delivery",
+		"settlement": "Settlement Management",
+		"material": "Material/Product Management",
+		"mes_integration": "MES Integration",
+		"partner": "Partner Management",
+		"analytics": "Analytics & Reports",
+		"settings": "System Settings"
+	},
+	"menu": {
+		"dashboard_overview": "Outsourcing SCM Dashboard",
+		"dashboard_workload": "Workload Monitoring",
+		"dashboard_alerts": "Urgent Alert Center",
+		"dashboard_kpi": "Outsourcing KPI Dashboard",
+
+		"order_receive": "Order Reception",
+		"order_material_check": "Material Verification",
+		"order_work_order": "Work Order Issuance",
+		"order_schedule": "Order Schedule Management",
+		"order_tracking": "Progress Tracking",
+
+		"process_management": "Process Management",
+		"process_monitoring": "Real-time Monitoring",
+		"process_completion": "Process Completion Report",
+		"process_delay": "Delay Management",
+		"process_rework": "Rework Management",
+
+		"quality_incoming": "Incoming Inspection",
+		"quality_in_process": "In-Process Inspection",
+		"quality_final": "Final Inspection",
+		"quality_defect": "Defect Management",
+		"quality_certificate": "Quality Certificate",
+		"quality_standards": "Inspection Standards",
+
+		"shipping_preparation": "Shipping Preparation",
+		"shipping_delivery": "Delivery Management",
+		"shipping_direct": "Direct Delivery",
+		"shipping_tracking": "Delivery Tracking",
+		"shipping_return": "Return Management",
+
+		"settlement_statement": "Transaction Statement",
+		"settlement_processing_cost": "Processing Cost Settlement",
+		"settlement_tax_invoice": "Tax Invoice Issuance",
+		"settlement_payment": "Payment Management",
+		"settlement_history": "Settlement History",
+
+		"material_inventory": "Material Inventory",
+		"material_product_check": "Product Verification",
+		"material_allocation": "Material Allocation",
+		"material_shortage": "Material Shortage Management",
+		"material_return": "Material/Product Return",
+
+		"mes_sync": "MES Data Synchronization",
+		"mes_order": "Order Integration",
+		"mes_progress": "Progress Feedback",
+		"mes_quality": "Quality Information Integration",
+		"mes_completion": "Completion Report Integration",
+
+		"partner_management": "Partner Management",
+		"partner_evaluation": "Partner Evaluation",
+		"partner_contract": "Processing Contract Management",
+		"partner_performance": "Processing Performance Management",
+		"partner_portal": "Partner Portal",
+		"partner_certification": "Partner Certification",
+
+		"analytics_order": "Order Status Analytics",
+		"analytics_quality": "Quality Analytics",
+		"analytics_cost": "Processing Cost Analytics",
+		"analytics_delivery": "Delivery Analytics",
+		"analytics_partner": "Partner Analytics",
+		"analytics_reports": "Scheduled Reports",
+
+		"settings_system": "System Settings",
+		"settings_user": "User Management",
+		"settings_workflow": "Workflow Settings",
+		"settings_integration": "Integration Settings",
+		"settings_notification": "Notification Settings"
+	}
+}

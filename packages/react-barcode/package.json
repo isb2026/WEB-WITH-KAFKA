@@ -1,0 +1,19 @@
+{
+  "name": "@repo/react-barcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "include": ["../typescript-config/types/react-barcode.d.ts"],
+  "exports":{
+    ".": "./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-barcode": "^1.6.1"
+  }
+}
